@@ -485,7 +485,7 @@ let exercisesPunjabi = JSON.parse(localStorage.getItem('exercisesPunjabi')) || [
 let isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
 
 function verifyCredentials() {
-  if(username.value==="" && password.value===""){
+  if(username.value==="smt" && password.value==="1995"){
     sessionStorage.setItem('isLoggedIn','true');
     isLoggedIn = true; loginModal.style.display='none';
     exerciseContainer.classList.remove('hidden');
@@ -574,4 +574,5 @@ window.onload=()=>{ if(isLoggedIn){exerciseContainer.classList.remove('hidden');
 </script>
 </body>
 </html>
+
 
