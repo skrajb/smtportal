@@ -2,179 +2,200 @@
 <html lang="en">
 <head>
 <script>
-        // Prevent right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
+// --- SECURITY LOCKS ---
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('paste', e => e.preventDefault());
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+      (e.ctrlKey && ['u','s'].includes(e.key))) e.preventDefault();
+});
+</script>
 
-        // Prevent copy
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
-
-        // Prevent paste (except in typing-input)
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        }, false);
-
-        // Prevent developer tools and view source shortcuts
-        document.addEventListener('keydown', function(e) {
-            // Block F12 (Dev Tools)
-            if (e.key === 'F12') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+Shift+I (Dev Tools)
-            if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+U (View Source)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-                return false;
-            }
-            // Block Ctrl+S (Save Page)
-            if (e.ctrlKey && e.key === 's') {
-                e.preventDefault();
-                return false;
-            }
-        }, false);
-    </script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Typing Test — Smartech</title>
-    <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Typing Test — Smartech</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
-<body style="font-family: 'Bookman Old Style', serif;">
+
+<body style="font-family:'Bookman Old Style',serif;">
 <header class="site-header">
-    <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo">
-    <nav class="main-nav">
-        <a href="Home.html">Home</a>
-        <a href="exercises.html">Exercises</a>
-		<a href="english_tutor.html">English Tutor</a>
-		<a href="contact.html">Contact</a>
-        
-    </nav>
+  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo">
+  <nav class="main-nav">
+    <a href="Home.html">Home</a>
+    <a href="exercises.html">Exercises</a>
+    <a href="english_tutor.html">English Tutor</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
-<!-- ✅ RESULTS SECTION MOVED TO TOP -->
+<!-- ✅ RESULTS SECTION -->
 <section id="results" style="display:none;">
-<h2>Results</h2>
-
-<table id="results-table" style="display:none; width:100%; border-collapse: collapse;">
-<thead><tr><th>Metric</th><th>Value</th></tr></thead>
-<tbody>
-<tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
-<tr><td>Wrong/ Extra /Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
-<tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
-<tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
-<tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
-<tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
-<tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
-<tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
-<tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
-<tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
-<tr><td>Result</td><td id="result-value"></td></tr>
-
-<tr id="notes-section" style="display:none;">
-<td colspan="2">
-    <div id="results-notes" style="display:none;">
-        <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
-        <div id="pass-note" style="color:#0055b8;"></div>
+  <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
+    <!-- LEFT: Top 10 Leaderboard -->
+    <div id="leaderboard" style="flex:1; min-width:280px;">
+      <h3 style="color:#00295f;">🏆 Top 10 Results</h3>
+      <table id="leaderboard-table" 
+             style="width:100%; border-collapse:collapse; font-size:15px;">
+        <thead>
+          <tr style="background:#00295f; color:white;">
+            <th style="padding:6px;">Name</th>
+            <th style="padding:6px;">Ref No</th>
+            <th style="padding:6px;">Speed</th>
+            <th style="padding:6px;">Accuracy</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body"
+               style="text-align:center; border:1px solid #ccc;">
+          <tr><td colspan="4" style="padding:10px; color:#555;">
+            Loading top results...
+          </td></tr>
+        </tbody>
+      </table>
     </div>
-</td>
-</tr>
 
-<tr id="button-row" style="display:none;">
-<td colspan="2" style="text-align:center; padding-top:10px;">
-    <button id="refresh-btn-2" class="primary-btn">Try Again</button>
-    <button id="practice-another-btn-2" class="primary-btn">Practice Another</button>
-</td>
-</tr>
-</tbody>
-</table>
-
-<div id="error-section" style="margin-top:15px; display:none;">
-    <div id="error-highlight"></div>
-</div>
-
-<div id="saved-stats-container" style="margin-top:20px;"></div>
+    <!-- RIGHT: Test Results -->
+    <div style="flex:2; min-width:400px;">
+      <h2>Results</h2>
+      <table id="results-table" 
+             style="display:none; width:100%; border-collapse:collapse;">
+        <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
+          <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
+          <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
+          <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
+          <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
+          <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
+          <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
+          <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
+          <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
+          <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
+          <tr><td>Result</td><td id="result-value"></td></tr>
+          <tr id="notes-section" style="display:none;">
+            <td colspan="2">
+              <div id="results-notes" style="display:none;">
+                <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
+                <div id="pass-note" style="color:#0055b8;"></div>
+              </div>
+            </td>
+          </tr>
+          <tr id="button-row" style="display:none;">
+            <td colspan="2" style="text-align:center; padding-top:10px;">
+              <button id="practice-another-btn-2" class="primary-btn">
+                Practice Another
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="error-section" style="margin-top:15px; display:none;">
+        <div id="error-highlight"></div>
+      </div>
+      <div id="saved-stats-container" style="margin-top:20px;"></div>
+    </div>
+  </div>
 </section>
 <!-- ✅ END RESULTS -->
 
 <main class="container">
 <h1 class="main-title">Typing Practice Test</h1>
 
+<!-- ✅ USER DETAILS -->
+<div id="user-info" style="text-align:center; margin-bottom:20px;">
+  <h3 style="color:#00295f; margin-bottom:10px;">Enter Your Details Before Starting the Test</h3>
+  <input type="text" id="userName" placeholder="Enter your name" 
+         pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; margin-right:10px; color:black;">
+  <input type="number" id="userRefNo" placeholder="Enter reference number"
+         required oninput="if(this.value.length>10)this.value=this.value.slice(0,10);"
+         style="padding:10px; width:260px; border:1px solid #00295f;
+                border-radius:6px; color:black;">
+</div>
 
-<!--Buttons for Dispaly full screen and Bac
-<div class="top-bar">
-    <div class="left-meta">
-        <button id="fullscreen-btn" class="small-btn">Full Screen</button>
-    </div>
-
-    <div class="right-meta">
-        <button id="refresh-btn" class="small-btn">Refresh</button>
-        <button id="back-btn" class="small-btn">Back</button>
-    </div>
-</div>-->
-		
-		
 <section class="test-section" id="test-section">
-    
-      
-        <div>
-            <div id="timer">Time: 10:00</div>
-            <div id="current-chunk"><center>Current Chunk - 1</center></div>
-        </div>
-       
- 
+  <div>
+    <div id="timer">Time: 10:00</div>
+    <div id="current-chunk"><center>Current Chunk - 1</center></div>
+  </div>
 
-    <div id="test-area">
-        <div id="reference-text" class="reference-outer">
-            <div id="paragraph" class="paragraph">Loading...</div>
-        </div>
-
-        <textarea id="typing-input" placeholder="Start typing here..." rows="6" class="typing-input" spellcheck="false" autofocus></textarea>
-
-        <div class="controls">
-            <button id="submit-btn" class="primary-btn">Submit Test</button>
-           <!-- <button id="practice-another-btn" class="link-btn">Practice Another</button>-->
-        </div>
+  <div id="test-area">
+    <div id="reference-text" class="reference-outer">
+      <div id="paragraph" class="paragraph">Loading...</div>
     </div>
+
+    <textarea id="typing-input" placeholder="Start typing here..."
+              rows="6" class="typing-input" spellcheck="false" autofocus></textarea>
+
+    <div class="controls">
+      <button id="submit-btn" class="primary-btn">Submit Test</button>
+    </div>
+  </div>
 </section>
 </main>
 
-<!-- Time over popup -->
+<!-- POPUPS -->
 <div id="time-over-popup" class="popup" style="display:none;">
-    <div class="popup-inner">
-        <p>Time is over. View results?</p>
-        <button id="popup-ok-btn" class="primary-btn">Yes</button>
-    </div>
+  <div class="popup-inner">
+    <p>Time is over. View results?</p>
+    <button id="popup-ok-btn" class="primary-btn">Yes</button>
+  </div>
 </div>
 
-<!-- No input popup -->
 <div id="no-input-popup" class="popup" style="display:none;">
-    <div class="popup-inner">
-        <p>No typed input detected.</p>
-        <button id="no-input-ok-btn" class="primary-btn">OK</button>
-    </div>
+  <div class="popup-inner">
+    <p>No typed input detected.</p>
+    <button id="no-input-ok-btn" class="primary-btn">OK</button>
+  </div>
 </div>
 
 <script src="script.js"></script>
 <script>
+/* Clear data when page is closed */
 window.addEventListener("beforeunload", () => {
   localStorage.removeItem("selectedExerciseText");
   localStorage.removeItem("selectedExerciseLanguage");
 });
+
+/* ✅ Handle User Info & Show Test */
+document.getElementById("start-test-btn").addEventListener("click", () => {
+  const userName = document.getElementById("user-name").value.trim();
+  const userRefNo = document.getElementById("user-ref").value.trim();
+
+  if (!userName || !userRefNo) {
+    alert("Please enter both Name and Reference No.");
+    return;
+  }
+
+  localStorage.setItem("userName", userName);
+  localStorage.setItem("userRefNo", userRefNo);
+
+  document.getElementById("user-info").style.display = "none";
+  document.getElementById("test-section").style.display = "block";
+});
+
+/* ✅ Function to Save Result to Google Sheet */
+<script>
+async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
+    const endpoint = "https://script.google.com/macros/s/AKfycbyMdUHfvw_v8TTfbk8AjTOkGSt7BS7UT9F38BBc98kabcTq7jWJWYw0_vJ_VL0cDTwj1w/exec"; // Replace with your Google Script URL
+
+    const data = { name, refNo, speed, accuracy };
+
+    try {
+        const response = await fetch(endpoint, {
+            method: "POST",
+            mode: "no-cors", // Prevent CORS errors
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+        console.log("Result sent to Google Sheet:", data);
+    } catch (error) {
+        console.error("Error sending data:", error);
+    }
+}
 </script>
-<script src="script.js"></script>
-</body>
-</html>
+</script>
 
 </body>
 </html>
-
