@@ -1,1 +1,835 @@
-const _0x5745a7=_0x518a;(function(_0x3eb3ac,_0x501a0e){const _0x30ce31=_0x518a,_0x15d2f2=_0x3eb3ac();while(!![]){try{const _0x3897ae=parseInt(_0x30ce31(0xbb))/0x1+parseInt(_0x30ce31(0xf0))/0x2*(-parseInt(_0x30ce31(0x15b))/0x3)+-parseInt(_0x30ce31(0x165))/0x4*(-parseInt(_0x30ce31(0xad))/0x5)+parseInt(_0x30ce31(0x140))/0x6+-parseInt(_0x30ce31(0x12d))/0x7*(-parseInt(_0x30ce31(0x143))/0x8)+-parseInt(_0x30ce31(0x146))/0x9*(parseInt(_0x30ce31(0x144))/0xa)+parseInt(_0x30ce31(0xc6))/0xb*(-parseInt(_0x30ce31(0x130))/0xc);if(_0x3897ae===_0x501a0e)break;else _0x15d2f2['push'](_0x15d2f2['shift']());}catch(_0x393c61){_0x15d2f2['push'](_0x15d2f2['shift']());}}}(_0x3f03,0x4b6d9));function _0x3f03(){const _0xacf379=['clear-stats-btn','Enter','submit-btn','grossSpeed','3101760UfTOwy','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</tr>','key','25616YTetUo','3550VFQDlT','\x20WPM\x20(According\x20to\x20PSSSB\x2010\x20Min\x20Rule)','1260bYEMcz','#results-table\x20tr:not(#results-title-row,\x20#notes-section,\x20#button-row)','includes','value','test','net-characters-value','2-digit','toLocaleTimeString','</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Typed\x20Chunk\x20#','<span\x20class=\x22correct\x22>','log','scrollTo','<span\x20class=\x22given\x22>','timer','\x20min\x20','.reference-outer','<span\x20class=\x22red-asterisk\x22>*</span>To\x20pass\x20the\x20test,\x20you\x20must\x20type\x20at\x20least\x201500\x20characters\x20with\x2092%\x20accuracy.','preventDefault','results-table','error-characters-value','fullscreenElement','7188eEpfBa','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22error-table\x22\x20width=\x22100%\x22\x20style=\x22border-collapse:collapse;\x20text-align:justify;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Original\x20Chunk\x20#','pass-result','space-errors-value','error-highlight','%</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','Are\x20you\x20sure\x20you\x20want\x20to\x20clear\x20your\x20test\x20history?','documentElement','input','Typing\x20Test','56864yaYFzA','error','practice-another-btn-2','isTestRunning','padStart','querySelector','<p>No\x20previous\x20test\x20data\x20available.</p>','startTimer','smooth','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h3>Your\x20Test\x20History</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<table\x20class=\x22stats-history-table\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead><tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>Date</th><th>Gross\x20Chars</th><th>Accuracy</th><th>Gross\x20Speed</th><th>Actual\x20Speed</th><th>Time</th><th>Result</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr></thead><tbody>\x0a\x20\x20\x20\x20','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22correct\x22>',']</del></span>\x20','parse','trim','requestFullscreen','gross-speed-value','Exit\x20Full\x20Screen','refresh-btn-2','filter','focus','PageDown','.test-section','<span\x20class=\x22wrong\x22>','[Missing\x20Space]','<strong>Error:</strong>\x20Unable\x20to\x20save\x20test\x20history\x20locally.','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22wrong\x22>','querySelectorAll','205gNZaCV','accuracy-percentage-value','currentParagraphIndex','addEventListener','max','given','fail-result','get','no-input-ok-btn','join','time-spent-value','results-notes','toLocaleDateString','flex','135558PXGFDN','title','startsWith','%\x20accuracy)','setItem','classList','typedWords','disabled','innerHTML','current-chunk','fullscreen-btn','3213309tECCtv','result','reverse','table','result-value','actual-gross-speed-value','<span\x20class=\x22wrong\x22><u>[','.container','totalTime','submitResults','totalTypedInput','backspaceCount','min','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20class=\x22','push','className','</span></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','</span>\x20<span\x20class=\x22given\x22>','Current\x20Chunk\x20-\x20','Pass','\x20(Typed\x20','floor','getItem','back-btn','__testLocalStorage__','textContent','refresh-btn','selectedExerciseLanguage','.main-title','Fail','split','isArray','forEach','pass-note','div','typingTestStats','stringify','\x20characters\x20with\x20','error-section','skipped-words-value','time-over-popup','exitFullscreen','496xAKXnJ','none','Time:\x20','createElement','match','exam-note','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','popup-ok-btn','state','click','<span\x20class=\x22wrong\x22>[Extra\x20Space]</span>\x20','gross-characters-value','highlightErrors','[Extra\x20Space]','location','[Skipped:','.header-row','exercises.html','then','length','no-input-popup','results-title-row','paragraphs','PageUp','paragraph','wrong-extra-words-value','selectedExerciseText','practice-another-btn','endsWith','defaultWords','\x20WPM','.wrong','<span\x20class=\x22red-asterisk\x22>*</span>In\x20the\x20PSSSB\x20exam,\x20before\x20time\x20over\x20Test\x20Submisson\x20not\x20Allowed','href','toFixed','timeSpent','saved-stats-container','</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>','keydown','test-section','\x20WPM</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>',']</u></span>\x20','toLowerCase','message','accuracy','block','backspace-count-value','replace','test-area','slice','typing-input','timestamp','</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span>','toString','shift','display','now','[Extra:','</span>\x20','reference-text','style','21avOlEK','startTime','inline-block','12CJTNxE','</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td><span\x20class=\x22given\x22>','button-row','\x20sec','results','DOMContentLoaded','toISOString','No\x20paragraph\x20loaded.\x20Please\x20select\x20an\x20exercise.','catch','removeItem','#results-table\x20tr','Error\x20loading\x20exercise:'];_0x3f03=function(){return _0xacf379;};return _0x3f03();}async function loadTestParagraph(){const _0x22cc9d=_0x518a;try{const _0x666568=localStorage['getItem'](_0x22cc9d(0x10a));if(_0x666568)return localStorage['removeItem']('selectedExerciseText'),localStorage[_0x22cc9d(0x139)](_0x22cc9d(0xe1)),_0x666568;const _0x4cf5b7=new URLSearchParams(window[_0x22cc9d(0xfe)]['search']),_0x5c6737=_0x4cf5b7[_0x22cc9d(0xb4)]('exercise');if(_0x5c6737)return decodeURIComponent(_0x5c6737);return console['warn']('No\x20exercise\x20found.'),'';}catch(_0x37468f){return console[_0x22cc9d(0x166)](_0x22cc9d(0x13b),_0x37468f),'';}}let fullParagraph='',words=[],chunkSize=0x0;window['paragraphs']=[],window[_0x5745a7(0xf8)]={'currentParagraphIndex':0x0,'paragraph':'','defaultWords':[],'typedWords':[],'startTime':null,'totalTime':0x258,'isTestRunning':![],'totalTypedInput':'|','backspaceCount':0x0};function $(_0x5aab0a){return document['getElementById'](_0x5aab0a);}async function initializeTest(){const _0x396cd0=_0x5745a7;fullParagraph=await loadTestParagraph();if(!fullParagraph||fullParagraph['trim']()[_0x396cd0(0x103)]===0x0){const _0x2fdd6b=$('paragraph');_0x2fdd6b&&_0x2fdd6b['textContent'][_0x396cd0(0x172)]()[_0x396cd0(0x103)]>0x0?fullParagraph=_0x2fdd6b[_0x396cd0(0xdf)]['trim']():fullParagraph='';}fullParagraph=fullParagraph[_0x396cd0(0x11f)](/\s+/g,'\x20')['trim'](),words=fullParagraph[_0x396cd0(0x103)]?fullParagraph[_0x396cd0(0xe4)]('\x20'):[],chunkSize=Math[_0x396cd0(0xb1)](0x1,Math['ceil'](words[_0x396cd0(0x103)]/0xa)),window[_0x396cd0(0x106)][_0x396cd0(0x103)]=0x0;for(let _0x2dbbcf=0x0;_0x2dbbcf<words[_0x396cd0(0x103)];_0x2dbbcf+=chunkSize){window[_0x396cd0(0x106)][_0x396cd0(0xd4)](words['slice'](_0x2dbbcf,_0x2dbbcf+chunkSize)[_0x396cd0(0xb6)]('\x20'));}window[_0x396cd0(0x106)][_0x396cd0(0x103)]===0x0&&window[_0x396cd0(0x106)][_0x396cd0(0xd4)](''),window[_0x396cd0(0xf8)]['currentParagraphIndex']=0x0,window[_0x396cd0(0xf8)][_0x396cd0(0x108)]=window[_0x396cd0(0x106)][0x0],window['state']['defaultWords']=window['state'][_0x396cd0(0x108)][_0x396cd0(0xe4)]('\x20');}document[_0x5745a7(0xb0)](_0x5745a7(0x135),async()=>{const _0x2e0ec0=_0x5745a7;await initializeTest(),$(_0x2e0ec0(0x108))&&($(_0x2e0ec0(0x108))[_0x2e0ec0(0xc3)]=window['state'][_0x2e0ec0(0x108)]||_0x2e0ec0(0x137)),document[_0x2e0ec0(0x16a)](_0x2e0ec0(0xe2))&&(document[_0x2e0ec0(0x16a)](_0x2e0ec0(0xe2))[_0x2e0ec0(0xdf)]='Typing\x20Practice\x20Test'),document[_0x2e0ec0(0xbc)]=_0x2e0ec0(0x164),bindUI(),refreshTest(),displaySavedStats();});function startTimer(){const _0x3d4c6a=_0x5745a7;if(!window[_0x3d4c6a(0xf8)][_0x3d4c6a(0x168)])return;const _0x5d5424=performance[_0x3d4c6a(0x128)](),_0x1dcd87=(_0x5d5424-window[_0x3d4c6a(0xf8)][_0x3d4c6a(0x12e)])/0x3e8,_0xb6b850=window[_0x3d4c6a(0xf8)][_0x3d4c6a(0xce)]-_0x1dcd87;if($('timer')){if(_0xb6b850<=0x0)$(_0x3d4c6a(0x153))[_0x3d4c6a(0xdf)]='Time:\x200:00';else{const _0x3991ea=Math[_0x3d4c6a(0xdb)](_0xb6b850/0x3c),_0x55ef51=Math[_0x3d4c6a(0xdb)](_0xb6b850%0x3c);$(_0x3d4c6a(0x153))[_0x3d4c6a(0xdf)]=_0x3d4c6a(0xf2)+_0x3991ea+':'+_0x55ef51[_0x3d4c6a(0x125)]()[_0x3d4c6a(0x169)](0x2,'0');}}if(_0xb6b850<=0x0){if($('time-over-popup'))$(_0x3d4c6a(0xee))[_0x3d4c6a(0x12c)][_0x3d4c6a(0x127)]=_0x3d4c6a(0xba);if($('popup-ok-btn'))$('popup-ok-btn')[_0x3d4c6a(0xa5)]();window[_0x3d4c6a(0xf8)][_0x3d4c6a(0x168)]=![];}else requestAnimationFrame(startTimer);}window[_0x5745a7(0x16c)]=startTimer;function bindUI(){const _0x13d64e=_0x5745a7,_0x26ceab=$(_0x13d64e(0x122));_0x26ceab&&(_0x26ceab[_0x13d64e(0xb0)](_0x13d64e(0x163),_0x2d5572=>{const _0x460ac4=_0x13d64e;!window[_0x460ac4(0xf8)][_0x460ac4(0x168)]&&(window[_0x460ac4(0xf8)][_0x460ac4(0x12e)]=performance['now'](),window[_0x460ac4(0xf8)][_0x460ac4(0x168)]=!![],requestAnimationFrame(window[_0x460ac4(0x16c)]));}),_0x26ceab[_0x13d64e(0xb0)](_0x13d64e(0x116),_0x3cace8=>{const _0xd30a38=_0x13d64e;_0x3cace8['key']==='Backspace'&&window[_0xd30a38(0xf8)][_0xd30a38(0xd1)]++;const _0x4c1123=_0x3cace8['target'],_0x4e4ad6=_0x4c1123[_0xd30a38(0x149)],_0x2d374d=_0x4e4ad6['trim']()[_0xd30a38(0xe4)](/\s+/)['filter'](_0x1d5933=>_0x1d5933[_0xd30a38(0x103)]>0x0)['length'],_0x2845ce=window['state'][_0xd30a38(0x10d)]['length']||0x1,_0xa19172=Math['floor'](0.8*_0x2845ce);if(_0x3cace8[_0xd30a38(0x142)]===_0xd30a38(0x13d)||_0x3cace8[_0xd30a38(0x142)]==='ArrowDown'||_0x3cace8['key']===_0xd30a38(0xa6)){if(window[_0xd30a38(0xf8)]['currentParagraphIndex']===window[_0xd30a38(0x106)][_0xd30a38(0x103)]-0x1){_0x3cace8[_0xd30a38(0x157)]();return;}if(_0x2d374d>=_0xa19172){if(window['state']['currentParagraphIndex']<window['paragraphs'][_0xd30a38(0x103)]-0x1){const _0x3af838=window['state'][_0xd30a38(0xd0)][_0xd30a38(0xe4)]('|')[_0xd30a38(0xa4)](_0x285af6=>_0x285af6[_0xd30a38(0x103)]>0x0);_0x3af838[window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]]=_0x4e4ad6,window[_0xd30a38(0xf8)][_0xd30a38(0xd0)]='|'+_0x3af838[_0xd30a38(0xb6)]('|')+'|',window['state'][_0xd30a38(0xaf)]++,window['state'][_0xd30a38(0x108)]=window[_0xd30a38(0x106)][window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]],window['state'][_0xd30a38(0x10d)]=window[_0xd30a38(0xf8)][_0xd30a38(0x108)][_0xd30a38(0xe4)]('\x20');if($(_0xd30a38(0x108)))$(_0xd30a38(0x108))['innerHTML']=window[_0xd30a38(0xf8)]['paragraph'];if($(_0xd30a38(0xc4)))$(_0xd30a38(0xc4))[_0xd30a38(0xdf)]=_0xd30a38(0xd8)+(window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]+0x1);if($(_0xd30a38(0x122)))$(_0xd30a38(0x122))[_0xd30a38(0x149)]=_0x3af838[window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]]||'';_0x3cace8[_0xd30a38(0x157)]();}}else _0x3cace8[_0xd30a38(0x157)]();}else{if((_0x3cace8[_0xd30a38(0x142)]==='ArrowUp'||_0x3cace8[_0xd30a38(0x142)]===_0xd30a38(0x107))&&window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]>0x0){const _0x824100=window[_0xd30a38(0xf8)]['totalTypedInput'][_0xd30a38(0xe4)]('|')[_0xd30a38(0xa4)](_0x1a30d5=>_0x1a30d5['length']>0x0);_0x824100[window['state'][_0xd30a38(0xaf)]]=_0x4e4ad6,window[_0xd30a38(0xf8)][_0xd30a38(0xd0)]='|'+_0x824100[_0xd30a38(0xb6)]('|')+'|',window['state'][_0xd30a38(0xaf)]--,window[_0xd30a38(0xf8)][_0xd30a38(0x108)]=window[_0xd30a38(0x106)][window[_0xd30a38(0xf8)]['currentParagraphIndex']],window[_0xd30a38(0xf8)][_0xd30a38(0x10d)]=window['state'][_0xd30a38(0x108)][_0xd30a38(0xe4)]('\x20');if($('paragraph'))$(_0xd30a38(0x108))['innerHTML']=window[_0xd30a38(0xf8)][_0xd30a38(0x108)];if($(_0xd30a38(0xc4)))$('current-chunk')[_0xd30a38(0xdf)]=_0xd30a38(0xd8)+(window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]+0x1);if($(_0xd30a38(0x122)))$(_0xd30a38(0x122))[_0xd30a38(0x149)]=_0x824100[window[_0xd30a38(0xf8)][_0xd30a38(0xaf)]]||'';_0x3cace8['preventDefault']();}}}));if($(_0x13d64e(0x13e)))$(_0x13d64e(0x13e))[_0x13d64e(0xb0)](_0x13d64e(0xf9),submitResults);if($(_0x13d64e(0xe0)))$(_0x13d64e(0xe0))[_0x13d64e(0xb0)](_0x13d64e(0xf9),async()=>{await initializeTest(),refreshTest();});if($(_0x13d64e(0xf7)))$(_0x13d64e(0xf7))[_0x13d64e(0xb0)](_0x13d64e(0xf9),()=>{const _0x44fcd2=_0x13d64e;if($(_0x44fcd2(0xee)))$(_0x44fcd2(0xee))[_0x44fcd2(0x12c)][_0x44fcd2(0x127)]=_0x44fcd2(0xf1);submitResults();});if($(_0x13d64e(0x10b)))$(_0x13d64e(0x10b))[_0x13d64e(0xb0)]('click',()=>{const _0x395fdd=_0x13d64e;window[_0x395fdd(0xfe)][_0x395fdd(0x111)]='exercises.html';});if($(_0x13d64e(0xdd)))$(_0x13d64e(0xdd))[_0x13d64e(0xb0)](_0x13d64e(0xf9),()=>{const _0x2c3bd7=_0x13d64e;window[_0x2c3bd7(0xfe)][_0x2c3bd7(0x111)]=_0x2c3bd7(0x101);});if($(_0x13d64e(0xb5)))$(_0x13d64e(0xb5))[_0x13d64e(0xb0)](_0x13d64e(0xf9),()=>{const _0xf6d0d1=_0x13d64e;if($(_0xf6d0d1(0x104)))$(_0xf6d0d1(0x104))['style'][_0xf6d0d1(0x127)]='none';});if($(_0x13d64e(0xa3)))$(_0x13d64e(0xa3))['addEventListener'](_0x13d64e(0xf9),async()=>{await initializeTest(),refreshTest();});if($(_0x13d64e(0x167)))$(_0x13d64e(0x167))[_0x13d64e(0xb0)](_0x13d64e(0xf9),()=>{const _0x4e5abb=_0x13d64e;window[_0x4e5abb(0xfe)][_0x4e5abb(0x111)]='exercises.html';});$(_0x13d64e(0xc5))&&$('fullscreen-btn')['addEventListener'](_0x13d64e(0xf9),()=>{const _0x158d07=_0x13d64e;!document[_0x158d07(0x15a)]?document[_0x158d07(0x162)][_0x158d07(0x173)]()[_0x158d07(0x102)](()=>{const _0x24662e=_0x158d07;if($(_0x24662e(0xc5)))$(_0x24662e(0xc5))['textContent']=_0x24662e(0xa2);})[_0x158d07(0x138)](_0x194ad4=>console['error']('Fullscreen\x20error:\x20'+_0x194ad4[_0x158d07(0x11b)])):document[_0x158d07(0xef)]()[_0x158d07(0x102)](()=>{const _0x51cd17=_0x158d07;if($(_0x51cd17(0xc5)))$(_0x51cd17(0xc5))[_0x51cd17(0xdf)]='Full\x20Screen';});});}function _0x518a(_0x5d9d88,_0x3abca3){const _0x3f0340=_0x3f03();return _0x518a=function(_0x518ad3,_0x52ae69){_0x518ad3=_0x518ad3-0xa1;let _0x599002=_0x3f0340[_0x518ad3];return _0x599002;},_0x518a(_0x5d9d88,_0x3abca3);}function refreshTest(){const _0x5d924c=_0x5745a7;window[_0x5d924c(0xf8)][_0x5d924c(0xaf)]=0x0,window['state'][_0x5d924c(0x108)]=window[_0x5d924c(0x106)][0x0],window[_0x5d924c(0xf8)][_0x5d924c(0x10d)]=window[_0x5d924c(0xf8)][_0x5d924c(0x108)][_0x5d924c(0xe4)]('\x20'),window['state'][_0x5d924c(0xd0)]='|',window[_0x5d924c(0xf8)][_0x5d924c(0xce)]=0x258,window[_0x5d924c(0xf8)][_0x5d924c(0x168)]=![],window[_0x5d924c(0xf8)][_0x5d924c(0x12e)]=null,window[_0x5d924c(0xf8)]['backspaceCount']=0x0;if($('timer'))$(_0x5d924c(0x153))['textContent']='Time:\x2010:00';if(document[_0x5d924c(0x16a)](_0x5d924c(0xe2)))document[_0x5d924c(0x16a)](_0x5d924c(0xe2))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0x11d);if(document['querySelector'](_0x5d924c(0xa7)))document[_0x5d924c(0x16a)](_0x5d924c(0xa7))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0x11d);if($(_0x5d924c(0xc4)))$(_0x5d924c(0xc4))[_0x5d924c(0xdf)]=_0x5d924c(0xd8)+(window[_0x5d924c(0xf8)][_0x5d924c(0xaf)]+0x1);if($(_0x5d924c(0xc4)))$('current-chunk')[_0x5d924c(0x12c)]['display']=_0x5d924c(0x11d);$(_0x5d924c(0x108))&&($(_0x5d924c(0x108))['style'][_0x5d924c(0x127)]='block',$(_0x5d924c(0x108))['innerHTML']=window[_0x5d924c(0xf8)][_0x5d924c(0x108)]);$(_0x5d924c(0x122))&&($(_0x5d924c(0x122))[_0x5d924c(0x12c)]['display']='block',$(_0x5d924c(0x122))[_0x5d924c(0x149)]='',$(_0x5d924c(0x122))[_0x5d924c(0xc2)]=![]);if(document[_0x5d924c(0x16a)](_0x5d924c(0x100)))document[_0x5d924c(0x16a)](_0x5d924c(0x100))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0xba);if($(_0x5d924c(0x153)))$(_0x5d924c(0x153))['style'][_0x5d924c(0x127)]=_0x5d924c(0x11d);if(document[_0x5d924c(0x16a)](_0x5d924c(0x155)))document[_0x5d924c(0x16a)](_0x5d924c(0x155))[_0x5d924c(0x12c)][_0x5d924c(0x127)]='block';if($('test-area'))$(_0x5d924c(0x120))['style'][_0x5d924c(0x127)]=_0x5d924c(0x11d);if($(_0x5d924c(0x12b)))$(_0x5d924c(0x12b))['style'][_0x5d924c(0x127)]=_0x5d924c(0x11d);if($(_0x5d924c(0x13e)))$(_0x5d924c(0x13e))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0x12f);if($('back-btn'))$(_0x5d924c(0xdd))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0x12f);if($(_0x5d924c(0x134)))$(_0x5d924c(0x134))['style'][_0x5d924c(0x127)]=_0x5d924c(0xf1);if($(_0x5d924c(0x158)))$(_0x5d924c(0x158))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0xf1);if($(_0x5d924c(0x105)))$(_0x5d924c(0x105))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0xf1);try{document[_0x5d924c(0xac)](_0x5d924c(0x147))[_0x5d924c(0xe6)](_0x58be93=>_0x58be93['style'][_0x5d924c(0x127)]=_0x5d924c(0xf1));}catch(_0x322f13){}if($(_0x5d924c(0x114)))$('saved-stats-container')[_0x5d924c(0x12c)][_0x5d924c(0x127)]='block';if($(_0x5d924c(0xec)))$(_0x5d924c(0xec))[_0x5d924c(0x12c)][_0x5d924c(0x127)]=_0x5d924c(0xf1);if($(_0x5d924c(0x15f)))$(_0x5d924c(0x15f))[_0x5d924c(0x12c)]['display']=_0x5d924c(0xf1);}async function submitResults(){const _0x41e497=_0x5745a7;$(_0x41e497(0x134))[_0x41e497(0x12c)]['display']=_0x41e497(0x11d),$(_0x41e497(0x158))[_0x41e497(0x12c)][_0x41e497(0x127)]='table',document[_0x41e497(0xac)](_0x41e497(0x13a))['forEach'](_0x50f9f4=>_0x50f9f4[_0x41e497(0x12c)][_0x41e497(0x127)]='table-row'),$(_0x41e497(0x117))['style'][_0x41e497(0x127)]='none',setTimeout(()=>{const _0x522ac4=_0x41e497;window[_0x522ac4(0x151)]({'top':0x0,'behavior':_0x522ac4(0x16d)});},0x12c),console[_0x41e497(0x150)]('submitResults\x20called'),window[_0x41e497(0xf8)][_0x41e497(0x168)]=![];const _0x224f06=$(_0x41e497(0x122)),_0x3b738d=_0x224f06?_0x224f06[_0x41e497(0x149)]['trim']():'',_0x58d371=window['state']['totalTypedInput'][_0x41e497(0xe4)]('|')[_0x41e497(0xa4)](_0x3822d9=>_0x3822d9[_0x41e497(0x103)]>0x0);if(_0x3b738d)_0x58d371[window[_0x41e497(0xf8)][_0x41e497(0xaf)]]=_0x3b738d;const _0x1d59aa=_0x58d371[_0x41e497(0xa4)](_0xfdd18=>_0xfdd18[_0x41e497(0x172)]()[_0x41e497(0x103)]>0x0);if(_0x1d59aa[_0x41e497(0x103)]===0x0){if($('no-input-popup'))$(_0x41e497(0x104))[_0x41e497(0x12c)][_0x41e497(0x127)]=_0x41e497(0xba);window[_0x41e497(0xf8)]['isTestRunning']=!![];return;}const _0x1fbba2=_0x1d59aa[_0x41e497(0xb6)]('\x20')[_0x41e497(0x172)]();window[_0x41e497(0xf8)][_0x41e497(0xc1)]=_0x1fbba2['split'](/\s+/)[_0x41e497(0xa4)](_0x2ed04e=>_0x2ed04e['length']>0x0);const _0x447c27=window[_0x41e497(0x106)]['slice'](0x0,_0x1d59aa[_0x41e497(0x103)])['join']('\x20')['split']('\x20');let _0x38872a='';for(let _0x234ef9=0x0;_0x234ef9<_0x1d59aa['length'];_0x234ef9++){const _0x3a5171=window[_0x41e497(0x106)][_0x234ef9][_0x41e497(0xe4)]('\x20'),_0x43e81d=_0x1d59aa[_0x234ef9]||'',_0x447c23=_0x43e81d[_0x41e497(0xe4)](/\s+/)['filter'](_0x1d95a6=>_0x1d95a6[_0x41e497(0x103)]>0x0),_0xd0efe4=highlightErrors(_0x3a5171,_0x447c23,_0x43e81d);_0x38872a+=_0x41e497(0x15c)+(_0x234ef9+0x1)+_0x41e497(0x14e)+(_0x234ef9+0x1)+_0x41e497(0x131)+window[_0x41e497(0x106)][_0x234ef9]+_0x41e497(0xd6)+(_0xd0efe4||'No\x20errors')+_0x41e497(0xf6);}if(document[_0x41e497(0x16a)]('.main-title'))document[_0x41e497(0x16a)](_0x41e497(0xe2))[_0x41e497(0x12c)]['display']='none';if(document[_0x41e497(0x16a)](_0x41e497(0xa7)))document[_0x41e497(0x16a)](_0x41e497(0xa7))[_0x41e497(0x12c)]['display']=_0x41e497(0xf1);if($(_0x41e497(0x134)))$(_0x41e497(0x134))[_0x41e497(0x12c)][_0x41e497(0x127)]=_0x41e497(0x11d);if($('results-table'))$(_0x41e497(0x158))[_0x41e497(0x12c)]['display']=_0x41e497(0xc9);if($(_0x41e497(0x105)))$(_0x41e497(0x105))[_0x41e497(0x12c)][_0x41e497(0x127)]='table-row';if($(_0x41e497(0xb8)))$(_0x41e497(0xb8))[_0x41e497(0x12c)][_0x41e497(0x127)]=_0x41e497(0x11d);$(_0x41e497(0xf5))&&($(_0x41e497(0xf5))['style']['display']='block',$(_0x41e497(0xf5))[_0x41e497(0xc3)]=_0x41e497(0x110));$(_0x41e497(0xe7))&&($(_0x41e497(0xe7))['style'][_0x41e497(0x127)]=_0x41e497(0x11d),$(_0x41e497(0xe7))[_0x41e497(0xc3)]=_0x41e497(0x156));if($(_0x41e497(0x132)))$(_0x41e497(0x132))['style'][_0x41e497(0x127)]='table-row';if($('error-section'))$('error-section')[_0x41e497(0x12c)][_0x41e497(0x127)]='block';$('error-highlight')&&($(_0x41e497(0x15f))[_0x41e497(0x12c)][_0x41e497(0x127)]=_0x41e497(0x11d),$(_0x41e497(0x15f))[_0x41e497(0xc3)]=_0x38872a);if($(_0x41e497(0xa3)))$(_0x41e497(0xa3))[_0x41e497(0x12c)][_0x41e497(0x127)]='inline-block';if($(_0x41e497(0x167)))$(_0x41e497(0x167))[_0x41e497(0x12c)][_0x41e497(0x127)]=_0x41e497(0x12f);const _0x5abaca=performance[_0x41e497(0x128)](),_0x2528cc=window[_0x41e497(0xf8)][_0x41e497(0x12e)]?(_0x5abaca-window[_0x41e497(0xf8)][_0x41e497(0x12e)])/0x3e8:0x0,_0x22e576=Math[_0x41e497(0xdb)](_0x2528cc/0x3c),_0x10686c=Math['floor'](_0x2528cc%0x3c);let _0x5b9999=0x0;const _0x3aef3f=document[_0x41e497(0xf3)](_0x41e497(0xe8));_0x3aef3f['innerHTML']=_0x38872a;const _0x286a61=_0x3aef3f[_0x41e497(0xac)]('.correct');for(const _0x2d966c of _0x286a61){!_0x2d966c[_0x41e497(0xdf)]['includes']('[')&&(_0x5b9999+=_0x2d966c[_0x41e497(0xdf)]['length']);}const _0x15d936=_0x3aef3f[_0x41e497(0xac)](_0x41e497(0x10f));for(const _0x491d35 of _0x15d936){const _0x4e0dda=_0x491d35[_0x41e497(0xdf)]||'';if(_0x4e0dda[_0x41e497(0x148)](_0x41e497(0x129))){const _0x4fdf67=_0x4e0dda[_0x41e497(0xf4)](/\[Extra:\s*(.*?)\]/);if(_0x4fdf67&&_0x4fdf67[0x1])_0x5b9999+=_0x4fdf67[0x1][_0x41e497(0x103)];}else{if(_0x4e0dda[_0x41e497(0x148)](_0x41e497(0xfd))||_0x4e0dda[_0x41e497(0x148)](_0x41e497(0xa9)))continue;else{if(_0x4e0dda[_0x41e497(0x148)](_0x41e497(0xff)))continue;else{if(!_0x4e0dda[_0x41e497(0x148)]('[')){const _0x1ac657=_0x491d35['nextElementSibling'];if(_0x1ac657&&_0x1ac657[_0x41e497(0xc0)]&&_0x1ac657[_0x41e497(0xc0)]['contains'](_0x41e497(0xb2))){const _0x1cbc83=_0x491d35[_0x41e497(0xdf)][_0x41e497(0x103)],_0x249dd1=_0x1ac657[_0x41e497(0xdf)][_0x41e497(0x103)];_0x5b9999+=Math[_0x41e497(0xd2)](_0x1cbc83,_0x249dd1);}else _0x5b9999+=_0x491d35[_0x41e497(0xdf)][_0x41e497(0x103)];}}}}}const _0x3df005=_0x1fbba2['split'](/\s+/)[_0x41e497(0xa4)](_0x38e954=>_0x38e954['length']>0x0)['length'];_0x3df005>0x1&&(_0x5b9999+=_0x3df005-0x1);const _0x473724=(_0x5b9999/0x5)[_0x41e497(0x112)](0x1),_0x25af3b=(_0x38872a['match'](/\[Skipped:/g)||[])['length'],_0x431da3=(_0x38872a[_0x41e497(0xf4)](/<span class="wrong">(?!\[Skipped:|\[Missing Space\]|\[Extra Space\])/g)||[])['length'],_0x543c49=(_0x38872a[_0x41e497(0xf4)](/\[Extra Space\]|\[Missing Space\]/g)||[])[_0x41e497(0x103)],_0x19e089=(_0x25af3b+_0x431da3)*0x5+_0x543c49*2.5,_0x316cd7=(_0x5b9999-_0x19e089)[_0x41e497(0x112)](0x1),_0x5bc4f0=(_0x5b9999/(0x5*0xa))[_0x41e497(0x112)](0x1),_0x832118=_0x2528cc>0x0?_0x2528cc/0x3c:0.0001,_0x305a15=(_0x5b9999/(0x5*_0x832118))[_0x41e497(0x112)](0x1),_0x9d7b66=_0x5b9999>0x0?(0x64*_0x316cd7/_0x5b9999)[_0x41e497(0x112)](0x1):0x0,_0x120c5a=_0x5b9999>=0x5dc&&_0x9d7b66>=0x5c?'Pass':_0x41e497(0xe3);if($('gross-characters-value'))$(_0x41e497(0xfb))[_0x41e497(0xdf)]=_0x5b9999+'\x20(Words\x20=\x20'+_0x473724+')';if($(_0x41e497(0xed)))$('skipped-words-value')['textContent']=''+_0x25af3b;if($(_0x41e497(0x109)))$(_0x41e497(0x109))['textContent']=''+_0x431da3;if($(_0x41e497(0x15e)))$('space-errors-value')[_0x41e497(0xdf)]=''+_0x543c49;if($(_0x41e497(0x159)))$(_0x41e497(0x159))['textContent']=''+_0x19e089[_0x41e497(0x112)](0x1);if($('net-characters-value'))$(_0x41e497(0x14b))[_0x41e497(0xdf)]=''+_0x316cd7;if($(_0x41e497(0xa1)))$(_0x41e497(0xa1))['textContent']=_0x5bc4f0+_0x41e497(0x145);if($('actual-gross-speed-value'))$(_0x41e497(0xcb))[_0x41e497(0xdf)]=_0x305a15+_0x41e497(0x10e);if($(_0x41e497(0xb7)))$(_0x41e497(0xb7))[_0x41e497(0xdf)]=_0x22e576+_0x41e497(0x154)+_0x10686c[_0x41e497(0x125)]()['padStart'](0x2,'0')+_0x41e497(0x133);if($('accuracy-percentage-value'))$(_0x41e497(0xae))[_0x41e497(0xdf)]=_0x9d7b66+'%';if($(_0x41e497(0x11e)))$(_0x41e497(0x11e))['textContent']=''+window['state']['backspaceCount'];if($(_0x41e497(0xca)))$(_0x41e497(0xca))[_0x41e497(0xdf)]=_0x120c5a+_0x41e497(0xda)+_0x5b9999+_0x41e497(0xeb)+_0x9d7b66+_0x41e497(0xbe);const _0x1ebe96={'grossCharacters':parseInt(_0x5b9999),'accuracy':parseFloat(_0x9d7b66),'grossSpeed':parseFloat(_0x5bc4f0),'actualSpeed':parseFloat(_0x305a15),'timeSpent':_0x22e576+'m\x20'+_0x10686c+'s','result':_0x120c5a,'timestamp':new Date()[_0x41e497(0x136)]()};saveTestStats(_0x1ebe96);}window[_0x5745a7(0xcf)]=submitResults;function highlightErrors(_0x36f496,_0x2c548c,_0x5dd5ed){const _0x558c1e=_0x5745a7;let _0x16f7ae='',_0x2b399d=0x0,_0xd2aa25=0x0,_0x12dcf5=0x0;while(_0x2b399d<_0x36f496[_0x558c1e(0x103)]&&_0xd2aa25<_0x2c548c[_0x558c1e(0x103)]){let _0x5ba50b=_0x2c548c[_0xd2aa25],_0x6d6dc7=_0x36f496[_0x2b399d];if(_0xd2aa25+0x1<_0x2c548c[_0x558c1e(0x103)]){const _0x426d1b=_0x2c548c[_0xd2aa25+0x1],_0xb1eb0=_0x5ba50b+_0x426d1b;if(_0xb1eb0===_0x6d6dc7||_0xb1eb0[_0x558c1e(0x11a)]()===_0x6d6dc7['toLowerCase']()){_0x12dcf5+=_0x5ba50b['length'];let _0x320c71=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/['test'](_0x5dd5ed[_0x12dcf5])){_0x320c71++,_0x12dcf5++;}if(_0x320c71>0x0){_0x16f7ae+='<span\x20class=\x22correct\x22>'+_0x5ba50b+'</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span>';for(let _0x74ca9f=0x0;_0x74ca9f<_0x320c71-0x1;_0x74ca9f++)_0x16f7ae+=_0x558c1e(0xfa);_0x16f7ae+='<span\x20class=\x22correct\x22>'+_0x426d1b+_0x558c1e(0x12a);if(_0xb1eb0!==_0x6d6dc7)_0x16f7ae+='<span\x20class=\x22given\x22>'+_0x6d6dc7+_0x558c1e(0x12a);}_0x12dcf5+=_0x426d1b['length'];let _0x5d305f=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x5d305f++,_0x12dcf5++;}if(_0x5d305f>0x1){for(let _0x580732=0x0;_0x580732<_0x5d305f-0x1;_0x580732++)_0x16f7ae+=_0x558c1e(0xfa);}_0x2b399d++,_0xd2aa25+=0x2;continue;}}if(_0x2b399d+0x1<_0x36f496['length']){const _0x1f480b=_0x36f496[_0x2b399d+0x1],_0x2481d1=_0x6d6dc7+_0x1f480b;if(_0x5ba50b===_0x2481d1){_0x16f7ae+=_0x558c1e(0x14f)+_0x6d6dc7+'</span><span\x20class=\x22wrong\x22>[Missing\x20Space]</span><span\x20class=\x22correct\x22>'+_0x1f480b+'</span>\x20',_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d+=0x2,_0xd2aa25++;let _0x46fc63=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x46fc63++,_0x12dcf5++;}if(_0x46fc63>0x1){for(let _0x1d59c2=0x0;_0x1d59c2<_0x46fc63-0x1;_0x1d59c2++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}if(_0x5ba50b!==_0x6d6dc7&&_0x5ba50b[_0x558c1e(0xbd)](_0x6d6dc7)&&_0x5ba50b[_0x558c1e(0x103)]>_0x6d6dc7[_0x558c1e(0x103)]&&!_0x6d6dc7[_0x558c1e(0xbd)](_0x5ba50b)&&(_0xd2aa25+0x1>=_0x2c548c['length']||_0x2c548c[_0xd2aa25+0x1]!==_0x1f480b)){const _0xff3e8a=_0x5ba50b[_0x558c1e(0x121)](_0x6d6dc7[_0x558c1e(0x103)]);if(_0xff3e8a[_0x558c1e(0x103)]>0x0){_0x16f7ae+=_0x558c1e(0x14f)+_0x6d6dc7+_0x558c1e(0x124);_0xff3e8a===_0x1f480b?_0x16f7ae+=_0x558c1e(0x14f)+_0xff3e8a+_0x558c1e(0x12a):_0x16f7ae+=_0x558c1e(0xa8)+_0xff3e8a+_0x558c1e(0xd7)+_0x1f480b+'</span>\x20';_0x12dcf5+=_0x5ba50b['length'],_0x2b399d+=0x2,_0xd2aa25++;let _0x4a99bd=0x0;while(_0x12dcf5<_0x5dd5ed['length']&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x4a99bd++,_0x12dcf5++;}if(_0x4a99bd>0x1){for(let _0x117f7f=0x0;_0x117f7f<_0x4a99bd-0x1;_0x117f7f++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}}if(_0x5ba50b!==_0x6d6dc7&&_0x5ba50b[_0x558c1e(0x10c)](_0x1f480b)&&_0x5ba50b[_0x558c1e(0x103)]>_0x1f480b[_0x558c1e(0x103)]&&!_0x1f480b['startsWith'](_0x5ba50b)){const _0x298ddb=_0x5ba50b['slice'](0x0,_0x5ba50b[_0x558c1e(0x103)]-_0x1f480b[_0x558c1e(0x103)]);if(_0x298ddb[_0x558c1e(0x103)]>0x0){_0x16f7ae+=_0x558c1e(0xa8)+_0x298ddb+_0x558c1e(0xd7)+_0x6d6dc7+_0x558c1e(0x16f)+_0x1f480b+_0x558c1e(0x12a),_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d+=0x2,_0xd2aa25++;let _0x2b0410=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x2b0410++,_0x12dcf5++;}if(_0x2b0410>0x1){for(let _0x43fdca=0x0;_0x43fdca<_0x2b0410-0x1;_0x43fdca++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}}if(_0x5ba50b['match'](/^\w+\.\w+$/)){const _0x3f6c9a=_0x5ba50b['split'](/(\w+\.)/)[_0x558c1e(0xa4)](Boolean);if(_0x3f6c9a['length']===0x2){const _0x2e8e32=_0x3f6c9a[0x0],_0xe755cf=_0x3f6c9a[0x1],_0xd2b7d0=_0x6d6dc7,_0x5a3f4b=_0x1f480b;if(_0x2e8e32===_0xd2b7d0){if(_0xe755cf===_0x5a3f4b)_0x16f7ae+='<span\x20class=\x22correct\x22>'+_0x2e8e32+_0x558c1e(0x16f)+_0xe755cf+'</span>\x20';else{if(_0xe755cf[_0x558c1e(0x11a)]()===_0x5a3f4b[_0x558c1e(0x11a)]())_0x16f7ae+=_0x558c1e(0x14f)+_0x2e8e32+_0x558c1e(0xab)+_0xe755cf+_0x558c1e(0xd7)+_0x5a3f4b+_0x558c1e(0x12a);else{_0x16f7ae+=_0x558c1e(0xa8)+_0x5ba50b+_0x558c1e(0xd7)+_0xd2b7d0+'</span>\x20',_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0xd2aa25++;continue;}}_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d+=0x2,_0xd2aa25++;continue;}}}else{if(_0x5ba50b===_0x2481d1||_0x5ba50b[_0x558c1e(0x11a)]()===_0x2481d1[_0x558c1e(0x11a)]()){const _0x33e1db=_0x6d6dc7,_0x5cac3f=_0x5ba50b['slice'](_0x33e1db[_0x558c1e(0x103)]);if(_0x5cac3f===_0x1f480b)_0x16f7ae+=_0x558c1e(0x14f)+_0x33e1db+_0x558c1e(0x16f)+_0x5cac3f+_0x558c1e(0x12a);else{if(_0x5cac3f['toLowerCase']()===_0x1f480b[_0x558c1e(0x11a)]())_0x16f7ae+=_0x558c1e(0x14f)+_0x33e1db+_0x558c1e(0xab)+_0x5cac3f+_0x558c1e(0xd7)+_0x1f480b+_0x558c1e(0x12a);else{_0x16f7ae+=_0x558c1e(0xa8)+_0x5ba50b+'</span>\x20<span\x20class=\x22given\x22>'+_0x33e1db+_0x558c1e(0x12a),_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0xd2aa25++;continue;}}_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d+=0x2,_0xd2aa25++;continue;}}}if(_0x5ba50b===_0x6d6dc7){_0x16f7ae+=_0x558c1e(0x14f)+_0x5ba50b+_0x558c1e(0x12a),_0x12dcf5+=_0x5ba50b['length'],_0x2b399d++,_0xd2aa25++;let _0x144740=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x144740++,_0x12dcf5++;}if(_0x144740>0x1){for(let _0x44ece3=0x0;_0x44ece3<_0x144740-0x1;_0x44ece3++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}if(_0x5ba50b[_0x558c1e(0x11a)]()===_0x6d6dc7[_0x558c1e(0x11a)]()){_0x16f7ae+=_0x558c1e(0xa8)+_0x5ba50b+'</span>\x20<span\x20class=\x22given\x22>'+_0x6d6dc7+'</span>\x20',_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d++,_0xd2aa25++;let _0x2a52a9=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x2a52a9++,_0x12dcf5++;}if(_0x2a52a9>0x1){for(let _0xd0ea3a=0x0;_0xd0ea3a<_0x2a52a9-0x1;_0xd0ea3a++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}if(_0xd2aa25+0x1<_0x2c548c[_0x558c1e(0x103)]&&(_0x2c548c[_0xd2aa25+0x1]===_0x6d6dc7||_0x2c548c[_0xd2aa25+0x1]['toLowerCase']()===_0x6d6dc7['toLowerCase']())){_0x16f7ae+=_0x558c1e(0xcc)+_0x5ba50b+']</u></span>\x20',_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0xd2aa25++;let _0x1d9700=0x0;while(_0x12dcf5<_0x5dd5ed[_0x558c1e(0x103)]&&/\s/['test'](_0x5dd5ed[_0x12dcf5])){_0x1d9700++,_0x12dcf5++;}if(_0x1d9700>0x1){for(let _0x97a90a=0x0;_0x97a90a<_0x1d9700-0x1;_0x97a90a++)_0x16f7ae+=_0x558c1e(0xfa);}continue;}let _0x438260=0x0,_0x5df899=![];for(let _0x22ae04=_0x2b399d+0x1;_0x22ae04<_0x36f496['length']&&_0x22ae04<_0x2b399d+_0x2c548c[_0x558c1e(0x103)]-_0xd2aa25;_0x22ae04++){if(_0x5ba50b[_0x558c1e(0x11a)]()===_0x36f496[_0x22ae04][_0x558c1e(0x11a)]()){_0x438260=_0x22ae04-_0x2b399d,_0x5df899=!![];break;}}if(_0x5df899){for(let _0x2190c9=0x0;_0x2190c9<_0x438260;_0x2190c9++){const _0x3ca57b=_0x36f496[_0x2b399d+_0x2190c9];_0x16f7ae+='<span\x20class=\x22given\x22>'+_0x3ca57b+'</span>\x20<span\x20class=\x22wrong\x22><del>['+_0x3ca57b+_0x558c1e(0x170);}_0x5ba50b===_0x36f496[_0x2b399d+_0x438260]?_0x16f7ae+='<span\x20class=\x22correct\x22>'+_0x5ba50b+_0x558c1e(0x12a):_0x16f7ae+=_0x558c1e(0xa8)+_0x5ba50b+_0x558c1e(0xd7)+_0x36f496[_0x2b399d+_0x438260]+_0x558c1e(0x12a);_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d+=_0x438260+0x1,_0xd2aa25++;continue;}_0x16f7ae+=_0x558c1e(0xa8)+_0x5ba50b+'</span>\x20<span\x20class=\x22given\x22>'+_0x6d6dc7+_0x558c1e(0x12a),_0x12dcf5+=_0x5ba50b[_0x558c1e(0x103)],_0x2b399d++,_0xd2aa25++;let _0x4362fd=0x0;while(_0x12dcf5<_0x5dd5ed['length']&&/\s/[_0x558c1e(0x14a)](_0x5dd5ed[_0x12dcf5])){_0x4362fd++,_0x12dcf5++;}if(_0x4362fd>0x1){for(let _0x9cff59=0x0;_0x9cff59<_0x4362fd-0x1;_0x9cff59++)_0x16f7ae+=_0x558c1e(0xfa);}}while(_0xd2aa25<_0x2c548c[_0x558c1e(0x103)]){_0x16f7ae+=_0x558c1e(0xcc)+_0x2c548c[_0xd2aa25]+_0x558c1e(0x119),_0xd2aa25++;}while(_0x2b399d<_0x36f496[_0x558c1e(0x103)]){_0x16f7ae+=_0x558c1e(0x152)+_0x36f496[_0x2b399d]+_0x558c1e(0x12a),_0x2b399d++;}return _0x16f7ae[_0x558c1e(0x172)]();}window[_0x5745a7(0xfc)]=highlightErrors;function isLocalStorageAvailable(){const _0x65864c=_0x5745a7;try{const _0x3ad80d=_0x65864c(0xde);localStorage[_0x65864c(0xbf)](_0x3ad80d,_0x65864c(0x14a));const _0x276b8d=localStorage[_0x65864c(0xdc)](_0x3ad80d)===_0x65864c(0x14a);return localStorage['removeItem'](_0x3ad80d),_0x276b8d;}catch(_0x80aa5e){return![];}}function saveTestStats(_0x587133){const _0x35fdf1=_0x5745a7;try{if(!isLocalStorageAvailable()){showLocalStorageError();return;}let _0x43cd01=[];try{const _0x2e75bd=localStorage[_0x35fdf1(0xdc)](_0x35fdf1(0xe9));_0x43cd01=_0x2e75bd?JSON[_0x35fdf1(0x171)](_0x2e75bd):[];if(!Array['isArray'](_0x43cd01))_0x43cd01=[];}catch(_0x21afdf){_0x43cd01=[];}_0x43cd01[_0x35fdf1(0xd4)](_0x587133);if(_0x43cd01[_0x35fdf1(0x103)]>0xa)_0x43cd01[_0x35fdf1(0x126)]();localStorage[_0x35fdf1(0xbf)](_0x35fdf1(0xe9),JSON[_0x35fdf1(0xea)](_0x43cd01)),displaySavedStats();}catch(_0x1fc134){showLocalStorageError();}}function showLocalStorageError(){const _0x3540e9=_0x5745a7,_0x556ea6=$(_0x3540e9(0x114))||document[_0x3540e9(0x16a)](_0x3540e9(0xcd))||document['body'],_0x8f7159=document[_0x3540e9(0xf3)]('div');_0x8f7159[_0x3540e9(0xd5)]='error-message',_0x8f7159[_0x3540e9(0xc3)]=_0x3540e9(0xaa),_0x556ea6['prepend'](_0x8f7159);}function displaySavedStats(){const _0x2c92b1=_0x5745a7;if(!isLocalStorageAvailable()){showLocalStorageError();return;}const _0x8e299a=localStorage[_0x2c92b1(0xdc)](_0x2c92b1(0xe9)),_0x1fefa1=_0x8e299a?JSON['parse'](_0x8e299a):[],_0x4566f6=$(_0x2c92b1(0x114));if(!_0x4566f6)return;if(!Array[_0x2c92b1(0xe5)](_0x1fefa1)||_0x1fefa1['length']===0x0){_0x4566f6[_0x2c92b1(0xc3)]=_0x2c92b1(0x16b);return;}let _0x510086=_0x2c92b1(0x16e);_0x1fefa1[_0x2c92b1(0x121)]()[_0x2c92b1(0xc8)]()[_0x2c92b1(0xe6)](_0x4a9e9c=>{const _0x4f0417=_0x2c92b1,_0x240c03=new Date(_0x4a9e9c[_0x4f0417(0x123)]),_0x364cfa=_0x240c03[_0x4f0417(0xb9)]()+'\x20'+_0x240c03[_0x4f0417(0x14d)]([],{'hour':'2-digit','minute':_0x4f0417(0x14c)});_0x510086+='<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td>'+_0x364cfa+_0x4f0417(0x115)+_0x4a9e9c['grossCharacters']+_0x4f0417(0x115)+_0x4a9e9c[_0x4f0417(0x11c)]+_0x4f0417(0x160)+_0x4a9e9c[_0x4f0417(0x13f)]+_0x4f0417(0x118)+_0x4a9e9c['actualSpeed']+_0x4f0417(0x118)+_0x4a9e9c[_0x4f0417(0x113)]+_0x4f0417(0xd3)+(_0x4a9e9c[_0x4f0417(0xc7)]===_0x4f0417(0xd9)?_0x4f0417(0x15d):_0x4f0417(0xb3))+'\x22>'+_0x4a9e9c[_0x4f0417(0xc7)]+_0x4f0417(0x141);}),_0x510086+='</tbody></table>\x0a\x20\x20\x20\x20<div\x20class=\x22stats-note\x22><span\x20class=\x22red-asterisk\x22>*</span>The\x20test\x20history\x20is\x20saved\x20locally\x20in\x20your\x20browser.\x20Clearing\x20cache\x20will\x20remove\x20history.</div>\x0a\x20\x20\x20\x20<button\x20id=\x22clear-stats-btn\x22\x20class=\x22small-btn\x22>Clear\x20History</button>',_0x4566f6[_0x2c92b1(0xc3)]=_0x510086;const _0x572e82=$(_0x2c92b1(0x13c));_0x572e82&&_0x572e82[_0x2c92b1(0xb0)](_0x2c92b1(0xf9),()=>{const _0x1c3576=_0x2c92b1;confirm(_0x1c3576(0x161))&&(localStorage['removeItem'](_0x1c3576(0xe9)),displaySavedStats());});}
+/* script.js
+   Full typing engine:
+   - Loads exercise from URL (?exercise=...)
+   - Splits into 10 dynamic chunks
+   - Timer (10 minutes default)
+   - Input handling (navigate chunks with Enter/ArrowDown, back with ArrowUp)
+   - Backspace counting
+   - Full highlightErrors engine (handles missing/extra/merged/space/skipped)
+   - PSSSB-style result calculation (gross/net chars, WPM, accuracy)
+   - Result UI updates and saved test history (localStorage)
+   - Defensive checks for missing DOM elements
+*/
+
+// -------------------- Helper: Load paragraph from URL param --------------------
+// -------------------- Helper: Load paragraph --------------------
+async function loadTestParagraph() {
+  try {
+    // ✅ Try to load from localStorage
+    const savedText = localStorage.getItem("selectedExerciseText");
+    if (savedText) {
+      localStorage.removeItem("selectedExerciseText");
+      localStorage.removeItem("selectedExerciseLanguage");
+      return savedText;
+    }
+
+    // ✅ Fallback (old system)
+    const urlParams = new URLSearchParams(window.location.search);
+    const encodedExercise = urlParams.get("exercise");
+    if (encodedExercise) return decodeURIComponent(encodedExercise);
+
+    console.warn("No exercise found.");
+    return "";
+  } catch (err) {
+    console.error("Error loading exercise:", err);
+    return "";
+  }
+}
+
+
+// -------------------- Global state (from your engine) --------------------
+let fullParagraph = "";
+let words = [];
+let chunkSize = 0;
+window.paragraphs = [];
+window.state = {
+    currentParagraphIndex: 0,
+    paragraph: "",
+    defaultWords: [],
+    typedWords: [],
+    startTime: null,
+    totalTime: 600, // 10 minutes default
+    isTestRunning: false,
+    totalTypedInput: "|",
+    backspaceCount: 0
+};
+
+// Safe DOM helper
+function $(id) { return document.getElementById(id); }
+
+// -------------------- Initialize test and create chunks --------------------
+async function initializeTest() {
+    fullParagraph = await loadTestParagraph();
+
+    // If no paragraph provided, keep existing text in DOM (useful for testing)
+    if (!fullParagraph || fullParagraph.trim().length === 0) {
+        // If paragraph element exists and contains text, use that
+        const paragraphEl = $("paragraph");
+        if (paragraphEl && paragraphEl.textContent.trim().length > 0) {
+            fullParagraph = paragraphEl.textContent.trim();
+        } else {
+            fullParagraph = ""; // fallback empty
+        }
+    }
+
+    // Normalize whitespace & trim
+    fullParagraph = fullParagraph.replace(/\s+/g, " ").trim();
+
+    words = fullParagraph.length ? fullParagraph.split(" ") : [];
+    chunkSize = Math.max(1, Math.ceil(words.length / 10)); // try to create 10 chunks
+    window.paragraphs.length = 0;
+    for (let i = 0; i < words.length; i += chunkSize) {
+        window.paragraphs.push(words.slice(i, i + chunkSize).join(" "));
+    }
+    if (window.paragraphs.length === 0) {
+        window.paragraphs.push("");
+    }
+    window.state.currentParagraphIndex = 0;
+    window.state.paragraph = window.paragraphs[0];
+    window.state.defaultWords = window.state.paragraph.split(" ");
+}
+
+// -------------------- DOM ready setup --------------------
+document.addEventListener("DOMContentLoaded", async () => {
+    await initializeTest();
+
+    if ($("paragraph")) {
+        $("paragraph").innerHTML = window.state.paragraph || "No paragraph loaded. Please select an exercise.";
+    }
+
+    if (document.querySelector(".main-title")) {
+        document.querySelector(".main-title").textContent = "Typing Practice Test";
+    }
+    document.title = "Typing Test";
+
+    // Bind UI event listeners (some elements may not exist in minimal page)
+    bindUI();
+
+    // Prepare UI
+    refreshTest();
+    displaySavedStats();
+});
+
+// -------------------- Timer --------------------
+function startTimer() {
+    if (!window.state.isTestRunning) return;
+    const currentTime = performance.now();
+    const elapsed = (currentTime - window.state.startTime) / 1000;
+    const timeLeft = window.state.totalTime - elapsed;
+
+    if ($("timer")) {
+        if (timeLeft <= 0) {
+            $("timer").textContent = "Time: 0:00";
+        } else {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = Math.floor(timeLeft % 60);
+            $("timer").textContent = `Time: ${minutes}:${seconds.toString().padStart(2, "0")}`;
+        }
+    }
+
+    if (timeLeft <= 0) {
+        if ($("time-over-popup")) $("time-over-popup").style.display = "flex";
+        if ($("popup-ok-btn")) $("popup-ok-btn").focus();
+        window.state.isTestRunning = false;
+        // don't auto-submit until user confirms via popup (consistent with earlier behavior)
+    } else {
+        requestAnimationFrame(startTimer);
+    }
+}
+window.startTimer = startTimer;
+
+// -------------------- Input handling --------------------
+function bindUI() {
+    const typingInput = $("typing-input");
+    if (typingInput) {
+        typingInput.addEventListener("input", (event) => {
+            if (!window.state.isTestRunning) {
+                window.state.startTime = performance.now();
+                window.state.isTestRunning = true;
+                requestAnimationFrame(window.startTimer);
+            }
+        });
+
+        typingInput.addEventListener("keydown", (event) => {
+            // Count backspace keypresses
+            if (event.key === "Backspace") {
+                window.state.backspaceCount++;
+            }
+
+            const inputElement = event.target;
+            const input = inputElement.value;
+            const typedLength = input.trim().split(/\s+/).filter(word => word.length > 0).length;
+            const defaultLength = window.state.defaultWords.length || 1;
+            const minWordsRequired = Math.floor(0.8 * defaultLength);
+
+            if (event.key === "Enter" || event.key === "ArrowDown" || event.key === "PageDown") {
+                // Prevent any action on Enter/ArrowDown if this is the last chunk
+                if (window.state.currentParagraphIndex === window.paragraphs.length - 1) {
+                    event.preventDefault();
+                    return;
+                }
+
+                if (typedLength >= minWordsRequired) {
+                    if (window.state.currentParagraphIndex < window.paragraphs.length - 1) {
+                        const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+                        typedChunks[window.state.currentParagraphIndex] = input;
+                        window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
+                        window.state.currentParagraphIndex++;
+                        window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
+                        window.state.defaultWords = window.state.paragraph.split(" ");
+                        if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
+                        if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+                        if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
+                        event.preventDefault();
+                    }
+                } else {
+                    // If not enough typed words, block action (consistent)
+                    event.preventDefault();
+                }
+            } else if ((event.key === "ArrowUp" || event.key === "PageUp") && window.state.currentParagraphIndex > 0) {
+                const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+                typedChunks[window.state.currentParagraphIndex] = input;
+                window.state.totalTypedInput = "|" + typedChunks.join("|") + "|";
+                window.state.currentParagraphIndex--;
+                window.state.paragraph = window.paragraphs[window.state.currentParagraphIndex];
+                window.state.defaultWords = window.state.paragraph.split(" ");
+                if ($("paragraph")) $("paragraph").innerHTML = window.state.paragraph;
+                if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+                if ($("typing-input")) $("typing-input").value = typedChunks[window.state.currentParagraphIndex] || "";
+                event.preventDefault();
+            }
+        });
+    }
+
+    // Buttons & popups
+    if ($("submit-btn")) $("submit-btn").addEventListener("click", submitResults);
+    if ($("refresh-btn")) $("refresh-btn").addEventListener("click", async () => { await initializeTest(); refreshTest(); });
+    if ($("popup-ok-btn")) $("popup-ok-btn").addEventListener("click", () => { if ($("time-over-popup")) $("time-over-popup").style.display = "none"; submitResults(); });
+    if ($("practice-another-btn")) $("practice-another-btn").addEventListener("click", () => { window.location.href = "exercises.html"; });
+    if ($("back-btn")) $("back-btn").addEventListener("click", () => { window.location.href = "exercises.html"; });
+    if ($("no-input-ok-btn")) $("no-input-ok-btn").addEventListener("click", () => { if ($("no-input-popup")) $("no-input-popup").style.display = "none"; });
+    if ($("refresh-btn-2")) $("refresh-btn-2").addEventListener("click", async () => { await initializeTest(); refreshTest(); });
+    if ($("practice-another-btn-2")) $("practice-another-btn-2").addEventListener("click", () => { window.location.href = "exercises.html"; });
+
+    // Fullscreen
+    if ($("fullscreen-btn")) {
+        $("fullscreen-btn").addEventListener("click", () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    if ($("fullscreen-btn")) $("fullscreen-btn").textContent = "Exit Full Screen";
+                }).catch(err => console.error(`Fullscreen error: ${err.message}`));
+            } else {
+                document.exitFullscreen().then(() => {
+                    if ($("fullscreen-btn")) $("fullscreen-btn").textContent = "Full Screen";
+                });
+            }
+        });
+    }
+}
+
+// -------------------- Refresh and submit --------------------
+function refreshTest() {
+    window.state.currentParagraphIndex = 0;
+    window.state.paragraph = window.paragraphs[0];
+    window.state.defaultWords = window.state.paragraph.split(" ");
+    window.state.totalTypedInput = "|";
+    window.state.totalTime = 600;
+    window.state.isTestRunning = false;
+    window.state.startTime = null;
+    window.state.backspaceCount = 0;
+
+    if ($("timer")) $("timer").textContent = "Time: 10:00";
+    if (document.querySelector(".main-title")) document.querySelector(".main-title").style.display = "block";
+    if (document.querySelector(".test-section")) document.querySelector(".test-section").style.display = "block";
+    if ($("current-chunk")) $("current-chunk").textContent = `Current Chunk - ${window.state.currentParagraphIndex + 1}`;
+    if ($("current-chunk")) $("current-chunk").style.display = "block";
+    if ($("paragraph")) { $("paragraph").style.display = "block"; $("paragraph").innerHTML = window.state.paragraph; }
+    if ($("typing-input")) { $("typing-input").style.display = "block"; $("typing-input").value = ""; $("typing-input").disabled = false; }
+    if (document.querySelector(".header-row")) document.querySelector(".header-row").style.display = "flex";
+    if ($("timer")) $("timer").style.display = "block";
+    if (document.querySelector(".reference-outer")) document.querySelector(".reference-outer").style.display = "block";
+    if ($("test-area")) $("test-area").style.display = "block";
+    if ($("reference-text")) $("reference-text").style.display = "block";
+    if ($("submit-btn")) $("submit-btn").style.display = "inline-block";
+    if ($("back-btn")) $("back-btn").style.display = "inline-block";
+
+    if ($("results")) $("results").style.display = "none";
+    if ($("results-table")) $("results-table").style.display = "none";
+    if ($("results-title-row")) $("results-title-row").style.display = "none";
+    // Hide other results rows if present
+    try {
+        document.querySelectorAll("#results-table tr:not(#results-title-row, #notes-section, #button-row)").forEach(row => row.style.display = "none");
+    } catch (e) {}
+    if ($("saved-stats-container")) $("saved-stats-container").style.display = "block";
+    if ($("error-section")) $("error-section").style.display = "none";
+    if ($("error-highlight")) $("error-highlight").style.display = "none";
+}
+
+// -------------------- Submit & Results --------------------
+async function submitResults() {
+	// ✅ Show results & hide typing UI
+$("results").style.display = "block";
+$("results-table").style.display = "table";
+document.querySelectorAll("#results-table tr").forEach(r => r.style.display = "table-row");
+$("test-section").style.display = "none";
+
+// ✅ Scroll to results at top
+setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}, 300);
+
+    console.log("submitResults called");
+    window.state.isTestRunning = false;
+    const typingInputEl = $("typing-input");
+    const currentInput = typingInputEl ? typingInputEl.value.trim() : "";
+    const typedChunks = window.state.totalTypedInput.split("|").filter(chunk => chunk.length > 0);
+    if (currentInput) typedChunks[window.state.currentParagraphIndex] = currentInput;
+    const validChunks = typedChunks.filter(chunk => chunk.trim().length > 0);
+    if (validChunks.length === 0) {
+        if ($("no-input-popup")) $("no-input-popup").style.display = "flex";
+        window.state.isTestRunning = true;
+        return;
+    }
+
+    const finalTypedText = validChunks.join(" ").trim();
+    window.state.typedWords = finalTypedText.split(/\s+/).filter(word => word.length > 0);
+    const allDefaultWords = window.paragraphs.slice(0, validChunks.length).join(" ").split(" ");
+
+    // Build error tables HTML using highlightErrors
+    let errorTablesHTML = "";
+    for (let i = 0; i < validChunks.length; i++) {
+        const chunkDefaultWords = window.paragraphs[i].split(" ");
+        const chunkTypedText = validChunks[i] || "";
+        const chunkTypedWords = chunkTypedText.split(/\s+/).filter(w => w.length > 0);
+        const chunkErrors = highlightErrors(chunkDefaultWords, chunkTypedWords, chunkTypedText);
+        errorTablesHTML += `
+            <table class="error-table" width="100%" style="border-collapse:collapse; text-align:justify;">
+                <thead>
+                    <tr>
+                        <th>Original Chunk #${i + 1}</th>
+                        <th>Typed Chunk #${i + 1}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="given">${window.paragraphs[i]}</span></td>
+                        <td>${chunkErrors || "No errors"}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+    }
+
+    // Show/hide UI elements
+    if (document.querySelector(".main-title")) document.querySelector(".main-title").style.display = "none";
+    if (document.querySelector(".test-section")) document.querySelector(".test-section").style.display = "none";
+    if ($("results")) $("results").style.display = "block";
+    if ($("results-table")) $("results-table").style.display = "table";
+    if ($("results-title-row")) $("results-title-row").style.display = "table-row";
+    if ($("results-notes")) $("results-notes").style.display = "block";
+    if ($("exam-note")) { $("exam-note").style.display = "block"; $("exam-note").innerHTML = '<span class="red-asterisk">*</span>In the PSSSB exam, before time over Test Submisson not Allowed'; }
+    if ($("pass-note")) { $("pass-note").style.display = "block"; $("pass-note").innerHTML = '<span class="red-asterisk">*</span>To pass the test, you must type at least 1500 characters with 92% accuracy.'; }
+    if ($("button-row")) $("button-row").style.display = "table-row";
+    if ($("error-section")) $("error-section").style.display = "block";
+    if ($("error-highlight")) { $("error-highlight").style.display = "block"; $("error-highlight").innerHTML = errorTablesHTML; }
+    if ($("refresh-btn-2")) $("refresh-btn-2").style.display = "inline-block";
+    if ($("practice-another-btn-2")) $("practice-another-btn-2").style.display = "inline-block";
+
+
+    // --- compute times ---
+    const endTime = performance.now();
+    const elapsedTimeSeconds = window.state.startTime ? (endTime - window.state.startTime) / 1000 : 0;
+    const minutesSpent = Math.floor(elapsedTimeSeconds / 60);
+    const secondsSpent = Math.floor(elapsedTimeSeconds % 60);
+
+    // --- gross characters calculation using the generated highlighted HTML ---
+    let grossCharacters = 0;
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = errorTablesHTML;
+
+    // Process correct spans
+    const correctSpans = tempDiv.querySelectorAll('.correct');
+    for (const span of correctSpans) {
+        if (!span.textContent.includes('[')) {
+            grossCharacters += span.textContent.length;
+        }
+    }
+
+    // Process wrong spans with rules
+    const wrongSpans = tempDiv.querySelectorAll('.wrong');
+    for (const span of wrongSpans) {
+        const txt = span.textContent || "";
+        if (txt.includes('[Extra:')) {
+            const m = txt.match(/\[Extra:\s*(.*?)\]/);
+            if (m && m[1]) grossCharacters += m[1].length;
+        } else if (txt.includes('[Extra Space]') || txt.includes('[Missing Space]')) {
+            // don't count these in gross characters
+            continue;
+        } else if (txt.includes('[Skipped:')) {
+            continue;
+        } else if (!txt.includes('[')) {
+            // regular wrong word — try to find next .given sibling to compare length
+            const next = span.nextElementSibling;
+            if (next && next.classList && next.classList.contains('given')) {
+                const wrongWordLength = span.textContent.length;
+                const givenWordLength = next.textContent.length;
+                grossCharacters += Math.min(wrongWordLength, givenWordLength);
+            } else {
+                grossCharacters += span.textContent.length;
+            }
+        }
+    }
+
+    // Add spaces between typed words (N-1)
+    const totalWords = finalTypedText.split(/\s+/).filter(w => w.length > 0).length;
+    if (totalWords > 1) {
+        grossCharacters += totalWords - 1;
+    }
+
+    const wordCount = (grossCharacters / 5).toFixed(1);
+    const skippedWordsCount = (errorTablesHTML.match(/\[Skipped:/g) || []).length;
+    const wrongExtraWordsCount = (errorTablesHTML.match(/<span class="wrong">(?!\[Skipped:|\[Missing Space\]|\[Extra Space\])/g) || []).length;
+    const spaceErrorsCount = (errorTablesHTML.match(/\[Extra Space\]|\[Missing Space\]/g) || []).length;
+
+    // error characters rule: 5 chars per wrong/extra word, 2.5 chars per space error
+    const errorCharacters = ((skippedWordsCount + wrongExtraWordsCount) * 5) + (spaceErrorsCount * 2.5);
+    const netCharacters = (grossCharacters - errorCharacters).toFixed(1);
+    const grossSpeed = (grossCharacters / (5 * 10)).toFixed(1); // PSSSB 10-min rule
+    const timeSpentInMinutes = elapsedTimeSeconds > 0 ? (elapsedTimeSeconds / 60) : 0.0001;
+    const actualGrossSpeed = (grossCharacters / (5 * timeSpentInMinutes)).toFixed(1);
+    const accuracyPercentage = grossCharacters > 0 ? ((100 * netCharacters) / grossCharacters).toFixed(1) : 0;
+    const result = (grossCharacters >= 1500 && accuracyPercentage >= 92) ? "Pass" : "Fail";
+
+    // Update UI values
+    if ($("gross-characters-value")) $("gross-characters-value").textContent = `${grossCharacters} (Words = ${wordCount})`;
+    if ($("skipped-words-value")) $("skipped-words-value").textContent = `${skippedWordsCount}`;
+    if ($("wrong-extra-words-value")) $("wrong-extra-words-value").textContent = `${wrongExtraWordsCount}`;
+    if ($("space-errors-value")) $("space-errors-value").textContent = `${spaceErrorsCount}`;
+    if ($("error-characters-value")) $("error-characters-value").textContent = `${errorCharacters.toFixed(1)}`;
+    if ($("net-characters-value")) $("net-characters-value").textContent = `${netCharacters}`;
+    if ($("gross-speed-value")) $("gross-speed-value").textContent = `${grossSpeed} WPM (According to PSSSB 10 Min Rule)`;
+    if ($("actual-gross-speed-value")) $("actual-gross-speed-value").textContent = `${actualGrossSpeed} WPM`;
+    if ($("time-spent-value")) $("time-spent-value").textContent = `${minutesSpent} min ${secondsSpent.toString().padStart(2, "0")} sec`;
+    if ($("accuracy-percentage-value")) $("accuracy-percentage-value").textContent = `${accuracyPercentage}%`;
+    if ($("backspace-count-value")) $("backspace-count-value").textContent = `${window.state.backspaceCount}`;
+    if ($("result-value")) $("result-value").textContent = `${result} (Typed ${grossCharacters} characters with ${accuracyPercentage}% accuracy)`;
+
+    // After results are displayed, save the stats
+    const stats = {
+        grossCharacters: parseInt(grossCharacters),
+        accuracy: parseFloat(accuracyPercentage),
+        grossSpeed: parseFloat(grossSpeed),
+        actualSpeed: parseFloat(actualGrossSpeed),
+        timeSpent: `${minutesSpent}m ${secondsSpent}s`,
+        result: result,
+        timestamp: new Date().toISOString()
+    };
+
+    saveTestStats(stats);
+}
+
+// Expose submit
+window.submitResults = submitResults;
+
+// -------------------- highlightErrors (your full engine) --------------------
+function highlightErrors(defaultWords, typedWords, originalInput) {
+    let highlightedParagraph = "";
+    let defaultIndex = 0;
+    let typedIndex = 0;
+    let inputIndex = 0;
+
+    while (defaultIndex < defaultWords.length && typedIndex < typedWords.length) {
+        let currentTypedWord = typedWords[typedIndex];
+        let currentDefaultWord = defaultWords[defaultIndex];
+
+        // Combined typed -> matches default (typed split across two typed words)
+        if (typedIndex + 1 < typedWords.length) {
+            const nextTypedWord = typedWords[typedIndex + 1];
+            const combinedTyped = currentTypedWord + nextTypedWord;
+            if (combinedTyped === currentDefaultWord || combinedTyped.toLowerCase() === currentDefaultWord.toLowerCase()) {
+                inputIndex += currentTypedWord.length;
+                let spaceCountBetween = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCountBetween++;
+                    inputIndex++;
+                }
+                if (spaceCountBetween > 0) {
+                    highlightedParagraph += `<span class="correct">${currentTypedWord}</span><span class="wrong">[Missing Space]</span>`;
+                    for (let i = 0; i < spaceCountBetween - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    highlightedParagraph += `<span class="correct">${nextTypedWord}</span> `;
+                    if (combinedTyped !== currentDefaultWord) highlightedParagraph += `<span class="given">${currentDefaultWord}</span> `;
+                }
+                inputIndex += nextTypedWord.length;
+                let spaceCountAfter = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCountAfter++;
+                    inputIndex++;
+                }
+                if (spaceCountAfter > 1) {
+                    for (let i = 0; i < spaceCountAfter - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                }
+                defaultIndex++;
+                typedIndex += 2;
+                continue;
+            }
+        }
+
+        // Combined default words (missing space)
+        if (defaultIndex + 1 < defaultWords.length) {
+            const nextDefaultWord = defaultWords[defaultIndex + 1];
+            const combinedDefault = currentDefaultWord + nextDefaultWord;
+
+            if (currentTypedWord === combinedDefault) {
+                highlightedParagraph += `<span class="correct">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span><span class="correct">${nextDefaultWord}</span> `;
+                inputIndex += currentTypedWord.length;
+                defaultIndex += 2;
+                typedIndex++;
+                let spaceCount = 0;
+                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                    spaceCount++; inputIndex++;
+                }
+                if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                continue;
+            }
+
+            // Combined typed with correct first part, wrong second part
+            if (currentTypedWord !== currentDefaultWord &&
+                currentTypedWord.startsWith(currentDefaultWord) &&
+                currentTypedWord.length > currentDefaultWord.length &&
+                !currentDefaultWord.startsWith(currentTypedWord) &&
+                (typedIndex + 1 >= typedWords.length || typedWords[typedIndex + 1] !== nextDefaultWord)) {
+
+                const secondPart = currentTypedWord.slice(currentDefaultWord.length);
+                if (secondPart.length > 0) {
+                    highlightedParagraph += `<span class="correct">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span>`;
+                    if (secondPart === nextDefaultWord) {
+                        highlightedParagraph += `<span class="correct">${secondPart}</span> `;
+                    } else {
+                        highlightedParagraph += `<span class="wrong">${secondPart}</span> <span class="given">${nextDefaultWord}</span> `;
+                    }
+                    inputIndex += currentTypedWord.length;
+                    defaultIndex += 2;
+                    typedIndex++;
+                    let spaceCount = 0;
+                    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                        spaceCount++; inputIndex++;
+                    }
+                    if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    continue;
+                }
+            }
+
+            // Combined typed with wrong first part, correct second part
+            if (currentTypedWord !== currentDefaultWord &&
+                currentTypedWord.endsWith(nextDefaultWord) &&
+                currentTypedWord.length > nextDefaultWord.length &&
+                !nextDefaultWord.startsWith(currentTypedWord)) {
+                const firstPart = currentTypedWord.slice(0, currentTypedWord.length - nextDefaultWord.length);
+                if (firstPart.length > 0) {
+                    highlightedParagraph += `<span class="wrong">${firstPart}</span> <span class="given">${currentDefaultWord}</span><span class="wrong">[Missing Space]</span><span class="correct">${nextDefaultWord}</span> `;
+                    inputIndex += currentTypedWord.length;
+                    defaultIndex += 2;
+                    typedIndex++;
+                    let spaceCount = 0;
+                    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+                        spaceCount++; inputIndex++;
+                    }
+                    if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+                    continue;
+                }
+            }
+
+            // dotted tokens and similar cases
+            if (currentTypedWord.match(/^\w+\.\w+$/)) {
+                const splitWord = currentTypedWord.split(/(\w+\.)/).filter(Boolean);
+                if (splitWord.length === 2) {
+                    const firstPart = splitWord[0];
+                    const secondPart = splitWord[1];
+                    const expectedFirst = currentDefaultWord;
+                    const expectedSecond = nextDefaultWord;
+
+                    if (firstPart === expectedFirst) {
+                        if (secondPart === expectedSecond) {
+                            highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="correct">${secondPart}</span> `;
+                        } else if (secondPart.toLowerCase() === expectedSecond.toLowerCase()) {
+                            highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="wrong">${secondPart}</span> <span class="given">${expectedSecond}</span> `;
+                        } else {
+                            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${expectedFirst}</span> `;
+                            inputIndex += currentTypedWord.length;
+                            typedIndex++;
+                            continue;
+                        }
+                        inputIndex += currentTypedWord.length;
+                        defaultIndex += 2;
+                        typedIndex++;
+                        continue;
+                    }
+                }
+            } else if (currentTypedWord === combinedDefault || currentTypedWord.toLowerCase() === combinedDefault.toLowerCase()) {
+                const firstPart = currentDefaultWord;
+                const secondPart = currentTypedWord.slice(firstPart.length);
+                if (secondPart === nextDefaultWord) {
+                    highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="correct">${secondPart}</span> `;
+                } else if (secondPart.toLowerCase() === nextDefaultWord.toLowerCase()) {
+                    highlightedParagraph += `<span class="correct">${firstPart}</span><span class="wrong">[Missing Space]</span><span class="wrong">${secondPart}</span> <span class="given">${nextDefaultWord}</span> `;
+                } else {
+                    highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${firstPart}</span> `;
+                    inputIndex += currentTypedWord.length;
+                    typedIndex++;
+                    continue;
+                }
+                inputIndex += currentTypedWord.length;
+                defaultIndex += 2;
+                typedIndex++;
+                continue;
+            }
+        }
+
+        // Exact match
+        if (currentTypedWord === currentDefaultWord) {
+            highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+            inputIndex += currentTypedWord.length;
+            defaultIndex++;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Case-insensitive match but case wrong
+        if (currentTypedWord.toLowerCase() === currentDefaultWord.toLowerCase()) {
+            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
+            inputIndex += currentTypedWord.length;
+            defaultIndex++;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Extra typed word (followed by expected)
+        if (typedIndex + 1 < typedWords.length &&
+            (typedWords[typedIndex + 1] === currentDefaultWord ||
+             typedWords[typedIndex + 1].toLowerCase() === currentDefaultWord.toLowerCase())) {
+            highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
+            inputIndex += currentTypedWord.length;
+            typedIndex++;
+            let spaceCount = 0;
+            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+            if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+            continue;
+        }
+
+        // Try to find typed word later in defaultWords (skipped words)
+        let skipCount = 0;
+        let foundMatch = false;
+        for (let i = defaultIndex + 1; i < defaultWords.length && i < defaultIndex + typedWords.length - typedIndex; i++) {
+            if (currentTypedWord.toLowerCase() === defaultWords[i].toLowerCase()) {
+                skipCount = i - defaultIndex;
+                foundMatch = true;
+                break;
+            }
+        }
+        if (foundMatch) {
+            for (let i = 0; i < skipCount; i++) {
+                const skippedWord = defaultWords[defaultIndex + i];
+                highlightedParagraph += `<span class="given">${skippedWord}</span> <span class="wrong"><del>[${skippedWord}]</del></span> `;
+               
+            }
+            if (currentTypedWord === defaultWords[defaultIndex + skipCount]) {
+                highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
+            } else {
+                highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${defaultWords[defaultIndex + skipCount]}</span> `;
+            }
+            inputIndex += currentTypedWord.length;
+            defaultIndex += skipCount + 1;
+            typedIndex++;
+            continue;
+        }
+
+        // Otherwise regular wrong
+        highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
+        inputIndex += currentTypedWord.length;
+        defaultIndex++;
+        typedIndex++;
+        let spaceCount = 0;
+        while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
+        if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+    }
+
+    // Remaining extra typed words
+    while (typedIndex < typedWords.length) {
+        highlightedParagraph += `<span class="wrong"><u>[${typedWords[typedIndex]}]</u></span> `;
+        typedIndex++;
+    }
+
+    // Remaining default words (not typed)
+    while (defaultIndex < defaultWords.length) {
+        highlightedParagraph += `<span class="given">${defaultWords[defaultIndex]}</span> `;
+        defaultIndex++;
+    }
+
+    return highlightedParagraph.trim();
+}
+window.highlightErrors = highlightErrors;
+
+// -------------------- Saved stats (localStorage) --------------------
+function isLocalStorageAvailable() {
+    try {
+        const testKey = '__testLocalStorage__';
+        localStorage.setItem(testKey, 'test');
+        const result = localStorage.getItem(testKey) === 'test';
+        localStorage.removeItem(testKey);
+        return result;
+    } catch (e) {
+        return false;
+    }
+}
+
+function saveTestStats(stats) {
+    try {
+        if (!isLocalStorageAvailable()) {
+            showLocalStorageError();
+            return;
+        }
+        let savedStats = [];
+        try {
+            const savedStatsJson = localStorage.getItem('typingTestStats');
+            savedStats = savedStatsJson ? JSON.parse(savedStatsJson) : [];
+            if (!Array.isArray(savedStats)) savedStats = [];
+        } catch (e) {
+            savedStats = [];
+        }
+        savedStats.push(stats);
+        if (savedStats.length > 10) savedStats.shift();
+        localStorage.setItem('typingTestStats', JSON.stringify(savedStats));
+        displaySavedStats();
+    } catch (error) {
+        showLocalStorageError();
+    }
+}
+
+function showLocalStorageError() {
+    const container = $("saved-stats-container") || document.querySelector('.container') || document.body;
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.innerHTML = '<strong>Error:</strong> Unable to save test history locally.';
+    container.prepend(errorDiv);
+}
+
+function displaySavedStats() {
+    if (!isLocalStorageAvailable()) {
+        showLocalStorageError();
+        return;
+    }
+    const statsJSON = localStorage.getItem('typingTestStats');
+    const savedStats = statsJSON ? JSON.parse(statsJSON) : [];
+    const statsContainer = $("saved-stats-container");
+
+    if (!statsContainer) return;
+    if (!Array.isArray(savedStats) || savedStats.length === 0) {
+        statsContainer.innerHTML = '<p>No previous test data available.</p>';
+        return;
+    }
+
+    let tableHTML = `
+        <h3>Your Test History</h3>
+        <table class="stats-history-table">
+            <thead><tr>
+                <th>Date</th><th>Gross Chars</th><th>Accuracy</th><th>Gross Speed</th><th>Actual Speed</th><th>Time</th><th>Result</th>
+            </tr></thead><tbody>
+    `;
+
+    savedStats.slice().reverse().forEach(stat => {
+        const date = new Date(stat.timestamp);
+        const formatted = `${date.toLocaleDateString()} ${date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}`;
+        tableHTML += `<tr>
+            <td>${formatted}</td>
+            <td>${stat.grossCharacters}</td>
+            <td>${stat.accuracy}%</td>
+            <td>${stat.grossSpeed} WPM</td>
+            <td>${stat.actualSpeed} WPM</td>
+            <td>${stat.timeSpent}</td>
+            <td class="${stat.result === 'Pass' ? 'pass-result' : 'fail-result'}">${stat.result}</td>
+        </tr>`;
+    });
+
+    tableHTML += `</tbody></table>
+    <div class="stats-note"><span class="red-asterisk">*</span>The test history is saved locally in your browser. Clearing cache will remove history.</div>
+    <button id="clear-stats-btn" class="small-btn">Clear History</button>`;
+
+    statsContainer.innerHTML = tableHTML;
+    const clearBtn = $("clear-stats-btn");
+    if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to clear your test history?')) {
+                localStorage.removeItem('typingTestStats');
+                displaySavedStats();
+            }
+        });
+    }
+}
+
+// -------------------- Full-screen control binding is done in bindUI above --------------------
+
+// End of file
+/******************************************************
+ * ✅ GOOGLE SHEET RESULT SAVING FEATURE (Smartech)
+ ******************************************************/
+
+async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
+    const endpoint = "https://script.google.com/macros/s/AKfycbyEdmPsvPAIZB6N8TAgUC5B-lzg3m-x63EcO1Vun-cuh1nhswlUr3WrIKy61wK6Imc9QQ/exec";
+    const data = { name, refNo, speed, accuracy };
+
+    try {
+        await fetch(endpoint, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+        console.log("✅ Result sent to Google Sheet:", data);
+    } catch (error) {
+        console.error("❌ Error sending result:", error);
+    }
+}
+
+// 🔹 Hook into your existing result generation (after test end or submit)
+function saveResultToSheet() {
+    try {
+        const userName = document.getElementById("userName")?.value?.trim() || "Unknown";
+        const userRefNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
+
+        const speed = document.getElementById("gross-speed-value")?.innerText || "0";
+        const accuracy = document.getElementById("accuracy-percentage-value")?.innerText || "0";
+
+        if (userName && userRefNo) {
+            sendResultToGoogleSheet(userName, userRefNo, speed, accuracy);
+        } else {
+            console.warn("⚠️ Name or Reference No missing, not saved to sheet.");
+        }
+    } catch (e) {
+        console.error("❌ Error preparing result:", e);
+    }
+}
+
+// ✅ Attach automatic call when results are shown or submitted
+document.addEventListener("DOMContentLoaded", () => {
+    const submitBtn = document.getElementById("submit-btn");
+    if (submitBtn) {
+        submitBtn.addEventListener("click", () => {
+            // Save after the result table is populated
+            setTimeout(saveResultToSheet, 2000);
+        });
+    }
+
+    // If you have an auto-finish timer, also call it when time ends:
+    const timeOverBtn = document.getElementById("popup-ok-btn");
+    if (timeOverBtn) {
+        timeOverBtn.addEventListener("click", () => {
+            setTimeout(saveResultToSheet, 2000);
+        });
+    }
+});
