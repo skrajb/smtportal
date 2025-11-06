@@ -48,7 +48,7 @@ body {
 #current-chunk { font-size:0.95rem; color:var(--muted); text-align:center; color:red;font-weight:bold}
 
 .reference-outer {
-    background:#d1ac5e;
+    background:#00295f;
     border-radius:6px;
     padding:12px;
     margin-bottom:8px;
