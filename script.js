@@ -303,7 +303,7 @@ setTimeout(() => {
         const chunkTypedWords = chunkTypedText.split(/\s+/).filter(w => w.length > 0);
         const chunkErrors = highlightErrors(chunkDefaultWords, chunkTypedWords, chunkTypedText);
         errorTablesHTML += `
-            <table class="error-table" width="100%" style="border-collapse:collapse; text-align:justify;cellpadding:8px">
+            <table class="error-table" width="100%" style="border:2px solid black;border-collapse:collapse; text-align:justify;cellpadding:8px">
                 <thead>
                     <tr>
                         <th>Original Chunk #${i + 1}</th>
