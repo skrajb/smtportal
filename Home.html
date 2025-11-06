@@ -1002,4 +1002,65 @@ window.onload=()=>{ if(isLoggedIn){exerciseContainer.classList.remove('hidden');
   
 }
   
-</script></body></html>
+</script>
+<script>
+async function loadExercisesFromUrl() {
+  const url = document.getElementById("exerciseFileUrl").value.trim();
+  if (!url) return alert("Please enter a valid file URL!");
+
+  try {
+    const response = await fetch(url);
+    const text = await response.text();
+
+    // Clean up problematic characters and normalize line endings
+    const safeText = text
+      .replace(/\r/g, "") // remove carriage returns
+      .replace(/[“”]/g, '"') // smart quotes to normal quotes
+      .replace(/[‘’]/g, "'"); // curved single quotes to normal
+
+    // Split the text into language sections
+    const sections = safeText.split(/###/).filter(Boolean);
+    exercisesEnglish = [];
+    exercisesPunjabi = [];
+
+    sections.forEach(section => {
+      const langMatch = section.match(/(English|Punjabi)/i);
+      if (!langMatch) return;
+
+      const lang = langMatch[1].trim();
+      const exercises = section.split(/---/).filter(t => t.trim().length > 0);
+
+      for (let i = 0; i < exercises.length; i += 2) {
+        const title = exercises[i]?.trim();
+        const content = exercises[i + 1]?.trim();
+
+        if (!title || !content) continue;
+
+        // Escape both single and double quotes before saving
+        const cleanTitle = title.replace(/["']/g, match => "\\" + match);
+        const cleanContent = content.replace(/["']/g, match => "\\" + match);
+
+        if (lang.toLowerCase() === "english") {
+          exercisesEnglish.push({ title: cleanTitle, text: cleanContent });
+        } else if (lang.toLowerCase() === "punjabi") {
+          exercisesPunjabi.push({ title: cleanTitle, text: cleanContent });
+        }
+      }
+    });
+
+    // Save to localStorage safely
+    localStorage.setItem('exercisesEnglish', JSON.stringify(exercisesEnglish));
+    localStorage.setItem('exercisesPunjabi', JSON.stringify(exercisesPunjabi));
+
+    renderExercises("English");
+    renderExercises("Punjabi");
+
+    alert("✅ Exercises imported successfully!");
+  } catch (err) {
+    console.error(err);
+    alert("❌ Failed to load exercises. Check your URL or file format.");
+  }
+}
+</script>
+
+</body></html>
