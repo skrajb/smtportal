@@ -508,12 +508,26 @@ function addExercise(lang){
   localStorage.setItem('exercisesPunjabi',JSON.stringify(exercisesPunjabi));
   renderExercises(lang);
 }
-function renderExercises(lang){
-  let box=lang==="English"?exerciseListEnglish:exerciseListPunjabi;
-  let list=lang==="English"?exercisesEnglish:exercisesPunjabi;
-  box.innerHTML=list.map((e,i)=>`<div class="card"><b>${i+1}. ${e.title}</b>
-  <p>${e.text.slice(0,100)}...</p><button onclick="deleteExercise(${i},'${lang}')">Delete</button></div>`).join("");
+function renderExercises(lang) {
+  const box = lang === "English" ? exerciseListEnglish : exerciseListPunjabi;
+  const list = lang === "English" ? exercisesEnglish : exercisesPunjabi;
+
+  box.innerHTML = list
+    .map(
+      (e, i) => `<div class="card">
+        <b>${i + 1}. ${e.title}</b>
+        <p>${e.text.slice(0, 100)}...</p>
+        <button class="delete-btn" data-index="${i}">Delete</button>
+      </div>`
+    )
+    .join("");
+
+  // Add event listeners safely
+  box.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => deleteExercise(btn.dataset.index, lang));
+  });
 }
+
 function deleteExercise(i,lang){
   let list=lang==="English"?exercisesEnglish:exercisesPunjabi;
   list.splice(i,1);
@@ -575,6 +589,7 @@ window.onload=()=>{ if(isLoggedIn){exerciseContainer.classList.remove('hidden');
 </script>
 </body>
 </html>
+
 
 
 
