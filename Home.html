@@ -846,44 +846,37 @@ function addExercise(lang){
   
 }
   
-function renderExercises(lang) {
-  
-  const box = lang === "English" ? exerciseListEnglish : exerciseListPunjabi;
-  
-  const list = lang === "English" ? exercisesEnglish : exercisesPunjabi;
-  
-
-  
-  box.innerHTML = list
-  
-    .map(
-  
-      (e, i) => `<div class="card">
-  
-        <b>${i + 1}. ${e.title}</b>
-  
-        <p>${e.text.slice(0, 100)}...</p>
-  
-        <button class="delete-btn" data-index="${i}">Delete</button>
-  
-      </div>`
-  
-    )
-  
-    .join("");
-  
-
-  
-  // Add event listeners safely
-  
-  box.querySelectorAll(".delete-btn").forEach((btn) => {
-  
-    btn.addEventListener("click", () => deleteExercise(btn.dataset.index, lang));
-  
-  });
-  
+// Escape quotes and symbols to prevent HTML breaking
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
-  
+
+function renderExercises(lang) {
+  const box = lang === "English" ? exerciseListEnglish : exerciseListPunjabi;
+  const list = lang === "English" ? exercisesEnglish : exercisesPunjabi;
+
+  box.innerHTML = list
+    .map(
+      (e, i) => `
+      <div class="card">
+        <b>${i + 1}. ${escapeHTML(e.title)}</b>
+        <p>${escapeHTML(e.text.slice(0, 100))}...</p>
+        <button class="delete-btn" data-index="${i}">Delete</button>
+      </div>`
+    )
+    .join("");
+
+  // Add event listeners safely
+  box.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => deleteExercise(btn.dataset.index, lang));
+  });
+}
+
 
   
 function deleteExercise(i,lang){
