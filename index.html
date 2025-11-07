@@ -203,7 +203,6 @@ async function loadTop10Results() {
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
-
     const leaderboardBody = document.getElementById("leaderboard-body");
     leaderboardBody.innerHTML = "";
 
@@ -231,13 +230,13 @@ async function loadTop10Results() {
 
 document.addEventListener("DOMContentLoaded", loadTop10Results);
 
-  
 </script>
 
 </script>
 
 </body>
 </html>
+
 
 
 
