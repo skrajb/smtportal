@@ -177,26 +177,28 @@ document.getElementById("start-test-btn").addEventListener("click", () => {
 
 /* ✅ Function to Save Result to Google Sheet */
 <script>
-async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
-    const endpoint = "https://script.google.com/macros/s/AKfycbxXkt-QGsKM690tXCVWm570QrB3UjL6Bwr-zi79lrq0mUNEgtQzj_0_y73aMSQ3jt1fmw/exec"; // Replace with your Google Script URL
+async function sendResultToGoogleSheet(name, refNo, speed, accuracy, backspaceCount) {
+    const endpoint = "https://script.google.com/macros/s/AKfycbynnpKa9igTVVohP89Qzl0LPf1Vu5mhX_E5O1vbvFwgWygrBnFbahEWxx3rSrWziQWSIA/exec";
 
-    const data = { name, refNo, speed, accuracy };
+    const data = { name, refNo, speed, accuracy, backspaceCount };
 
     try {
-        const response = await fetch(endpoint, {
+        await fetch(endpoint, {
             method: "POST",
-            mode: "no-cors", // Prevent CORS errors
+            mode: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
-        console.log("Result sent to Google Sheet:", data);
+        console.log("✅ Result sent:", data);
     } catch (error) {
-        console.error("Error sending data:", error);
+        console.error("❌ Error sending data:", error);
     }
 }
 </script>
+
 </script>
 
 </body>
 </html>
+
 
