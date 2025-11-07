@@ -199,7 +199,7 @@ async function sendResultToGoogleSheet(name, refNo, speed, accuracy, backspaceCo
 
 
 async function loadTop10Results() {
-  const endpoint = "https://script.google.com/macros/s/AKfycbynnpKa9igTVVohP89Qzl0LPf1Vu5mhX_E5O1vbvFwgWygrBnFbahEWxx3rSrWziQWSIA/exec?action=top10";
+  const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec?action=top10";
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", loadTop10Results);
 
 </body>
 </html>
+
 
 
 
