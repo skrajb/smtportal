@@ -194,11 +194,50 @@ async function sendResultToGoogleSheet(name, refNo, speed, accuracy, backspaceCo
         console.error("❌ Error sending data:", error);
     }
 }
+
+
+
+
+async function loadTop10Results() {
+  const endpoint = "https://script.google.com/macros/s/AKfycbynnpKa9igTVVohP89Qzl0LPf1Vu5mhX_E5O1vbvFwgWygrBnFbahEWxx3rSrWziQWSIA/exec?action=top10";
+  try {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    leaderboardBody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      leaderboardBody.innerHTML = `<tr><td colspan="4">No results found for today.</td></tr>`;
+      return;
+    }
+
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>
+      `;
+      leaderboardBody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("❌ Error loading top 10:", error);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+
+  
 </script>
 
 </script>
 
 </body>
 </html>
+
 
 
