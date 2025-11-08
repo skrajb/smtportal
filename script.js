@@ -466,12 +466,7 @@ setTimeout(() => {
 
 
 
-saveResultToSheet(
-  localStorage.getItem("userName"),
-  localStorage.getItem("userRefNo"),
-  calculatedSpeed,
-  calculatedAccuracy
-);
+
 
 // Expose submit
 window.submitResults = submitResults;
