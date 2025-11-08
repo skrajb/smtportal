@@ -105,6 +105,10 @@ async function initializeTest() {
 
     // Normalize whitespace & trim
     fullParagraph = fullParagraph.replace(/\s+/g, " ").trim();
+	fullParagraph = fullParagraph
+  .replace(/&apos;|&#39;|&amp;apos;/g, "'")
+  .replace(/&quot;|&#34;/g, '"')
+  .replace(/&amp;/g, "&");
 
     words = fullParagraph.length ? fullParagraph.split(" ") : [];
     chunkSize = Math.max(1, Math.ceil(words.length / 10)); // try to create 10 chunks
