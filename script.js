@@ -815,28 +815,27 @@ function displaySavedStats() {
  *****************************************************
 
 async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
-    const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec"; // Replace with your actual Apps Script URL
     const data = { name, refNo, speed, accuracy };
 
     try {
-        await fetch(endpoint, {
+        const response = await fetch(endpoint, {
             method: "POST",
-            mode: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         console.log("✅ Result sent to Google Sheet:", data);
     } catch (error) {
         console.error("❌ Error sending result:", error);
     }
 }
 
-// 🔹 Hook into your existing result generation (after test end or submit)
 function saveResultToSheet() {
     try {
         const userName = document.getElementById("userName")?.value?.trim() || "Unknown";
         const userRefNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
-
         const speed = document.getElementById("gross-speed-value")?.innerText || "0";
         const accuracy = document.getElementById("accuracy-percentage-value")?.innerText || "0";
 
