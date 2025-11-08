@@ -64,7 +64,7 @@ body {
     border:1px solid #ddd;
     font-size:1.25rem;
     margin-bottom:8px;
-	line-height:1.8;
+	line-height:0.5;
 	 font-family: 'Bookman Old Style', serif;
 }
 
@@ -259,6 +259,7 @@ body {
 .small-btn:hover {
     background: #003b84;
 }
+
 
 
 
