@@ -151,17 +151,19 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <script src="script.js"></script>
+<script src="script.js"></script>
+
 <script>
-/* Clear data when page is closed */
+/* ✅ Clear data when page is closed */
 window.addEventListener("beforeunload", () => {
   localStorage.removeItem("selectedExerciseText");
   localStorage.removeItem("selectedExerciseLanguage");
 });
 
 /* ✅ Handle User Info & Show Test */
-document.getElementById("start-test-btn").addEventListener("click", () => {
-  const userName = document.getElementById("user-name").value.trim();
-  const userRefNo = document.getElementById("user-ref").value.trim();
+document.getElementById("start-test-btn")?.addEventListener("click", () => {
+  const userName = document.getElementById("userName").value.trim();
+  const userRefNo = document.getElementById("userRefNo").value.trim();
 
   if (!userName || !userRefNo) {
     alert("Please enter both Name and Reference No.");
@@ -175,10 +177,27 @@ document.getElementById("start-test-btn").addEventListener("click", () => {
   document.getElementById("test-section").style.display = "block";
 });
 
-/* ✅ Function to Save Result to Google Sheet */
-<script>
+/* ✅ Google Sheet Backend URL */
+const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec";
+
+/* ✅ Function: Save Test Result to Google Sheet */
+async function saveResultToSheet(name, refNo, speed, accuracy) {
+  try {
+    const response = await fetch(GOOGLE_SHEET_URL, {
+      method: "POST",
+      body: JSON.stringify({ name, refNo, speed, accuracy }),
+      headers: { "Content-Type": "application/json" }
+    });
+    const text = await response.text();
+    console.log("✅ Saved:", text);
+  } catch (error) {
+    console.error("❌ Error saving result:", error);
+  }
+}
+
+/* ✅ Function: Load Top 10 Leaderboard */
 async function loadTop10Results() {
-  const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec?action=top10";
+  const endpoint = `${GOOGLE_SHEET_URL}?action=top10`;
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
@@ -207,14 +226,19 @@ async function loadTop10Results() {
   }
 }
 
+/* ✅ Load Top 10 automatically on page load */
 document.addEventListener("DOMContentLoaded", loadTop10Results);
 
+/* ✅ Example integration:
+   After test completion in your script.js, call:
+   saveResultToSheet(userName, userRefNo, netSpeed, accuracy);
+*/
 </script>
 
-</script>
 
 </body>
 </html>
+
 
 
 
