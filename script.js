@@ -812,7 +812,7 @@ function displaySavedStats() {
 // End of file
 /******************************************************
  * ✅ GOOGLE SHEET RESULT SAVING FEATURE (Smartech)
- *****************************************************
+ *****************************************************/
 
 async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
     const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec"; // Replace with your actual Apps Script URL
