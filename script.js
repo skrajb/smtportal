@@ -13,9 +13,10 @@
 
 // -------------------- Helper: Load paragraph from URL param --------------------
 // -------------------- Helper: Load paragraph --------------------
+// -------------------- Helper: Load paragraph --------------------
 async function loadTestParagraph() {
   try {
-    // ✅ Try to load from localStorage
+    // ✅ First try to load from localStorage (safest path)
     const savedText = localStorage.getItem("selectedExerciseText");
     if (savedText) {
       localStorage.removeItem("selectedExerciseText");
@@ -23,10 +24,33 @@ async function loadTestParagraph() {
       return savedText;
     }
 
-    // ✅ Fallback (old system)
+    // ✅ Otherwise, load from URL (?exercise=...)
     const urlParams = new URLSearchParams(window.location.search);
     const encodedExercise = urlParams.get("exercise");
-    if (encodedExercise) return decodeURIComponent(encodedExercise);
+
+    if (encodedExercise) {
+      try {
+        // --- Safe decoding ---
+        // decodeURIComponent can fail if string is not properly encoded
+        const decoded = decodeURIComponent(encodedExercise);
+
+        // --- Defensive cleanup: restore quotes and handle HTML-encoded versions ---
+        return decoded
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&apos;/g, "'")
+          .replace(/&amp;/g, "&")
+          .trim();
+      } catch (decodeError) {
+        console.warn("⚠️ Decode error, returning raw exercise text:", decodeError);
+        return encodedExercise
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .replace(/&apos;/g, "'")
+          .replace(/&amp;/g, "&")
+          .trim();
+      }
+    }
 
     console.warn("No exercise found.");
     return "";
@@ -35,6 +59,7 @@ async function loadTestParagraph() {
     return "";
   }
 }
+
 
 
 // -------------------- Global state (from your engine) --------------------
