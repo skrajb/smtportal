@@ -746,6 +746,19 @@ function saveTestStats(stats) {
     }
 }
 
+
+saveResultToSheet(
+  localStorage.getItem("userName"),
+  localStorage.getItem("userRefNo"),
+  calculatedSpeed,
+  calculatedAccuracy
+);
+
+
+
+
+
+
 function showLocalStorageError() {
     const container = $("saved-stats-container") || document.querySelector('.container') || document.body;
     const errorDiv = document.createElement('div');
