@@ -812,7 +812,7 @@ function displaySavedStats() {
 // End of file
 /******************************************************
  * ✅ GOOGLE SHEET RESULT SAVING FEATURE (Smartech)
- ******************************************************/
+ *****************************************************
 
 async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
     const endpoint = "https://script.google.com/macros/s/AKfycbyEdmPsvPAIZB6N8TAgUC5B-lzg3m-x63EcO1Vun-cuh1nhswlUr3WrIKy61wK6Imc9QQ/exec";
@@ -849,7 +849,7 @@ function saveResultToSheet() {
         console.error("❌ Error preparing result:", e);
     }
 }
-
+*/
 // ✅ Attach automatic call when results are shown or submitted
 document.addEventListener("DOMContentLoaded", () => { const submitBtn = document.getElementById("submit-btn"); 
 	if (submitBtn) { submitBtn.addEventListener("click", () => { // Save after the result table is populated set
