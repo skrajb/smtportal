@@ -861,3 +861,4 @@ document.addEventListener("DOMContentLoaded", () => { const submitBtn = document
         });
     }
 });
+saveTestStats(stats);
