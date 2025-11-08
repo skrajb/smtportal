@@ -815,7 +815,7 @@ function displaySavedStats() {
  *****************************************************
 
 async function sendResultToGoogleSheet(name, refNo, speed, accuracy) {
-    const endpoint = "https://script.google.com/macros/s/AKfycbyEdmPsvPAIZB6N8TAgUC5B-lzg3m-x63EcO1Vun-cuh1nhswlUr3WrIKy61wK6Imc9QQ/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec";
     const data = { name, refNo, speed, accuracy };
 
     try {
@@ -849,7 +849,7 @@ function saveResultToSheet() {
         console.error("❌ Error preparing result:", e);
     }
 }
-*/
+
 // ✅ Attach automatic call when results are shown or submitted
 document.addEventListener("DOMContentLoaded", () => { const submitBtn = document.getElementById("submit-btn"); 
 	if (submitBtn) { submitBtn.addEventListener("click", () => { // Save after the result table is populated set
