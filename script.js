@@ -853,6 +853,10 @@ function saveResultToSheet() {
 // ✅ Attach automatic call when results are shown or submitted
 document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.getElementById("submit-btn");
+//Hide User-info on Submit
+	 const userInfo = document.getElementById("user-info");
+  if (userInfo) userInfo.style.display = "none";
+	
     if (submitBtn) {
         submitBtn.addEventListener("click", () => {
             // Save after the result table is populated
