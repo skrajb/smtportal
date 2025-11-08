@@ -185,15 +185,16 @@ async function saveResultToSheet(name, refNo, speed, accuracy) {
   try {
     const response = await fetch(GOOGLE_SHEET_URL, {
       method: "POST",
+      mode: "no-cors", // Add this line if you get CORS errors
       body: JSON.stringify({ name, refNo, speed, accuracy }),
       headers: { "Content-Type": "application/json" }
     });
-    const text = await response.text();
-    console.log("✅ Saved:", text);
+    console.log("✅ Result sent to Google Sheets");
   } catch (error) {
     console.error("❌ Error saving result:", error);
   }
 }
+
 
 /* ✅ Function: Load Top 10 Leaderboard */
 async function loadTop10Results() {
@@ -245,6 +246,7 @@ saveResultToSheet(userName, userRefNo, netSpeed, accuracy);
 
 </body>
 </html>
+
 
 
 
