@@ -177,29 +177,6 @@ document.getElementById("start-test-btn").addEventListener("click", () => {
 
 /* ✅ Function to Save Result to Google Sheet */
 <script>
-async function sendResultToGoogleSheet(name, refNo, speed, accuracy, backspaceCount) {
-    const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec";
-
-    const data = { name, refNo, speed, accuracy, backspaceCount };
-
-    try {
-        const response = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        console.log("✅ Result sent successfully:", data);
-    } catch (error) {
-        console.error("❌ Error sending data:", error);
-    }
-}
-
-
-
-
-
 async function loadTop10Results() {
   const endpoint = "https://script.google.com/macros/s/AKfycbxGtH0JLaApDiOF70i-pDUFC4jQIu8Oeu8EBZ1dyGxsSS6TloHt3aBO_EYl9W_Unqc8ag/exec?action=top10";
   try {
@@ -238,6 +215,7 @@ document.addEventListener("DOMContentLoaded", loadTop10Results);
 
 </body>
 </html>
+
 
 
 
