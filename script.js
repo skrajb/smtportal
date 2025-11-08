@@ -819,7 +819,18 @@ function displaySavedStats() {
 }
 
 // -------------------- Full-screen control binding is done in bindUI above --------------------
+// script.js — inside your test submission logic
+document.getElementById("submit-btn").addEventListener("click", () => {
+  const userName = localStorage.getItem("userName");
+  const userRefNo = localStorage.getItem("userRefNo");
 
+  // Use your actual computed values here:
+  const speed = calculatedSpeed;     
+  const accuracy = calculatedAccuracy;
+
+  // Save result to Google Sheet
+  saveResultToSheet(userName, userRefNo, speed, accuracy);
+});
 // End of file
 /******************************************************
  * ✅ GOOGLE SHEET RESULT SAVING FEATURE (Smartech)
