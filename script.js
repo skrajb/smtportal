@@ -463,6 +463,16 @@ setTimeout(() => {
     saveTestStats(stats);
 }
 
+
+
+
+saveResultToSheet(
+  localStorage.getItem("userName"),
+  localStorage.getItem("userRefNo"),
+  calculatedSpeed,
+  calculatedAccuracy
+);
+
 // Expose submit
 window.submitResults = submitResults;
 
@@ -746,13 +756,6 @@ function saveTestStats(stats) {
     }
 }
 
-
-saveResultToSheet(
-  localStorage.getItem("userName"),
-  localStorage.getItem("userRefNo"),
-  calculatedSpeed,
-  calculatedAccuracy
-);
 
 
 
