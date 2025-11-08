@@ -183,17 +183,19 @@ async function sendResultToGoogleSheet(name, refNo, speed, accuracy, backspaceCo
     const data = { name, refNo, speed, accuracy, backspaceCount };
 
     try {
-        await fetch(endpoint, {
+        const response = await fetch(endpoint, {
             method: "POST",
-            mode: "no-cors",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         });
-        console.log("✅ Result sent:", data);
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        console.log("✅ Result sent successfully:", data);
     } catch (error) {
         console.error("❌ Error sending data:", error);
     }
 }
+
 
 
 
@@ -236,6 +238,7 @@ document.addEventListener("DOMContentLoaded", loadTop10Results);
 
 </body>
 </html>
+
 
 
 
