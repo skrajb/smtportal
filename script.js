@@ -29,28 +29,34 @@ async function loadTestParagraph() {
     const encodedExercise = urlParams.get("exercise");
 
     if (encodedExercise) {
-      try {
-        // --- Safe decoding ---
-        // decodeURIComponent can fail if string is not properly encoded
-        const decoded = decodeURIComponent(encodedExercise);
+  try {
+    // Safely decode URI component
+    let decoded = decodeURIComponent(encodedExercise);
 
-        // --- Defensive cleanup: restore quotes and handle HTML-encoded versions ---
-        return decoded
-          .replace(/&quot;/g, '"')
-          .replace(/&#39;/g, "'")
-          .replace(/&apos;/g, "'")
-          .replace(/&amp;/g, "&")
-          .trim();
-      } catch (decodeError) {
-        console.warn("⚠️ Decode error, returning raw exercise text:", decodeError);
-        return encodedExercise
-          .replace(/&quot;/g, '"')
-          .replace(/&#39;/g, "'")
-          .replace(/&apos;/g, "'")
-          .replace(/&amp;/g, "&")
-          .trim();
-      }
-    }
+    // Normalize HTML entities to actual characters
+    decoded = decoded
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&");
+
+    // Handle over-escaped double quotes (e.g., \" or \')
+    decoded = decoded
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+
+    return decoded.trim();
+  } catch (decodeError) {
+    console.warn("⚠️ Decode error, returning raw exercise text:", decodeError);
+    let fallback = encodedExercise
+      .replace(/&quot;|&#34;/g, '"')
+      .replace(/&#39;|&apos;/g, "'")
+      .replace(/&amp;/g, "&")
+      .replace(/\\"/g, '"')
+      .replace(/\\'/g, "'");
+    return fallback.trim();
+  }
+}
+
 
     console.warn("No exercise found.");
     return "";
