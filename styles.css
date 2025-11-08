@@ -57,7 +57,7 @@ body {
 .paragraph { line-height:1.8; font-size:1.25rem; padding:4px;  font-family: 'Bookman Old Style', serif; background-color:white}
 
 .typing-input {
-    width:100%;
+    width:98%;
     resize:vertical;
     padding:10px;
     border-radius:6px;
@@ -258,6 +258,7 @@ body {
 .small-btn:hover {
     background: #003b84;
 }
+
 
 
 
