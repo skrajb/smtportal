@@ -151,101 +151,10 @@ document.addEventListener('keydown', function(e) {
 </div>
 
 <script src="script.js"></script>
-/*<script src="script.js"></script>
-
-<script>
-/* ✅ Clear data when page is closed */
-window.addEventListener("beforeunload", () => {
-  localStorage.removeItem("selectedExerciseText");
-  localStorage.removeItem("selectedExerciseLanguage");
-});
-
-/* ✅ Handle User Info & Show Test */
-document.getElementById("start-test-btn")?.addEventListener("click", () => {
-  const userName = document.getElementById("userName").value.trim();
-  const userRefNo = document.getElementById("userRefNo").value.trim();
-
-  if (!userName || !userRefNo) {
-    alert("Please enter both Name and Reference No.");
-    return;
-  }
-
-  localStorage.setItem("userName", userName);
-  localStorage.setItem("userRefNo", userRefNo);
-
-  document.getElementById("user-info").style.display = "none";
-  document.getElementById("test-section").style.display = "block";
-});
-
- ✅ Google Sheet Backend URL 
-const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbz9hfWA8qDI_SWOLsYvkRKrR-sfoia1M2hg76Kn5Tr0Me74c2AFq8m1bJFL_69Ewv0F5w/exec";
-
-/* ✅ Function: Save Test Result to Google Sheet */
-async function saveResultToSheet(name, refNo, speed, accuracy) {
-  try {
-    const response = await fetch(GOOGLE_SHEET_URL, {
-      method: "POST",
-      mode: "no-cors", // Add this line if you get CORS errors
-      body: JSON.stringify({ name, refNo, speed, accuracy }),
-      headers: { "Content-Type": "application/json" }
-    });
-    console.log("✅ Result sent to Google Sheets");
-  } catch (error) {
-    console.error("❌ Error saving result:", error);
-  }
-}
-
-
-/* ✅ Function: Load Top 10 Leaderboard */
-async function loadTop10Results() {
-  const endpoint = `${GOOGLE_SHEET_URL}?action=top10`;
-  try {
-    const response = await fetch(endpoint);
-    const data = await response.json();
-    const leaderboardBody = document.getElementById("leaderboard-body");
-    leaderboardBody.innerHTML = "";
-
-    if (!data || data.length === 0) {
-      leaderboardBody.innerHTML = `<tr><td colspan="4">No results found for today.</td></tr>`;
-      return;
-    }
-
-    data.forEach(row => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = `
-        <td>${row.name}</td>
-        <td>${row.refNo}</td>
-        <td>${row.speed}</td>
-        <td>${row.accuracy}%</td>
-      `;
-      leaderboardBody.appendChild(tr);
-    });
-  } catch (error) {
-    console.error("❌ Error loading top 10:", error);
-    document.getElementById("leaderboard-body").innerHTML =
-      `<tr><td colspan="4">Error loading data</td></tr>`;
-  }
-}
-
-/* ✅ Load Top 10 automatically on page load */
-document.addEventListener("DOMContentLoaded", loadTop10Results);
-
-/* ✅ Example integration:
-   After test completion in your script.js, call:
-   saveResultToSheet(userName, userRefNo, netSpeed, accuracy);
-*/
-
-
-saveResultToSheet(userName, userRefNo, netSpeed, accuracy);
-
-
-
-  
-</script>
-*/
 
 </body>
 </html>
+
 
 
 
