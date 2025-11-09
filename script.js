@@ -873,7 +873,7 @@ function saveResultToSheet() {
 	
   const refNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
   const name = document.getElementById("userName")?.value?.trim() || "Unknown";
-  const language = localStorage.getItem("selectedExerciseText") || "English";
+  const language = document.getElementById("backspacecount");//localStorage.getItem("selectedExerciseText") || "English";
   const speed = document.getElementById("actual-gross-speed-value")?.innerText?.replace("WPM", "").trim() || "0";
   const accuracy = document.getElementById("accuracy-percentage-value")?.innerText?.replace("%", "").trim() || "0";
   const backspace = document.getElementById("backspace-count-value")?.innerText || "0";
