@@ -20,7 +20,7 @@ async function loadTestParagraph() {
     const savedText = localStorage.getItem("selectedExerciseText");
     if (savedText) {
       localStorage.removeItem("selectedExerciseText");
-      localStorage.removeItem("selectedExerciseLanguage");
+  //   localStorage.removeItem("selectedExerciseLanguage");
       return savedText;
     }
 
@@ -833,5 +833,121 @@ document.getElementById("submit-btn").addEventListener("click", () => {
 });
 // End of file
 /******************************************************
- * ✅ GOOGLE SHEET RESULT SAVING FEATURE (Smartech)
- *****************************************************/
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ ******************************************************/
+/******************************************************
+ * ✅ GOOGLE SHEET SAVE + TOP 10 LEADERBOARD (Smartech)
+ * Matches columns: formatTimeStamp | Ref No | Name | Language | Speed | Accuracy | Backspace
+ ******************************************************/
+const GOOGLE_SHEET_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbxT0mhZ0q-QLkIbJIqG8uIasrjLvx3HuQynmxcYswu3e8r_osUPkCZG2neBTPlcX3Hcrg/exec";
+
+// ✅ Save one test result to the Sheet
+async function sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace) {
+  const data = {
+    timeStamp: new Date().toLocaleString(),
+    refNo,
+    name,
+    language,
+    speed,
+    accuracy,
+    backspace,
+    action: "save"
+  };
+
+  try {
+    await fetch(GOOGLE_SHEET_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+    console.log("✅ Result saved to Google Sheet:", data);
+  } catch (err) {
+    console.error("❌ Google Sheet save error:", err);
+  }
+}
+
+// ✅ Collect current test data and call saver
+function saveResultToSheet() {
+	
+  const refNo = document.getElementById("userRefNo")?.value?.trim() || "N/A";
+  const name = document.getElementById("userName")?.value?.trim() || "Unknown";
+  const language = localStorage.getItem("selectedExerciseText") || "English";
+  const speed = document.getElementById("actual-gross-speed-value")?.innerText?.replace("WPM", "").trim() || "0";
+  const accuracy = document.getElementById("accuracy-percentage-value")?.innerText?.replace("%", "").trim() || "0";
+  const backspace = document.getElementById("backspace-count-value")?.innerText || "0";
+  
+
+  if (refNo && name) {
+    sendResultToGoogleSheet(refNo, name, language, speed, accuracy, backspace);
+  } else {
+    console.warn("⚠️ Missing Name or Ref No");
+  }
+}
+
+/* ✅ Fetch and display Top 10 results
+async function loadTop10Results() {
+  try {
+    const response = await fetch(GOOGLE_SHEET_ENDPOINT);
+    const data = await response.json();
+
+    const leaderboardBody = document.getElementById("leaderboard-body");
+    leaderboardBody.innerHTML = "";
+
+    if (!data || data.length === 0) {
+      leaderboardBody.innerHTML = `<tr><td colspan="4">No results found.</td></tr>`;
+      return;
+    }
+
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      leaderboardBody.appendChild(tr);
+    });
+  } catch (error) {
+    console.error("❌ Error loading leaderboard:", error);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+*/
+/* === LOAD TOP 10 === */
+async function loadTop10Results() {
+  try {
+    const res = await fetch(`${GOOGLE_SHEET_URL}?action=top10`);
+    const data = await res.json();
+    const body = document.getElementById("leaderboard-body");
+    body.innerHTML = "";
+    if (!data.length) {
+      body.innerHTML = `<tr><td colspan="4">No results found</td></tr>`;
+      return;
+    }
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${row.name}</td>
+        <td>${row.refNo}</td>
+        <td>${row.speed}</td>
+        <td>${row.accuracy}%</td>`;
+      body.appendChild(tr);
+    });
+  } catch (e) {
+    console.error("❌ Load error:", e);
+    document.getElementById("leaderboard-body").innerHTML =
+      `<tr><td colspan="4">Error loading data</td></tr>`;
+  }
+}
+document.addEventListener("DOMContentLoaded", loadTop10Results);
+// ✅ Auto-save every test submission to Google Sheet
+const originalSubmit = window.submitResults;
+window.submitResults = async function() {
+  await originalSubmit(); // run core logic
+  saveResultToSheet();   // then save to Sheet
+};
