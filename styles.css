@@ -62,7 +62,7 @@ body {
     padding:10px;
     border-radius:6px;
     border:1px solid #ddd;
-	line-height:1.0;
+	line-height:1.5;
     font-size:1.25rem;
     margin-bottom:8px;
 	
@@ -260,6 +260,7 @@ body {
 .small-btn:hover {
     background: #003b84;
 }
+
 
 
 
