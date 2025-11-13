@@ -995,6 +995,176 @@ window.onload=()=>{ if(isLoggedIn){exerciseContainer.classList.remove('hidden');
   
 }
 loadExercisesFromUrl();  
+
+
+
+
+/* ----- LOGIN / SESSION STUFF ----- */
+/* Your provided Apps Script web app URL (deployed) */
+const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbwu-7NV-bYnBnejBPMUaGpr8ukTWwcMe5QE8AmNYDhnGGUEWU3u1YxslFg24MyKXq5EUg/exec";
+
+/* Generate a session id and register login with backend (sheet) */
+async function registerLogin(username) {
+  try {
+    const sessionId = Math.random().toString(36).substring(2, 12);
+    localStorage.setItem("sessionId", sessionId);
+    localStorage.setItem("username", username);
+    // call backend to register session
+    await fetch(`${GOOGLE_APP_URL}?action=login&username=${encodeURIComponent(username)}&sessionId=${encodeURIComponent(sessionId)}`);
+    // Start periodic checks
+    checkSessionLoop();
+  } catch (err) {
+    console.error("Failed to register login", err);
+  }
+}
+
+/* Periodically check session status (every 60s) */
+let _checkLoopActive = false;
+async function checkSessionLoop() {
+  if (_checkLoopActive) return;
+  _checkLoopActive = true;
+
+  while (sessionStorage.getItem('isLoggedIn') === 'true') {
+    try {
+      const username = localStorage.getItem("username");
+      const sessionId = localStorage.getItem("sessionId");
+      if (!username || !sessionId) break;
+
+      const res = await fetch(`${GOOGLE_APP_URL}?action=check&username=${encodeURIComponent(username)}&sessionId=${encodeURIComponent(sessionId)}`);
+      const status = await res.text();
+
+      if (status === "LOGOUT" || status === "EXPIRED") {
+        alert("Your session has expired or you logged in from another device. You will be logged out now.");
+        await performLogoutLocal(false); // false = avoid asking backend again
+        break;
+      }
+    } catch (err) {
+      console.error("Session check failed", err);
+      // continue anyway; next loop will retry
+    }
+    // wait 60s before next check
+    await new Promise(res => setTimeout(res, 60000));
+  }
+
+  _checkLoopActive = false;
+}
+
+/* Perform logout locally and optionally inform backend */
+async function performLogoutLocal(callBackend = true) {
+  const username = localStorage.getItem("username");
+  try {
+    if (callBackend && username) {
+      await fetch(`${GOOGLE_APP_URL}?action=logout&username=${encodeURIComponent(username)}`);
+    }
+  } catch (err) {
+    console.warn("Backend logout failed (network?). Proceeding with local logout.", err);
+  }
+
+  localStorage.removeItem("username");
+  localStorage.removeItem("sessionId");
+  sessionStorage.removeItem('isLoggedIn');
+
+  // UI updates
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+
+  if (exerciseContainer) exerciseContainer.classList.add('hidden');
+  if (logoutButton) logoutButton.classList.add('hidden');
+  if (loginBtn) loginBtn.classList.remove('hidden');
+
+  // reload to reset state consistently
+  try { alert("You have been logged out."); } catch (e) {}
+  location.reload();
+}
+
+/* Wrapper called by UI */
+async function logout() {
+  await performLogoutLocal(true);
+}
+
+/* Auto logout after 1 hour inactivity (resets on activity) */
+let inactivityTimer;
+const AUTO_LOGOUT_MS = 60 * 60 * 1000; // 1 hour
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  if (sessionStorage.getItem('isLoggedIn') === 'true') {
+    inactivityTimer = setTimeout(async () => {
+      alert("You have been logged out due to inactivity.");
+      await performLogoutLocal(true);
+    }, AUTO_LOGOUT_MS);
+  }
+}
+
+/* Wire activity events to reset inactivity timer */
+["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(evt => {
+  document.addEventListener(evt, resetInactivityTimer, { passive: true });
+});
+
+/* verifyCredentials uses the existing credential check you had; now it registers with backend */
+function verifyCredentials() {
+  // username and password are IDs in the DOM, so they become globals on most browsers,
+  // but we'll use getElementById to be explicit and robust.
+  const usernameEl = document.getElementById('username');
+  const passwordEl = document.getElementById('password');
+  const loginMessage = document.getElementById('loginMessage');
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+  const loginModal = document.getElementById('loginModal');
+
+  if (!usernameEl || !passwordEl) return;
+
+  const u = usernameEl.value.trim();
+  const p = passwordEl.value;
+
+  // your original simple check
+  if (u === "smt" && p === "1995") {
+    sessionStorage.setItem('isLoggedIn','true');
+    isLoggedIn = true;
+    if (loginModal) loginModal.style.display = 'none';
+    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+    if (logoutButton) logoutButton.classList.remove('hidden');
+    if (loginBtn) loginBtn.classList.add('hidden');
+
+    // register login with backend so this session becomes the active one
+    registerLogin(u);
+
+    // start/reset inactivity timer
+    resetInactivityTimer();
+  } else {
+    if (loginMessage) loginMessage.innerText = "Invalid credentials (try blank for demo)";
+  }
+}
+
+/* restore UI state on load if session exists */
+window.onload = () => {
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+
+  if (sessionStorage.getItem('isLoggedIn') === 'true') {
+    // show admin UI
+    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+    if (logoutButton) logoutButton.classList.remove('hidden');
+    if (loginBtn) loginBtn.classList.add('hidden');
+
+    // resume session checking
+    resetInactivityTimer();
+    checkSessionLoop();
+  } else {
+    if (exerciseContainer) exerciseContainer.classList.add('hidden');
+    if (logoutButton) logoutButton.classList.add('hidden');
+    if (loginBtn) loginBtn.classList.remove('hidden');
+  }
+
+  renderExercises("English");
+  renderExercises("Punjabi");
+};
+
+
+	  
 </script>
 
 
