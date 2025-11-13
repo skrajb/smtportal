@@ -951,7 +951,9 @@ window.submitResults = async function() {
   await originalSubmit(); // run core logic
   saveResultToSheet();   // then save to Sheet
 };
-<script>
+
+
+
   
 const quotes = [
   
@@ -1350,4 +1352,3 @@ window.onload = () => {
 
 
 	  
-</script>
