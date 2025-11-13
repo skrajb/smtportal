@@ -118,7 +118,38 @@ button:hover{background:#000;color:white;}
 window.addEventListener("DOMContentLoaded", () => {
 
 // ===== Word Lists =====
-const englishWords = ["about","above","after","again","air","all","almost","along","also","always","animal","answer","any","are","ask","away","back","be","because","before","below","between","big","book","boy","but","by","call","came","can","car","children","city","close","come","could","country","cut","day","did","different","do","does","down","each","end","enough","even","every","example","face","family","far","father","few","find","first","food","for","found","from","get","girl","give","go","good","great","grow","had","hand","has","have","he","help","her","here","high","him","his","home","house","how","idea","if","important","in","into","is","it","its","just","keep","kind","know","land","large","last","learn","leave","life","light","like","line","live","look","made","make","many","may","me","mean","men","might","more","most","mother","move","much","must","my","name","need","never","new","no","not","now","of","off","often","old","on","one","only","open","or","other","our","out","over","own","page","paper","part","people","place","play","point","put","read","really","right","run","said","same","say","school","sea","see","seem","set","she","should","show","side","small","so","some","something","soon","start","state","stop","story","study","such","take","tell","than","that","the","their","them","then","there","these","they","thing","think","this","those","three","through","time","to","together","too","try","two","under","until","up","us","use","very","walk","want","was","watch","water","way","we","well","were","what","when","where","which","while","who","why","will","with","without","word","work","world","would","write","year","you","young","your"];
+const englishWords = [
+  "has", "had", "lad", "add", "dada", "ask", "alfa", "kafla", "dass", "flag", "all", "flash", "slag", "salsa",
+  "jag's", "half", "jaal's", "salad", "shall", "glass", "lakh's", "fall", "hall", "glad", "desk", "lead", "alert",
+  "ugly", "less", "skill", "fail", "dull", "first", "risk", "faith", "early", "tiger", "height", "yellow", "flight",
+  "author", "fight", "style", "loyal", "eight", "right", "towel", "judge", "their", "other", "whose", "looks",
+  "should", "useful", "quality", "south", "large", "frog's", "park", "user", "silk", "she'll", "joe's", "quill",
+  "post", "wife", "that's", "keep", "safe", "spiritual", "yesterday", "fruitflow", "dutiful", "universe", "nature",
+  "zenith", "valley", "current", "smooth", "knees", "margin", "zila", "zero", "quick", "zebra", "chase", "need",
+  "neck", "smell", "some", "maps", "number", "young", "charity", "miracle", "boxing", "narrow", "caught", "defects",
+  "liable", "limbs", "turn", "burn", "mike", "hint", "doze", "next", "meat", "veto", "lock", "chart", "body", "xray",
+  "humble", "major", "exactly", "print", "action", "define", "brought", "manner", "money", "value", "navy", "sixth",
+  "box", "fox", "boy", "mat", "copycat", "nice", "milk", "net", "Kafla", "Dass", "Jaal's", "Dada", "Flag", "Khallas",
+  "Skaff", "Slag", "Salsa", "Dalda", "Slash", "Hash", "Alfas", "Glass", "Shalk", "Sallad", "Jaffa", "Add", "Gas",
+  "Hall", "Lass", "Aid", "People", "Equip", "Hillary", "Jupiter", "Jealousy", "Safe", "Yule", "Earth", "Guide",
+  "Sleek", "Flies", "Ride", "Dialogue", "Pares", "Tulip", "Tuesday", "Lotus", "Years", "Farewell", "Diesel", "Result",
+  "Foods", "Fiddle", "Tailor", "Europe", "Leaf", "Lily", "Regard", "Hour", "Feature", "Failed", "Quetta", "Kabir",
+  "Zigs", "Negative", "Beggar", "Foreign", "British", "Scale", "Wizard", "Machine", "Diwali", "Country", "Amazing",
+  "Blessing", "Cycle", "Nylon", "Opinion", "Village", "Tundra", "Zealous", "Hungry", "Knowledge", "Policies",
+  "United", "Studies", "India", "Indian", "Needle", "Million", "Mainly", "Oxford", "Nanak", "Over", "Inkpot",
+  "Remington", "Lovely", "Onion", "Literacy", "Costly", "Rejuvenate", "Filth", "Soporific", "Tenebrous", "Candid",
+  "Prevaricate", "Otiose", "Swift", "Palindrome", "Inamorata", "Meretricious", "Meritorious", "Rein", "Hilt", "Sigh",
+  "Pessimistic", "Leisure", "Wane", "Squall", "Pupil", "Vicinity", "Empiricism", "Glimpses", "Fascinating",
+  "Formidable", "Admirable", "Scold", "Largesse", "Contemporary", "Miscreants", "Culmination", "Spate", "Conquering",
+  "Winging", "Whining", "Cruelty", "Notion", "Cringe", "Meticulous", "Stringent", "Strength", "Drenched", "Drunk",
+  "Tonsure", "Impinge", "Binge", "Reluctant", "Tremendous", "Saddle", "Scoop", "Furious", "Sweat", "Idle", "Idol",
+  "Stagnant", "Inconsiderate", "Connoisseur", "Foster", "Febrile", "Sacred", "Artery", "Muscles", "Pancreas", "Heed",
+  "Hell", "Hilarious", "University", "Fraught", "Ancient", "Analog", "Clad", "Discernible", "Pitfall", "Potholes",
+  "Betrayed", "Shatter", "Suffered", "Queen", "Tainted", "Pamper", "Mentor", "Religious", "Physics", "Chemical",
+  "Physiology", "Numerical", "Effigy", "Trespass", "Lopsided", "Sophisticated", "Apprised", "Applaud", "Somber",
+  "Privilege", "Garbage", "Heritage", "Rescue", "Derogatory", "Lapse", "Rival", "Prone", "Finicky", "Throttle",
+  "Coward", "Hassle"
+];
 const punjabiWords = ["ਸਿੱਖਿਆ","ਕੰਪਿਊਟਰ","ਪੰਜਾਬ","ਵਿਦਿਆਰਥੀ","ਗੁਰੂ","ਪਿਆਰ","ਸੱਚ","ਮੇਹਨਤ","ਸਮਾਂ","ਕਲਮ","ਪੋਥੀ","ਅਧਿਆਪਕ","ਸਕੂਲ","ਪਰਿਵਾਰ","ਜੀਵਨ","ਦੋਸਤ","ਕਿਰਤ","ਇਨਸਾਨ","ਮਾਤਾ","ਪਿਤਾ","ਸਹਿਯੋਗ","ਸੁੰਦਰ","ਬੋਲ","ਕਰਮ","ਕਿਰਪਾ","ਮਨ","ਸਮਾਜ","ਘਰ","ਪ੍ਰੇਮ","ਧੰਨਵਾਦ","ਸਿੱਖ","ਸੱਚਾ","ਰੱਬ","ਕਿਤਾਬ","ਲਿਖਣਾ","ਪੜ੍ਹਨਾ","ਮਾਂ","ਭਾਸ਼ਾ","ਨੌਕਰੀ","ਗਿਆਨ","ਖੁਸ਼ੀ","ਆਦਰ","ਦਿਲ","ਵਿਚਾਰ","ਸੰਗੀਤ","ਕਲਾ","ਗਾਂਵ","ਸ਼ਹਿਰ","ਸੇਵਾ","ਸਫਲਤਾ","ਇਜ਼ਤ","ਮੁਹੱਬਤ","ਭਾਈਚਾਰਾ","ਨਮਰਤਾ","ਦਇਆ","ਵਿਦਿਆ","ਸ਼ਕਤੀ","ਜੀਵਨ","ਅਨੰਦ","ਸ਼ਰਧਾ","ਇਕਤਾ","ਆਰਾਮ","ਤਾਕਤ","ਹਿੰਮਤ","ਅਕਲ","ਸਰਦਾਰ","ਪ੍ਰੇਰਣਾ","ਦੁਨੀਆ","ਅਮਨ","ਸ਼ਾਂਤੀ","ਪੁੱਤਰ","ਧੀ","ਅਰਦਾਸ","ਰਾਹ","ਸੱਚਾਈ","ਉਮੀਦ","ਹੌਸਲਾ","ਇਮਾਨਦਾਰੀ","ਆਦਮੀ","ਇਨਸਾਫ","ਦੋਸਤੀ"];
 
 let words=[],timer,timeRemaining,currentIndex=0,correct=0,wrong=0,timeTaken=0,typed=[],chunkStart=0,chunkSize=18,testDone=false;
@@ -206,5 +237,6 @@ reset();
 </script>
 </body>
 </html>
+
 
 
