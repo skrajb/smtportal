@@ -1,5 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Typing Exercises Manager</title><link rel="stylesheet" href="styles.css" />
-	<script src="script.js"></script>
+
 	<!--
   
 	<script>
@@ -769,5 +769,406 @@ document.addEventListener("DOMContentLoaded", () => {
 <p id="loginMessage"></p>
 
   </div></div>
+	<script><script>
+  
+const quotes = [
+  
+"Practice is the key to perfection.",
+  
+"Every word you type is a step closer to success.",
+  
+"Consistency turns beginners into champions.",
+  
+"The keyboard is your instrument — play it daily."
+  
+];
+  
+let qIndex = 0; const quoteBox = document.getElementById("quoteBox");
+  
+function showQuote() { quoteBox.style.opacity = 0; setTimeout(() => {
+  
+  quoteBox.innerHTML = quotes[qIndex]; quoteBox.style.opacity = 1;
+  
+  qIndex = (qIndex + 1) % quotes.length; }, 800); }
+  
+showQuote(); setInterval(showQuote, 10000);
+  
+
+  
+let exercisesEnglish = JSON.parse(localStorage.getItem('exercisesEnglish')) || [];
+  
+let exercisesPunjabi = JSON.parse(localStorage.getItem('exercisesPunjabi')) || [];
+  
+let isLoggedIn = sessionStorage.getItem('isLoggedIn') === 'true';
+  
+
+  
+function verifyCredentials() {
+  
+  if(username.value==="smt" && password.value==="1995"){
+  
+    sessionStorage.setItem('isLoggedIn','true');
+  
+    isLoggedIn = true; loginModal.style.display='none';
+  
+    exerciseContainer.classList.remove('hidden');
+  
+    logoutButton.classList.remove('hidden'); loginBtn.classList.add('hidden');
+  
+  } else loginMessage.innerText="Invalid credentials (try blank for demo)";
+  
+}
+  
+function logout(){
+  
+  sessionStorage.removeItem('isLoggedIn');
+  
+  isLoggedIn=false; exerciseContainer.classList.add('hidden');
+  
+  logoutButton.classList.add('hidden'); loginBtn.classList.remove('hidden');
+  
+}
+  
+function addExercise(lang){
+  
+  let title=lang==="English"?exerciseTitleEnglish.value:exerciseTitlePunjabi.value;
+  
+  let text=lang==="English"?exerciseTextEnglish.value:exerciseTextPunjabi.value;
+  
+  if(!title||!text)return alert("Both fields required");
+  
+  let list=lang==="English"?exercisesEnglish:exercisesPunjabi;
+  
+  list.push({title,text});
+  
+  localStorage.setItem('exercisesEnglish',JSON.stringify(exercisesEnglish));
+  
+  localStorage.setItem('exercisesPunjabi',JSON.stringify(exercisesPunjabi));
+  
+  renderExercises(lang);
+  
+}
+  
+// Escape quotes and symbols to prevent HTML breaking
+function escapeHTML(str) {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function renderExercises(lang) {
+  const box = lang === "English" ? exerciseListEnglish : exerciseListPunjabi;
+  const list = lang === "English" ? exercisesEnglish : exercisesPunjabi;
+
+  box.innerHTML = list
+    .map(
+      (e, i) => `
+      <div class="card">
+        <b>${i + 1}. ${escapeHTML(e.title)}</b>
+        <p>${escapeHTML(e.text.slice(0, 100))}...</p>
+        <button class="delete-btn" data-index="${i}">Delete</button>
+      </div>`
+    )
+    .join("");
+
+  // Add event listeners safely
+  box.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => deleteExercise(btn.dataset.index, lang));
+  });
+}
+
+
+  
+function deleteExercise(i,lang){
+  
+  let list=lang==="English"?exercisesEnglish:exercisesPunjabi;
+  
+  list.splice(i,1);
+  
+  localStorage.setItem('exercisesEnglish',JSON.stringify(exercisesEnglish));
+  
+  localStorage.setItem('exercisesPunjabi',JSON.stringify(exercisesPunjabi));
+  
+  renderExercises(lang);
+  
+}
+  
+function deleteAllExercises(){
+  
+  exercisesEnglish=[];exercisesPunjabi=[];
+  
+  localStorage.clear(); renderExercises("English"); renderExercises("Punjabi");
+  
+}
+  
+window.onload=()=>{ if(isLoggedIn){exerciseContainer.classList.remove('hidden');logoutButton.classList.remove('hidden');loginBtn.classList.add('hidden');}
+  
+  renderExercises("English");renderExercises("Punjabi"); };async function loadExercisesFromUrl() {
+  
+  const url = document.getElementById("exerciseFileUrl").value.trim();
+  
+  if (!url) return alert("Please enter a valid file URL!");
+  
+
+  
+  try {
+  
+    const response = await fetch(url);
+  
+    const text = await response.text();
+  
+
+  
+    // Split the text into lines and process
+  
+    const sections = text.split(/###/).filter(Boolean);
+  
+    exercisesEnglish = [];
+  
+    exercisesPunjabi = [];
+  
+
+  
+    sections.forEach(section => {
+  
+      const langMatch = section.match(/(English|Punjabi)/i);
+  
+      if (!langMatch) return;
+  
+
+  
+      const lang = langMatch[1].trim();
+  
+      const exercises = section.split(/---/).filter(t => t.trim().length > 0);
+  
+
+  
+      for (let i = 0; i < exercises.length; i += 2) {
+  
+        const title = exercises[i].trim();
+  
+        const content = exercises[i + 1] ? exercises[i + 1].trim() : "";
+  
+        if (!title || !content) continue;
+  
+
+  
+        if (lang.toLowerCase() === "english") {
+  
+          exercisesEnglish.push({ title, text: content });
+  
+        } else if (lang.toLowerCase() === "punjabi") {
+  
+          exercisesPunjabi.push({ title, text: content });
+  
+        }
+  
+      }
+  
+    });
+  
+
+  
+    // Save to localStorage and render
+  
+    localStorage.setItem('exercisesEnglish', JSON.stringify(exercisesEnglish));
+  
+    localStorage.setItem('exercisesPunjabi', JSON.stringify(exercisesPunjabi));
+  
+
+  
+    renderExercises("English");
+  
+    renderExercises("Punjabi");
+  
+
+  
+   // alert("✅ Exercises imported successfully!");
+  
+  } catch (err) {
+  
+    console.error(err);
+  
+    alert("❌ Failed to load exercises. Check your URL or file format.");
+  
+  }
+  
+}
+loadExercisesFromUrl();  
+
+
+
+
+/* ----- LOGIN / SESSION STUFF ----- */
+/* Your provided Apps Script web app URL (deployed) */
+const GOOGLE_APP_URL = "https://script.google.com/macros/s/AKfycbwu-7NV-bYnBnejBPMUaGpr8ukTWwcMe5QE8AmNYDhnGGUEWU3u1YxslFg24MyKXq5EUg/exec";
+
+/* Generate a session id and register login with backend (sheet) */
+async function registerLogin(username) {
+  try {
+    const sessionId = Math.random().toString(36).substring(2, 12);
+    localStorage.setItem("sessionId", sessionId);
+    localStorage.setItem("username", username);
+    // call backend to register session
+    await fetch(`${GOOGLE_APP_URL}?action=login&username=${encodeURIComponent(username)}&sessionId=${encodeURIComponent(sessionId)}`);
+    // Start periodic checks
+    checkSessionLoop();
+  } catch (err) {
+    console.error("Failed to register login", err);
+  }
+}
+
+/* Periodically check session status (every 60s) */
+let _checkLoopActive = false;
+async function checkSessionLoop() {
+  if (_checkLoopActive) return;
+  _checkLoopActive = true;
+
+  while (sessionStorage.getItem('isLoggedIn') === 'true') {
+    try {
+      const username = localStorage.getItem("username");
+      const sessionId = localStorage.getItem("sessionId");
+      if (!username || !sessionId) break;
+
+      const res = await fetch(`${GOOGLE_APP_URL}?action=check&username=${encodeURIComponent(username)}&sessionId=${encodeURIComponent(sessionId)}`);
+      const status = await res.text();
+
+      if (status === "LOGOUT" || status === "EXPIRED") {
+        alert("Your session has expired or you logged in from another device. You will be logged out now.");
+        await performLogoutLocal(false); // false = avoid asking backend again
+        break;
+      }
+    } catch (err) {
+      console.error("Session check failed", err);
+      // continue anyway; next loop will retry
+    }
+    // wait 60s before next check
+    await new Promise(res => setTimeout(res, 60000));
+  }
+
+  _checkLoopActive = false;
+}
+
+/* Perform logout locally and optionally inform backend */
+async function performLogoutLocal(callBackend = true) {
+  const username = localStorage.getItem("username");
+  try {
+    if (callBackend && username) {
+      await fetch(`${GOOGLE_APP_URL}?action=logout&username=${encodeURIComponent(username)}`);
+    }
+  } catch (err) {
+    console.warn("Backend logout failed (network?). Proceeding with local logout.", err);
+  }
+
+  localStorage.removeItem("username");
+  localStorage.removeItem("sessionId");
+  sessionStorage.removeItem('isLoggedIn');
+
+  // UI updates
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+
+  if (exerciseContainer) exerciseContainer.classList.add('hidden');
+  if (logoutButton) logoutButton.classList.add('hidden');
+  if (loginBtn) loginBtn.classList.remove('hidden');
+
+  // reload to reset state consistently
+  try { alert("You have been logged out."); } catch (e) {}
+  location.reload();
+}
+
+/* Wrapper called by UI */
+async function logout() {
+  await performLogoutLocal(true);
+}
+
+/* Auto logout after 1 hour inactivity (resets on activity) */
+let inactivityTimer;
+const AUTO_LOGOUT_MS = 60 * 60 * 1000; // 1 hour
+
+function resetInactivityTimer() {
+  clearTimeout(inactivityTimer);
+  if (sessionStorage.getItem('isLoggedIn') === 'true') {
+    inactivityTimer = setTimeout(async () => {
+      alert("You have been logged out due to inactivity.");
+      await performLogoutLocal(true);
+    }, AUTO_LOGOUT_MS);
+  }
+}
+
+/* Wire activity events to reset inactivity timer */
+["click", "mousemove", "keydown", "scroll", "touchstart"].forEach(evt => {
+  document.addEventListener(evt, resetInactivityTimer, { passive: true });
+});
+
+/* verifyCredentials uses the existing credential check you had; now it registers with backend */
+function verifyCredentials() {
+  // username and password are IDs in the DOM, so they become globals on most browsers,
+  // but we'll use getElementById to be explicit and robust.
+  const usernameEl = document.getElementById('username');
+  const passwordEl = document.getElementById('password');
+  const loginMessage = document.getElementById('loginMessage');
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+  const loginModal = document.getElementById('loginModal');
+
+  if (!usernameEl || !passwordEl) return;
+
+  const u = usernameEl.value.trim();
+  const p = passwordEl.value;
+
+  // your original simple check
+  if (u === "smt" && p === "1995") {
+    sessionStorage.setItem('isLoggedIn','true');
+    isLoggedIn = true;
+    if (loginModal) loginModal.style.display = 'none';
+    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+    if (logoutButton) logoutButton.classList.remove('hidden');
+    if (loginBtn) loginBtn.classList.add('hidden');
+
+    // register login with backend so this session becomes the active one
+    registerLogin(u);
+
+    // start/reset inactivity timer
+    resetInactivityTimer();
+  } else {
+    if (loginMessage) loginMessage.innerText = "Invalid credentials (try blank for demo)";
+  }
+}
+
+/* restore UI state on load if session exists */
+window.onload = () => {
+  const exerciseContainer = document.getElementById('exerciseContainer');
+  const logoutButton = document.getElementById('logoutButton');
+  const loginBtn = document.getElementById('loginBtn');
+
+  if (sessionStorage.getItem('isLoggedIn') === 'true') {
+    // show admin UI
+    if (exerciseContainer) exerciseContainer.classList.remove('hidden');
+    if (logoutButton) logoutButton.classList.remove('hidden');
+    if (loginBtn) loginBtn.classList.add('hidden');
+
+    // resume session checking
+    resetInactivityTimer();
+    checkSessionLoop();
+  } else {
+    if (exerciseContainer) exerciseContainer.classList.add('hidden');
+    if (logoutButton) logoutButton.classList.add('hidden');
+    if (loginBtn) loginBtn.classList.remove('hidden');
+  }
+
+  renderExercises("English");
+  renderExercises("Punjabi");
+};
+
+
+	  
+</script>
+</script>
 
 </body></html>
