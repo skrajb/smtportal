@@ -10,7 +10,28 @@
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
 */
+// Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
 
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
 // -------------------- Helper: Load paragraph from URL param --------------------
 
  // ensure previous/next by keyboard: PageUp/PageDown
