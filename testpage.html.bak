@@ -106,7 +106,7 @@ body {
 <!-- ✅ USER DETAILS -->
 <div id="user-info" style="text-align:center; margin-bottom:20px;">
   <h3 style="color:#00295f; margin-bottom:10px;">Candidate Details</h3>
-  <input type="text" id="userName" placeholder="Enter your name (Eng/Pbi)" 
+  <input type="text" id="userName" placeholder="Enter your name (Test Language: E/P)" 
          pattern="[A-Za-z\s]+" title="Only letters and spaces allowed" required
          style="padding:10px; width:260px; border:1px solid #00295f;
                 border-radius:6px; margin-right:10px; color:black;">
@@ -163,15 +163,6 @@ document.getElementById('typing-input').addEventListener('keydown', function(e) 
 </script>
 <script src="script.js">
 
-
- // ensure previous/next by keyboard: PageUp/PageDown
-  document.addEventListener('keydown', (e) => {
-
-    if (e.code === 'PageDown' || e.key === 'PageDown') { e.preventDefault(); if (currentChunkIndex < chunks.length-1) { currentChunkIndex++; renderChunk(); } }
-    if (e.code === 'PageUp' || e.key === 'PageUp') { e.preventDefault(); if (currentChunkIndex > 0) { currentChunkIndex--; renderChunk(); }
-	}
-  });
-      
 
 </script>
 </body>

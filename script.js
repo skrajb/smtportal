@@ -13,6 +13,19 @@
 
 // -------------------- Helper: Load paragraph from URL param --------------------
 
+ // ensure previous/next by keyboard: PageUp/PageDown
+  document.addEventListener('keydown', (e) => {
+
+    if (e.code === 'PageDown' || e.key === 'PageDown') { e.preventDefault(); if (currentChunkIndex < chunks.length-1) { currentChunkIndex++; renderChunk(); } }
+    if (e.code === 'PageUp' || e.key === 'PageUp') { e.preventDefault(); if (currentChunkIndex > 0) { currentChunkIndex--; renderChunk(); }
+	}
+  });
+      
+document.getElementById('typing-input').addEventListener('keydown', function(e) {
+    if (e.key === "Tab") {
+        e.preventDefault();
+    }
+});
 // Disable right click
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();

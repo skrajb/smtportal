@@ -61,7 +61,7 @@ body {
 }
 .left-meta, .center-meta, .right-meta { display:flex; align-items:center; gap:10px; }
 #timer { font-weight:700; color:var(--danger); }
-#current-chunk { font-size:0.95rem; color:var(--muted); text-align:center; color:red;font-weight:bold}
+#current-chunk { font-size:1.3rem; color:var(--muted); text-align:center; color:red;font-weight:bold}
 
 .reference-outer {
     background:#00295f;
