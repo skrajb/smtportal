@@ -13,7 +13,6 @@
 
 // -------------------- Helper: Load paragraph from URL param --------------------
 
-
 // Disable right click
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
@@ -36,6 +35,7 @@ document.addEventListener('keydown', function(e) {
 ["copy", "paste", "cut"].forEach(evt => {
     document.addEventListener(evt, e => e.preventDefault());
 });
+
 
 async function loadTestParagraph() {
   try {
