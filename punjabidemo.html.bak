@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smartech Education</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Keep your container + basic layout (unchanged) */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+html, body { height: 100%; margin: 0; }
+body { display: flex; flex-direction: column; min-height: 100vh; font-family:'Bookman Old Style',serif; }
+
+.reference-outer { background:#00295f; border-radius:6px; padding:12px; margin-bottom:8px; border:1px solid #e6e6e6; }
+.paragraph { line-height:1.8; font-size:1.25rem; padding:20px; font-family:'Bookman Old Style',serif; background-color:white; }
+.typing-input { width:98%; resize:vertical; padding:10px; border-radius:6px; border:1px solid #ddd; line-height:1.5; font-size:1.25rem; margin-bottom:8px; font-family:'Bookman Old Style',serif; }
+.primary-btn { background:#00295f; color:#fff; border:none; padding:8px 14px; border-radius:6px; cursor:pointer; }
+.popup { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.35); display:none; }
+.popup-inner { background:#fff; padding:18px; border-radius:8px; min-width:260px; text-align:center; }
+
+#timer { font-weight:700; margin-bottom:8px; color:#00295f; }
+#current-chunk { margin-bottom:12px; color:#004080; font-weight:600; }
+input {
+    ime-mode: disabled;
+}
+
+/* Disable Windows text suggestions */
+input, textarea {
+    ime-mode: disabled !important;
+}
+
+/* Prevent suggestion UI overlay */
+input::-ms-input-placeholder {
+    opacity: 0 !important;
+}
+</style>
+
+</head>
+<body autocomplete="off" spellcheck="false">
+
+
+<header class="site-header" style="display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:2px solid #eee;background:linear-gradient(90deg,#fff,#fbfffb);">
+  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo" style="height:72px;">
+</header>
+
+<nav style="padding:10px 20px;">
+    <ul style="display:flex;gap:12px;list-style:none;padding:0;margin:0;align-items:center;">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exercises.html">Exercises</a></li>
+      <li><a href="english_tutor.html">Speed Test</a></li>
+      <li><a href="engtutor.html">English Typing Tutor</a></li>
+      <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- RESULTS (kept as in original) -->
+<section id="results" style="display:none;">
+  <div style="flex:2; min-width:400px;">
+    <h2>Results</h2>
+    <table id="results-table" style="display:none; width:100%; border-collapse:collapse;">
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Gross Characters</td><td id="gross-characters-value"></td></tr>
+        <tr><td>Wrong / Extra / Skipped Words</td><td id="wrong-extra-words-value"></td></tr>
+        <tr><td>Space Errors</td><td id="space-errors-value"></td></tr>
+        <tr><td>Error Characters</td><td id="error-characters-value"></td></tr>
+        <tr><td>Net Characters</td><td id="net-characters-value"></td></tr>
+        <tr><td>Gross Speed</td><td id="gross-speed-value"></td></tr>
+        <tr><td>Actual Gross Speed</td><td id="actual-gross-speed-value"></td></tr>
+        <tr><td>Time Taken</td><td id="time-spent-value"></td></tr>
+        <tr><td>Accuracy</td><td id="accuracy-percentage-value"></td></tr>
+        <tr><td>Backspace Count</td><td id="backspace-count-value"></td></tr>
+        <tr><td>Result</td><td id="result-value"></td></tr>
+        <tr id="notes-section" style="display:none;">
+          <td colspan="2">
+            <div id="results-notes" style="display:none;">
+              <div id="exam-note" style="margin-bottom:5px; color:#b80000;"></div>
+              <div id="pass-note" style="color:#0055b8;"></div>
+            </div>
+          </td>
+        </tr>
+        <tr id="button-row" style="display:none;">
+          <td colspan="2" style="text-align:center; padding-top:10px;">
+            <button id="practice-another-btn-2" class="primary-btn">Practice Another</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="error-section" style="margin-top:15px; display:none;">
+      <div id="error-highlight"></div>
+    </div>
+    <div id="saved-stats-container" style="margin-top:20px;"></div>
+  </div>
+</section>
+<!-- END RESULTS -->
+
+<main class="container" style="margin-top:18px;">
+  <center><h2>Punjabi Demo Test</h2></center>
+
+  <section class="test-section" id="test-section" style="margin-top:10px;">
+    <div>
+      <div id="timer">Time: 02:00</div>
+      <div id="current-chunk"><center>Current Chunk - 1</center></div>
+    </div>
+
+    <div id="test-area" style="margin-top:12px;">
+      <div id="reference-text" class="reference-outer">
+        <div id="paragraph" class="paragraph">Loading...</div>
+      </div>
+
+      <textarea id="typing-input" placeholder="Start typing here..." rows="4" class="typing-input" type="search"
+       autocomplete="off" autocorrect="off"
+       autocapitalize="off" spellcheck="false" autofocus></textarea>
+
+      <div class="controls" style="margin-top:8px;">
+        <button id="submit-btn" class="primary-btn">Submit Test</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- POPUPS -->
+<div id="time-over-popup" class="popup"><div class="popup-inner"><p>Time is over. View results?</p><button id="popup-ok-btn" class="primary-btn">Yes</button></div></div>
+<div id="no-input-popup" class="popup"><div class="popup-inner"><p>No typed input detected.</p><button id="no-input-ok-btn" class="primary-btn">OK</button></div></div>
+
+<!-- ======= DEMO PATCH: set fixed paragraph BEFORE the engine loads ======= -->
+<script>
+try {
+  const fixed = `ਉਂਙਲਾਂ ਦੁਆਰਾ ਕਾਫੀ ਠਰੰਮੇ, ਧੀਰਜ, ਦ੍ਰਿੜ੍ਹਤਾ, ਡ੍ਹਾਢੇ ਸਹਿਯੋਗ ਤਥਾ ਉਂਜ ਕੁਝ ਡੂੰਘੇ ਰੌ ਵਿਚ, ਇੰਞ ਬਟਨ-ਅੱਖਰ ਭਾਲਣੇ ਛੂਹ-ਪ੍ਰਣਾਲੀ ਹੈ। ਕ, ਖ, ਗ, ਘ, ਙ, ਚ, ਛ, ਜ, ਝ, ਟ, ਠ, ਡ, ਢ, ਤ, ਥ, ਦ, ਧ, ਨ, ਪ, ਫ, ਬ, ਭ, ਮ, ਯ, ਰ, ਲ, ਵ, ਸ, ਹ ਵਰਗੇ ਬਹੁਤ ਸਾਰੇ ਇਕੱਲੇ ਅੱਖਰ ਸ਼ਾਮਲ ਹਨ। ੨੩੧ ਕਲਮ ਘਰ ਚਾਹ ਜਹਾਜ਼ ਟਮਾਟਰ ੪੬੭੯ ੧ ੨ ੩ ੪ ਠੰਡ ਡੱਬਾ ਤਾਰ ਦਵਾਈ ਨਦੀ ਪੱਤਾ ਫੁੱਲ ਬਾਜ਼ਾਰ ਮਿੱਠਾ ਯਾਤਰਾ ਰੋਸ਼ਨੀ ਲੇਖ ਵੱਟ ਸੜਕ ਹਵਾ।  `;
+  localStorage.setItem('selectedExerciseText', fixed);
+  localStorage.setItem('userName', 'Demo User');
+  localStorage.setItem('userRefNo', '0000');
+} catch (e) {
+  console.warn('localStorage unavailable', e);
+}
+</script>
+
+<!-- ======= Load your original engine ======= -->
+<script src="script.js"></script>
+
+<!-- ======= Safe wrappers & 2-chunk + 2-minute patches (no duplicate listeners) ======= -->
+<script>
+const typingField = document.getElementById("typing-input");
+
+typingField.setAttribute("autocomplete", "off");
+typingField.setAttribute("autocorrect", "off");
+typingField.setAttribute("autocapitalize", "off");
+typingField.setAttribute("spellcheck", "false");
+
+// Additional forced disable for Windows suggestions
+typingField.addEventListener("keydown", e => {
+    typingField.style.setProperty("ime-mode", "disabled");
+});
+
+// Prevent Windows suggestion bar activation
+typingField.addEventListener("compositionstart", e => {
+    e.preventDefault();
+});
+typingField.addEventListener("compositionupdate", e => {
+    e.preventDefault();
+});
+typingField.addEventListener("compositionend", e => {
+    e.preventDefault();
+});
+
+
+/*
+  Strategy:
+  1. Force paragraph into 2 chunks and set 120s.
+  2. Avoid cloning/adding duplicate listeners.
+  3. Wrap global submitResults() with a safe locker so multiple calls won't save multiple times.
+  4. Try to wrap submitResults even if defined later by polling for it briefly.
+*/
+
+// ---------- Helper: set two chunks & timer ----------
+(function setTwoChunksAndTimer(){
+  function applyPatchOnce(){
+    try {
+      // Get paragraph text from existing engine variables or DOM or localStorage
+      let text = "";
+      if (window.paragraphs && window.paragraphs.length > 0) {
+        text = window.paragraphs.join(" ");
+      } else {
+        const pEl = document.getElementById('paragraph');
+        text = (pEl && pEl.textContent && pEl.textContent.trim()) ? pEl.textContent.trim() : localStorage.getItem('selectedExerciseText') || "";
+      }
+      text = (text || "").replace(/\s+/g,' ').trim();
+      if (!text) return;
+
+      const words = text.split(' ');
+      const mid = Math.ceil(words.length / 2);
+      window.paragraphs = [
+        words.slice(0, mid).join(' '),
+        words.slice(mid).join(' ')
+      ];
+
+      // Ensure engine state uses the first chunk
+      if (!window.state) window.state = {};
+      window.state.currentParagraphIndex = 0;
+      window.state.paragraph = window.paragraphs[0];
+      window.state.defaultWords = window.state.paragraph.split(' ');
+      window.state.totalTypedInput = '|';
+      window.state.totalTime = 120; // 2 minutes
+
+      // Update UI text
+      const paraEl = document.getElementById('paragraph');
+      if (paraEl) paraEl.innerHTML = window.paragraphs[0];
+
+      const cc = document.getElementById('current-chunk');
+      if (cc) cc.innerHTML = 'Current Chunk - 1';
+
+      const timerEl = document.getElementById('timer');
+      if (timerEl) timerEl.textContent = 'Time: 2:00';
+
+      // If engine has a refresh function, call it safely
+      try { if (typeof refreshTest === 'function') refreshTest(); } catch(e){}
+
+    } catch (err) {
+      console.warn('2-chunk patch error', err);
+    }
+  }
+
+  // Run multiple times shortly after load to ensure script.js finished initializing
+  setTimeout(applyPatchOnce, 80);
+  setTimeout(applyPatchOnce, 450);
+  setTimeout(applyPatchOnce, 1200);
+})();
+
+
+// ---------- Helper: force displayed timer to 2:00 frequently (defensive) ----------
+(function enforceTimerDisplay(){
+  function tick() {
+    try {
+      if (window.state && typeof window.state.totalTime !== 'undefined') {
+        // keep engine's totalTime at 120
+        if (window.state.totalTime !== 120) window.state.totalTime = 120;
+        if (typeof window.state.secondsLeft !== 'undefined' && window.state.secondsLeft > 120) {
+          window.state.secondsLeft = 120;
+        }
+      }
+      const timerEl = document.getElementById('timer');
+      if (timerEl && !timerEl.textContent.startsWith('Time: 2')) {
+        timerEl.textContent = 'Time: 2:00';
+      }
+    } catch (e) {}
+  }
+  // gentle interval - keeps the display consistent but light on CPU
+  setInterval(tick, 250);
+})();
+
+
+// ---------- Safe wrapper for submitResults to prevent duplicate saves ----------
+(function safeSubmitWrapper(){
+  let wrapped = false;
+  const POLL_INTERVAL = 150; // ms
+  const MAX_TRIES = 40; // ~6 seconds
+
+  function createWrapper(origFn){
+    let running = false;
+    let lastRun = 0;
+    // wrapper prevents reentrant / repeated quick calls
+    return async function wrappedSubmitResults(){
+      try {
+        const now = Date.now();
+        // prevent calls within 1500ms of previous run
+        if (running) {
+          console.warn('submitResults: already running, ignoring duplicate call');
+          return;
+        }
+        if (now - lastRun < 1500) {
+          console.warn('submitResults: called too soon after previous, ignoring');
+          return;
+        }
+        running = true;
+        lastRun = now;
+        // call original
+        const res = await origFn.apply(this, arguments);
+        // small delay to ensure any asynchronous saves complete
+        await new Promise(r => setTimeout(r, 600));
+        running = false;
+        return res;
+      } catch (err) {
+        running = false;
+        console.error('submitResults wrapper error', err);
+        throw err;
+      }
+    };
+  }
+
+  function attemptWrap(triesLeft){
+    try {
+      if (typeof window.submitResults === 'function' && !wrapped) {
+        window.submitResults = createWrapper(window.submitResults);
+        wrapped = true;
+        console.info('submitResults wrapped with safe wrapper.');
+        return;
+      }
+    } catch (e) {
+      console.warn('Wrapping attempt failed', e);
+    }
+    if (triesLeft > 0) {
+      setTimeout(() => attemptWrap(triesLeft - 1), POLL_INTERVAL);
+    } else {
+      // If submitResults never appears, still create a no-op safe function to avoid errors
+      if (!wrapped) {
+        window.submitResults = function(){
+          console.warn('submitResults not defined - safe no-op called.');
+        };
+        console.info('submitResults not found; installed safe no-op.');
+      }
+    }
+  }
+
+  attemptWrap(MAX_TRIES);
+})();
+
+
+// ---------- Ensure popup OK triggers submitResults safely (if engine didn't already) ----------
+(function ensurePopupOkTriggersSubmit(){
+  const popupOk = document.getElementById('popup-ok-btn');
+  if (!popupOk) return;
+  // Add a single listener but only once
+  let added = false;
+  popupOk.addEventListener('click', function onOk(){
+    if (added) return;
+    added = true;
+    try {
+      if (typeof window.submitResults === 'function') {
+        window.submitResults();
+      } else {
+        console.warn('submitResults not yet defined at popup click time.');
+      }
+    } catch (e) {
+      console.error('popup-ok submit error', e);
+    }
+    // remove this listener after first use
+    popupOk.removeEventListener('click', onOk);
+  });
+})();
+
+</script>
+
+</body>
+</html>
