@@ -68,7 +68,7 @@ body {
     border-radius:1px;
     padding:12px;
     margin-bottom:8px;
-    border:7px solid #00295f;
+    border:1px solid #00295f;
 }
 .paragraph { line-height:1.8; font-size:1.65rem; padding:20px;      height: 170px;font-family: 'Arial', serif; background-color:white}
 
@@ -430,6 +430,7 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
 
