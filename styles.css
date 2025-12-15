@@ -88,7 +88,7 @@ body {
 
 /* Buttons */
 .primary-btn {
-    background:var(--accent);
+    background:#ff0018;
     color:#fff;
     border:none;
     padding:8px 14px;
@@ -431,6 +431,7 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
 
