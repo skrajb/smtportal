@@ -9,7 +9,7 @@
    - PSSSB-style result calculation (gross/net chars, WPM, accuracy)
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
-*/
+
 // Disable right click
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
@@ -69,7 +69,7 @@ document.addEventListener('keydown', function(e) {
 ["copy", "paste", "cut"].forEach(evt => {
     document.addEventListener(evt, e => e.preventDefault());
 });
-
+*/
 
 async function loadTestParagraph() {
   try {
