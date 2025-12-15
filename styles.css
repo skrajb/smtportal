@@ -74,12 +74,12 @@ body {
 .paragraph { line-height:1.8; font-size:1.65rem; padding:20px;      height: 170px;font-family: 'Arial', serif; background-color:white}
 
 .typing-input {
-    width:94%;
+    width:96%;
     resize:vertical;
     padding:20px;
     border-radius:1px;
     border:3px solid black;
-	line-height:1.5;
+	line-height:1.8;
     font-size:1.65rem;
     margin-bottom:8px;
 	
@@ -431,6 +431,7 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
 
