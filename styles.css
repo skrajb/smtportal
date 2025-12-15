@@ -73,7 +73,7 @@ body {
 .paragraph { line-height:1.8; font-size:1.65rem; padding:20px;      height: 170px;font-family: 'Arial', serif; background-color:white}
 
 .typing-input {
-    width:98%;
+    width:100%;
     resize:vertical;
     padding:20px;
     border-radius:6px;
@@ -430,6 +430,7 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
 
