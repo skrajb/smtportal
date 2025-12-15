@@ -65,7 +65,7 @@ body {
 
 .reference-outer {
     background:#00295f;
-    border-radius:6px;
+    border-radius:1px;
     padding:12px;
     margin-bottom:8px;
     border:1px solid #e6e6e6;
@@ -76,7 +76,7 @@ body {
     width:100%;
     resize:vertical;
     padding:20px;
-    border-radius:6px;
+    border-radius:1px;
     border:1px solid #ddd;
 	line-height:1.5;
     font-size:1.65rem;
@@ -430,6 +430,7 @@ button:hover { background: black; }
   transform: translateY(0);
   
 }
+
 
 
 
