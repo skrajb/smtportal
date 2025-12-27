@@ -745,7 +745,7 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
         }
 
 
-// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+/* NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
 let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
 if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
     // This current wrong word is a repeated wrong attempt
@@ -753,7 +753,7 @@ if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
     inputIndex += currentTypedWord.length;
     typedIndex++;
     continue;
-}
+}*/
 
 {
     let skipCount = 0;
@@ -787,6 +787,35 @@ if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
         while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
         if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
     }
+// ONE-WORD TOLERANCE RULE
+// If current word is wrong BUT the NEXT word matches,
+// then treat only THIS word as wrong and continue alignment normally
+let nextDefault = defaultWords[defaultIndex + 1];
+let nextTyped   = typedWords[typedIndex + 1];
+
+if (
+    currentTypedWord !== currentDefaultWord &&
+    nextDefault &&
+    nextTyped &&
+    nextDefault.toLowerCase() === nextTyped.toLowerCase()
+) {
+    highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
+    
+    inputIndex += currentTypedWord.length;
+    defaultIndex++;   // advance BOTH
+    typedIndex++;     // sequences stay aligned
+
+    // swallow spacing
+    let spaceCount = 0;
+    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
+        spaceCount++; inputIndex++;
+    }
+    if (spaceCount > 1)
+        for (let i = 0; i < spaceCount - 1; i++)
+            highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
+
+    continue;
+}
 
     // Remaining extra typed words
     while (typedIndex < typedWords.length) {
