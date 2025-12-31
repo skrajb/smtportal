@@ -148,7 +148,211 @@ button:hover { background: black; }
 }
 
   </style>
-		
+
+
+<!-- 🎉 New Year Popup -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+/* ===== Popup Overlay (Fully Transparent) ===== */
+#ny2026-overlay{
+  position:fixed;
+  inset:0;
+  background:transparent;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .8s ease;
+  font-family:'Bookman Old Style', serif;
+  overflow:hidden;
+}
+#ny2026-overlay.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ===== Popup Box ===== */
+#ny2026-popup{
+  position:relative;
+  background:white;
+  padding:36px 38px;
+  border-radius:22px;
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+  text-align:center;
+  max-width:520px;
+  animation:scaleIn .9s ease forwards;
+  transform:scale(.9);
+  opacity:0;
+}
+
+/* Animated Gradient Border */
+#ny2026-popup:before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#ff6f6f,#7db3ff,#ff3b3b,#7db3ff);
+  filter:blur(.6px);
+  z-index:-1;
+  background-size:300% 300%;
+  animation:borderGlow 7s ease infinite;
+}
+
+@keyframes borderGlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+@keyframes scaleIn{
+  from{transform:translateY(40px) scale(.9); opacity:0;}
+  to{transform:translateY(0) scale(1); opacity:1;}
+}
+
+/* ===== RED SHINY HEADING ===== */
+#ny2026-popup h2{
+  font-family:'Great Vibes', cursive;
+  font-size:55px;
+  margin-bottom:14px;
+  font-weight:400;
+  background:linear-gradient(135deg,#ffb3b3,#ff6a6a,#ff0000,#ff6a6a,#ff0000);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:redshine 4s ease-in-out infinite;
+  text-shadow:0 6px 22px rgba(0,0,0,.55);
+}
+
+@keyframes redshine{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ===== Text ===== */
+#ny2026-popup p{
+  color:#333;
+  line-height:1.7;
+  font-size:16px;
+}
+
+/* ===== Button ===== */
+#ny2026-close{
+  margin-top:18px;
+  padding:12px 30px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,#003a81,#001a3e);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  transition:transform .25s ease;
+}
+#ny2026-close:hover{
+  transform:scale(1.04);
+}
+
+/* ===== Confetti ===== */
+.ny-confetti{
+  position:absolute;
+  width:9px;
+  height:14px;
+  border-radius:3px;
+  opacity:.95;
+  transform-origin:center;
+  animation:blast 3.5s ease-out forwards;
+}
+
+@keyframes blast{
+  0%{
+    transform:translateY(0) translateX(0) scale(.9) rotate(0deg);
+    opacity:1;
+  }
+  30%{
+    transform:translateY(-45vh) translateX(var(--spread)) scale(1.05) rotate(140deg);
+  }
+  70%{
+    transform:translateY(-25vh) translateX(calc(var(--spread) * 1.2)) rotate(250deg);
+  }
+  100%{
+    transform:translateY(10vh) translateX(calc(var(--spread) * 1.4)) rotate(320deg);
+    opacity:0;
+  }
+}
+
+/* Fade Close */
+#ny2026-overlay.hide{
+  opacity:0;
+  pointer-events:none;
+}
+</style>
+
+<div id="ny2026-overlay">
+  <div id="ny2026-popup">
+    <h2>Happy New Year 2026</h2>
+    <p>
+      May this New Year open new doors of growth and achievement.<br>
+      Stay motivated, keep improving, and continue your journey with confidence.
+    </p>
+    <button id="ny2026-close">Start Your Journey</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay=document.getElementById("ny2026-overlay");
+  const closeBtn=document.getElementById("ny2026-close");
+
+  /* Confetti burst from bottom corners */
+  for(let i=0;i<55;i++){
+    let c=document.createElement("div");
+    c.className="ny-confetti";
+
+    c.style.background=[
+      "#ff2b2b","#ff6f6f","#6fc3ff","#7cff8a","#ffa93a"
+    ][Math.floor(Math.random()*5)];
+
+    const fromLeft = Math.random() < 0.5;
+
+    c.style.bottom="-4vh";
+    c.style.left = fromLeft
+      ? (2+Math.random()*10)+"%"
+      : (88+Math.random()*10)+"%";
+
+    c.style.setProperty("--spread",
+      (fromLeft ? 1 : -1)*(40+Math.random()*70)+"vw"
+    );
+
+    c.style.animationDelay=(Math.random()*1.5)+"s";
+    c.style.animationDuration=(2.8+Math.random()*1.4)+"s";
+
+    overlay.appendChild(c);
+  }
+
+  /* Show popup */
+  setTimeout(()=>overlay.classList.add("show"),1200);
+
+  /* Close popup */
+  function closePopup(){
+    overlay.classList.add("hide");
+    setTimeout(()=>overlay.remove(),800);
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+  overlay.addEventListener("click", e=>{
+    if(e.target===overlay) closePopup();
+  });
+});
+</script>
+
+
+
+
+	
   <script>
 
 /* ===== JS to Generate Floating Letters ===== */
