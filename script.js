@@ -9,8 +9,28 @@
    - PSSSB-style result calculation (gross/net chars, WPM, accuracy)
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
-*/
+* Disable right click
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
 
+// Disable keyboard shortcuts
+document.addEventListener('keydown', function(e) {
+    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+    ) {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Disable copy / paste / cut
+["copy", "paste", "cut"].forEach(evt => {
+    document.addEventListener(evt, e => e.preventDefault());
+});
 // -------------------- Helper: Load paragraph from URL param --------------------
 
  // ensure previous/next by keyboard: PageUp/PageDown
@@ -48,7 +68,7 @@ document.addEventListener('keydown', function(e) {
 ["copy", "paste", "cut"].forEach(evt => {
     document.addEventListener(evt, e => e.preventDefault());
 });
-
+*/
 
 async function loadTestParagraph() {
   try {
@@ -296,22 +316,6 @@ function bindUI() {
     }
 }
 
-
-
-function normalizePunjabi(str) {
-    if (!str) return "";
-
-    return str
-        .normalize("NFC")      // normalize unicode
-        .replace(/\u200B/g, "") // remove zero-width spaces
-        .replace(/\u00A0/g, " ") // non-breaking spaces → normal space
-        .replace(/\s+/g, " ")   // collapse spaces
-        .trim();
-}
-
-
-
-
 // -------------------- Refresh and submit --------------------
 function refreshTest() {
     window.state.currentParagraphIndex = 0;
@@ -529,8 +533,8 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
     let inputIndex = 0;
 
     while (defaultIndex < defaultWords.length && typedIndex < typedWords.length) {
-     let currentTypedWord = normalizePunjabi(typedWords[typedIndex]);
-let currentDefaultWord = normalizePunjabi(defaultWords[defaultIndex]);
+        let currentTypedWord = typedWords[typedIndex];
+        let currentDefaultWord = defaultWords[defaultIndex];
 
         // Combined typed -> matches default (typed split across two typed words)
         if (typedIndex + 1 < typedWords.length) {
