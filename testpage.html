@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="icon" type="image/png" href="/icon.ico">
 	<style>.container {
     width: 90%;
     max-width: 1100px;
@@ -24,34 +26,37 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* Toggle Button Style */
+.toggle-btn {
+  background:#6c757d;
+  color:white;
+  border:none;
+  border-radius:6px;
+  padding:8px 14px;
+  cursor:pointer;
+  margin-top:10px;
+}
+.toggle-btn.active {
+  background:#b80000;
 }</style>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Smartech Education</title>
+<title>Test Page | Typing Exam Portal</title>
 <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body style="font-family:'Bookman old Style',serif;">
-<header class="site-header">
-  <img src="Smartech Educatation Computer Centre3.png" alt="Smartech" class="logo">
-      <img src="Typing Boy.png" height="80" alt="Typing Boy">
- 
-</header>
- 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-     <li><a href="exercises.html">Exercises</a></li>
-
-	 <li><a href="english_tutor.html">Speed Test</a></li>
-	 <li><a href="engtutor.html">English Typing Tutor</a></li>
-	  <li><a href="pbitutor.html">Punjabi Typing Tutor</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    
-    </ul>
-  </nav>
-
+<div id="header-container"></div>
+<script>
+fetch("header.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("header-container").innerHTML = data;
+  });
+</script>
 <!-- ✅ RESULTS SECTION -->
 <section id="results" style="display:none;">
  
@@ -100,10 +105,9 @@ body {
 </section>
 <!-- ✅ END RESULTS -->
 
-<main class="container">
 
 
-<!-- ✅ USER DETAILS -->
+<!-- ✅ USER DETAILS 
 <div id="user-info" style="text-align:center; margin-bottom:20px;">
   <h3 style="color:#00295f; margin-bottom:10px;">Candidate Details</h3>
   <input type="text" id="userName" placeholder="Enter your name (Test Language: E/P)" 
@@ -116,9 +120,11 @@ body {
                 border-radius:6px; color:black;">
 </div>
 
-
+-->
 <main class="container">
 <section class="test-section" id="test-section">
+
+
   <div>
     <div id="timer">Time: 10:00</div>
     <div id="current-chunk"><center>Current Chunk - 1</center></div>
@@ -132,14 +138,18 @@ body {
 <b>Typing Text</b>
     <textarea id="typing-input" placeholder="Start typing here..."
               rows="4" class="typing-input" spellcheck="false" autofocus></textarea>
-
+  <!-- Backspace Toggle Button -->
+  <button id="disable-toggle" class="toggle-btn">
+    Disable Backspace: OFF
+  </button>
    <div style="text-align:right;">
   <button id="submit-btn" class="primary-btn">Submit Test</button>
 </div>
   </div>
+  
 </section>
 </main>
-</main>
+
 
 <!-- POPUPS -->
 <div id="time-over-popup" class="popup" style="display:none;">
@@ -157,11 +167,44 @@ body {
 </div>
 
 <script src="script.js">
+</script><script>
+/* Demo text */
+document.getElementById("paragraph").innerText =
+"Typing practice improves speed and accuracy. Keep your eyes on the screen and maintain proper hand placement.";
+
+/* Elements */
+const typingInput = document.getElementById("typing-input");
+const toggleBtn = document.getElementById("disable-toggle");
+
+let backspaceDisabled = false;
+
+/* Toggle Button Click */
+toggleBtn.addEventListener("click", () => {
+  backspaceDisabled = !backspaceDisabled;
+
+  if (backspaceDisabled) {
+    toggleBtn.classList.add("active");
+    toggleBtn.textContent = "Disable Backspace: ON";
+  } else {
+    toggleBtn.classList.remove("active");
+    toggleBtn.textContent = "Disable Backspace: OFF";
+  }
+});
+
+/* Disable Backspace Logic */
+typingInput.addEventListener("keydown", function(e) {
+  if (backspaceDisabled && e.key === "Backspace") {
+    e.preventDefault();
+  }
+});
+
 
 
 </script>
 </body>
 </html>
+
+
 
 
 
