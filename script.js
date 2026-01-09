@@ -10,28 +10,7 @@
    - Result UI updates and saved test history (localStorage)
    - Defensive checks for missing DOM elements
 */
-// Disable right click
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
 
-// Disable keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
-    if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
-        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
-    ) {
-        e.preventDefault();
-        return false;
-    }
-});
-
-// Disable copy / paste / cut
-["copy", "paste", "cut"].forEach(evt => {
-    document.addEventListener(evt, e => e.preventDefault());
-});
 // -------------------- Helper: Load paragraph from URL param --------------------
 
  // ensure previous/next by keyboard: PageUp/PageDown
@@ -317,6 +296,22 @@ function bindUI() {
     }
 }
 
+
+
+function normalizePunjabi(str) {
+    if (!str) return "";
+
+    return str
+        .normalize("NFC")      // normalize unicode
+        .replace(/\u200B/g, "") // remove zero-width spaces
+        .replace(/\u00A0/g, " ") // non-breaking spaces → normal space
+        .replace(/\s+/g, " ")   // collapse spaces
+        .trim();
+}
+
+
+
+
 // -------------------- Refresh and submit --------------------
 function refreshTest() {
     window.state.currentParagraphIndex = 0;
@@ -525,149 +520,8 @@ setTimeout(() => {
 
 // Expose submit
 window.submitResults = submitResults;
-// -------------------- highlightErrors --------------------
-function highlightErrors(defaultWords, typedWords, originalInput) {
 
-    let highlightedParagraph = "";
-    let defaultIndex = 0;
-    let typedIndex = 0;
-    let inputIndex = 0;
-
-    while (defaultIndex < defaultWords.length && typedIndex < typedWords.length) {
-
-        let currentTypedWord = typedWords[typedIndex];
-        let currentDefaultWord = defaultWords[defaultIndex];
-
-        // ⭐ ONE-WORD RECOVERY — FIRST RULE ⭐
-        // If next words match → treat only this word wrong
-        let nextDefault = defaultWords[defaultIndex + 1];
-        let nextTyped   = typedWords[typedIndex + 1];
-
-        if (
-            currentTypedWord !== currentDefaultWord &&
-            nextDefault &&
-            nextTyped &&
-            nextDefault.toLowerCase() === nextTyped.toLowerCase()
-        ) {
-            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
-
-            inputIndex += currentTypedWord.length;
-            defaultIndex++;
-            typedIndex++;
-
-            // space cleanup
-            let spaceCount = 0;
-            while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
-                spaceCount++; inputIndex++;
-            }
-            if (spaceCount > 1) {
-                for (let i = 0; i < spaceCount - 1; i++) {
-                    highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
-                }
-            }
-            continue;
-        }
-
-        // ================= EXISTING MERGE / SPLIT LOGIC =================
-        // (UNCHANGED — your original code kept here)
-        // ---------------------------------------------------------------
-        // Combined typed matches default
-        if (typedIndex + 1 < typedWords.length) {
-            const t2 = typedWords[typedIndex + 1];
-            const combined = currentTypedWord + t2;
-
-            if (combined === currentDefaultWord || combined.toLowerCase() === currentDefaultWord.toLowerCase()) {
-
-                inputIndex += currentTypedWord.length;
-                let spaceCount = 0;
-                while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
-                    spaceCount++; inputIndex++;
-                }
-
-                highlightedParagraph += `<span class="correct">${currentTypedWord}</span>`;
-                if (spaceCount === 0) highlightedParagraph += `<span class="wrong">[Missing Space]</span>`;
-                highlightedParagraph += `<span class="correct">${t2}</span> `;
-
-                inputIndex += t2.length;
-                defaultIndex++;
-                typedIndex += 2;
-                continue;
-            }
-        }
-
-        // EXACT MATCH
-        if (currentTypedWord === currentDefaultWord) {
-            highlightedParagraph += `<span class="correct">${currentTypedWord}</span> `;
-            inputIndex += currentTypedWord.length;
-            defaultIndex++;
-            typedIndex++;
-            continue;
-        }
-
-        // CASE ONLY WRONG
-        if (currentTypedWord.toLowerCase() === currentDefaultWord.toLowerCase()) {
-            highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
-            inputIndex += currentTypedWord.length;
-            defaultIndex++;
-            typedIndex++;
-            continue;
-        }
-
-        // EXTRA WORD
-        if (
-            typedIndex + 1 < typedWords.length &&
-            typedWords[typedIndex + 1].toLowerCase() === currentDefaultWord.toLowerCase()
-        ) {
-            highlightedParagraph += `<span class="wrong"><u>[${currentTypedWord}]</u></span> `;
-            inputIndex += currentTypedWord.length;
-            typedIndex++;
-            continue;
-        }
-
-        // SKIPPED WORD
-        let skipFound = -1;
-        for (let k = defaultIndex + 1; k < defaultWords.length; k++) {
-            if (typedWords[typedIndex].toLowerCase() === defaultWords[k].toLowerCase()) {
-                skipFound = k;
-                break;
-            }
-        }
-
-        if (skipFound > -1) {
-            for (let k = defaultIndex; k < skipFound; k++) {
-                highlightedParagraph += `<span class="given">${defaultWords[k]}</span> <span class="wrong"><del>[${defaultWords[k]}]</del></span> `;
-            }
-
-            highlightedParagraph += `<span class="correct">${typedWords[typedIndex]}</span> `;
-
-            defaultIndex = skipFound + 1;
-            typedIndex++;
-            continue;
-        }
-
-        // REGULAR WRONG
-        highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
-
-        inputIndex += currentTypedWord.length;
-        defaultIndex++;
-        typedIndex++;
-    }
-
-    // Remaining typed = extra
-    while (typedIndex < typedWords.length) {
-        highlightedParagraph += `<span class="wrong"><u>[${typedWords[typedIndex]}]</u></span> `;
-        typedIndex++;
-    }
-
-    // Remaining default = skipped
-    while (defaultIndex < defaultWords.length) {
-        highlightedParagraph += `<span class="given">${defaultWords[defaultIndex]}</span> <span class="wrong"><del>[${defaultWords[defaultIndex]}]</del></span> `;
-        defaultIndex++;
-    }
-
-    return highlightedParagraph.trim();
-}
-/* -------------------- highlightErrors (your full engine) --------------------
+// -------------------- highlightErrors (your full engine) --------------------
 function highlightErrors(defaultWords, typedWords, originalInput) {
     let highlightedParagraph = "";
     let defaultIndex = 0;
@@ -675,8 +529,8 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
     let inputIndex = 0;
 
     while (defaultIndex < defaultWords.length && typedIndex < typedWords.length) {
-        let currentTypedWord = typedWords[typedIndex];
-        let currentDefaultWord = defaultWords[defaultIndex];
+     let currentTypedWord = normalizePunjabi(typedWords[typedIndex]);
+let currentDefaultWord = normalizePunjabi(defaultWords[defaultIndex]);
 
         // Combined typed -> matches default (typed split across two typed words)
         if (typedIndex + 1 < typedWords.length) {
@@ -886,7 +740,7 @@ function highlightErrors(defaultWords, typedWords, originalInput) {
         }
 
 
-NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
+// NEW RULE: If user typed the correct word later, ignore earlier wrong attempts
 let lookAheadIndex = typedWords.indexOf(currentDefaultWord, typedIndex);
 if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
     // This current wrong word is a repeated wrong attempt
@@ -928,35 +782,6 @@ if (lookAheadIndex !== -1 && lookAheadIndex > typedIndex) {
         while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) { spaceCount++; inputIndex++; }
         if (spaceCount > 1) for (let i = 0; i < spaceCount - 1; i++) highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
     }
-// ONE-WORD TOLERANCE RULE
-// If current word is wrong BUT the NEXT word matches,
-// then treat only THIS word as wrong and continue alignment normally
-let nextDefault = defaultWords[defaultIndex + 1];
-let nextTyped   = typedWords[typedIndex + 1];
-
-if (
-    currentTypedWord !== currentDefaultWord &&
-    nextDefault &&
-    nextTyped &&
-    nextDefault.toLowerCase() === nextTyped.toLowerCase()
-) {
-    highlightedParagraph += `<span class="wrong">${currentTypedWord}</span> <span class="given">${currentDefaultWord}</span> `;
-    
-    inputIndex += currentTypedWord.length;
-    defaultIndex++;   // advance BOTH
-    typedIndex++;     // sequences stay aligned
-
-    // swallow spacing
-    let spaceCount = 0;
-    while (inputIndex < originalInput.length && /\s/.test(originalInput[inputIndex])) {
-        spaceCount++; inputIndex++;
-    }
-    if (spaceCount > 1)
-        for (let i = 0; i < spaceCount - 1; i++)
-            highlightedParagraph += `<span class="wrong">[Extra Space]</span> `;
-
-    continue;
-}
 
     // Remaining extra typed words
     while (typedIndex < typedWords.length) {
@@ -971,7 +796,7 @@ if (
     }
 
     return highlightedParagraph.trim();
-}*/
+}
 window.highlightErrors = highlightErrors;
 
 // -------------------- Saved stats (localStorage) --------------------
