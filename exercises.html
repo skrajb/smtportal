@@ -198,7 +198,7 @@ document.addEventListener('keydown', e => {
   </ul>
 </nav>
 
-<!-- DEMO SECTION 
+
 <section id="exercises-intro">
 
 <div style="
@@ -228,29 +228,6 @@ document.addEventListener('keydown', e => {
 </button>
 </div>
 
-<script>
-function startDemoTest(language) {
-    let demoText = "";
-
-    if (language === "English") {
-        demoText = "This is a demo English typing test designed by Smartech. The purpose is to help candidates understand how the typing engine works during a real examination.";
-    } else {
-        demoText = "ਇਹ ਇੱਕ ਡੈਮੋ ਪੰਜਾਬੀ ਟੈਸਟ ਹੈ ਜੋ ਤੁਹਾਨੂੰ ਟਾਈਪਿੰਗ ਟੈਸਟ ਦੇ ਅਸਲੀ ਤਰੀਕੇ ਨੂੰ ਸਮਝਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ ਅਤੇ ਤੁਹਾਨੂੰ ਸਹੀ ਅਭਿਆਸ ਦਿੰਦਾ ਹੈ।";
-    }
-
-    localStorage.setItem("selectedExerciseText", demoText);
-    localStorage.setItem("selectedExerciseLanguage", language);
-
-    // Enable demo mode
-    localStorage.setItem("demoMode", "true");
-
-    // Clear old keys
-    localStorage.removeItem("selectedExerciseTitle");
-    localStorage.removeItem("selectedExerciseNumber");
-
-    window.location.href = "testpage.html";
-}
-</script>
 
 
 <h1><span class="highlight">Typing Practice Exercises</span></h1>
@@ -307,6 +284,7 @@ renderExercises('Punjabi');
 
 </body>
 </html>
+
 
 
 
