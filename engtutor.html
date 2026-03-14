@@ -243,10 +243,11 @@ html, body {
   let charSpans = []; // NodeList of char spans
   let cursor = 0; // char index
   let startedAt = 0;
-  let timerId = null;
   let correctChars = 0;
-  let wrongHits = 0;
-  let running = false;
+let wrongHits = 0;
+/* NEW: track wrong characters */
+let wrongKeyStats = {};
+let running = false;
 
   // ---------- init: populate lesson grid ----------
   function makeLessonButton(key, idx){
@@ -343,6 +344,25 @@ html, body {
   }
 
   // ---------- timer ----------
+	function resetStats(){
+  stopTimer();
+  startedAt = 0;
+  correctChars = 0;
+  wrongHits = 0;
+
+  wrongKeyStats = {};   // reset mistake stats
+
+  cursor = 0;
+  running = false;
+
+  correctCountEl.textContent = '0';
+  wrongCountEl.textContent = '0';
+  accuracyEl.textContent = '0%';
+  wpmEl.textContent = '0';
+  timeEl.textContent = '00:00';
+
+  finalSummary.textContent = 'Complete the test to see results here.';
+}
   function startTimer(){
     if(startedAt) return;
     startedAt = Date.now();
@@ -475,19 +495,30 @@ if (expected.length === 1 && /[a-zA-Z]/.test(expected)) {
     }
   }
 
-  function markWrong(){
-    // increment wrongHits and flash current char red briefly
-    wrongHits++;
-    wrongCountEl.textContent = String(wrongHits);
-    updateAccuracy();
-    // add a visual flash class
-    const obj = charSpans[cursor];
-    obj.span.classList.remove('flash');
-    void obj.span.offsetWidth; // force reflow to restart animation
-    obj.span.classList.add('flash','incorrect');
-    // do not advance cursor — user must press correct key to continue
+ function markWrong(){
+
+  wrongHits++;
+  wrongCountEl.textContent = String(wrongHits);
+
+  updateAccuracy();
+
+  const obj = charSpans[cursor];
+
+  obj.span.classList.remove('flash');
+  void obj.span.offsetWidth;
+  obj.span.classList.add('flash','incorrect');
+
+  /* NEW: track wrong key */
+  let key = event.key;
+
+  if(key === " ") key = "space";
+
+  if(!wrongKeyStats[key]){
+    wrongKeyStats[key] = 0;
   }
 
+  wrongKeyStats[key]++;
+}
   function recomputeCountsFromDOM(){
     // useful after backspace: recompute counts
     correctChars = 0; wrongHits = 0;
@@ -511,11 +542,27 @@ if (expected.length === 1 && /[a-zA-Z]/.test(expected)) {
     const totalHits = correctChars + wrongHits;
     const accuracy = totalHits ? Math.round((correctChars / totalHits) * 100) : 0;
 
-    finalSummary.innerHTML = `
-      <strong>Completed in ${formatTime(elapsedSeconds)} — WPM: ${wpm} — Accuracy: ${accuracy}%</strong>
-      <br>
-      Correct characters: ${correctChars} &nbsp; • &nbsp; Wrong hits: ${wrongHits}
-    `;
+let mistakeList = "";
+
+const sortedMistakes = Object.entries(wrongKeyStats)
+.sort((a,b)=>b[1]-a[1]);
+
+if(sortedMistakes.length){
+
+  mistakeList += "<br><br><strong>Most Common Mistakes</strong><br>";
+
+  sortedMistakes.forEach(([key,count])=>{
+    mistakeList += `${key} → ${count} times<br>`;
+  });
+
+}
+
+finalSummary.innerHTML = `
+<strong>Completed in ${formatTime(elapsedSeconds)} — WPM: ${wpm} — Accuracy: ${accuracy}%</strong>
+<br>
+Correct characters: ${correctChars} &nbsp; • &nbsp; Wrong hits: ${wrongHits}
+${mistakeList}
+`;
     resultsBox.style.display = 'block';
     // final update of stat boxes
     wpmEl.textContent = String(wpm);
