@@ -152,38 +152,46 @@ button:hover { background: black; }
 
 
 	<script src="activation.js"></script>
-  <script>
-<script src="activation.js"></script>
 
 <script>
 
-if(!localStorage.getItem("appActivated")){
+async function checkAppActivation(){
 
-setTimeout(()=>{
+if(localStorage.getItem("appActivated")) return;
+
+while(true){
 
 const code = prompt("Enter Application Activation Code");
 
-activateProduct(code,"APP").then(valid=>{
+if(!code){
+alert("Activation required to use this software.");
+continue;
+}
+
+const valid = await activateProduct(code,"APP");
 
 if(valid){
 
 localStorage.setItem("appActivated","true");
+alert("Application Activated");
 location.reload();
+break;
 
 }else{
 
-alert("Application not activated");
-location.href="about:blank";
+alert("Invalid Activation Code");
 
 }
 
-});
-
-},500);
+}
 
 }
 
+checkAppActivation();
 
+</script>
+
+<script>
 /* ===== JS to Generate Floating Letters ===== */
 document.addEventListener("DOMContentLoaded", () => {
   const letters = ['A','B','C','D','E','F','ਕ','ਖ','ਗ','ਚ','ਜ','ਤ','ਨ','ਮ','ਸ','ਹ','ਸ਼','ਲ'];
