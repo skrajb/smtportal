@@ -193,21 +193,39 @@ body {
 <script src="activation.js"></script>
 
 <script>
-if(!localStorage.getItem("pbiActivated")){
-setTimeout(()=>{
+
+async function checkPunjabiActivation(){
+
+if(localStorage.getItem("pbiActivated")) return;
+
+while(true){
+
 const code = prompt("Enter Punjabi Tutor Activation Code");
-activateProduct(code,"PBI").then(valid=>{
+
+if(!code){
+alert("Activation required for Punjabi Tutor");
+continue;
+}
+
+const valid = await activateProduct(code,"PBI");
+
 if(valid){
+
 localStorage.setItem("pbiActivated","true");
 location.reload();
+break;
+
 }else{
-alert("Punjabi Tutor not activated");
-location.href="index.html";
-}
-});
-},500);
+
+alert("Invalid Punjabi Tutor Code");
 
 }
+
+}
+
+}
+
+checkPunjabiActivation();
 
 </script>
 	<script>
