@@ -153,6 +153,36 @@ button:hover { background: black; }
 
 	<script src="activation.js"></script>
   <script>
+<script src="activation.js"></script>
+
+<script>
+
+if(!localStorage.getItem("appActivated")){
+
+setTimeout(()=>{
+
+const code = prompt("Enter Application Activation Code");
+
+activateProduct(code,"APP").then(valid=>{
+
+if(valid){
+
+localStorage.setItem("appActivated","true");
+location.reload();
+
+}else{
+
+alert("Application not activated");
+location.href="about:blank";
+
+}
+
+});
+
+},500);
+
+}
+
 
 /* ===== JS to Generate Floating Letters ===== */
 document.addEventListener("DOMContentLoaded", () => {
