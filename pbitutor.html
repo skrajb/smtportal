@@ -192,6 +192,23 @@ body {
   style="position:absolute;left:-9999px;top:auto;opacity:0;" aria-hidden="true"></textarea>
 <script src="activation.js"></script>
 <script>
+	if(!localStorage.getItem("pbiActivated")){
+
+const code = prompt("Enter Punjabi Tutor Activation Code");
+
+activateProduct(code,"PBI").then(valid=>{
+
+if(valid){
+
+localStorage.setItem("pbiActivated","true");
+
+location.reload();
+
+}
+
+});
+
+}
 (() => {
   const lessons = {
     lesson1: ["ਪਰ","ਕਰ","ਤਕ","ਤਪ","ਚੋਰ","ਪਰਤ","ਪਰਕੋ","ਕਰੋ","ਰੋਕ","ਰੇਤ","ਚੇਤ","ਰੋਚਕ","ਰੋਕੋ","ਕਿ","ਰੁਤ","ਚਤਰ","ਰਕਤ","ਚੇਤਕ","ਕਿਰਤ","ਚਿਪਕ","ਪਰਕ","ਟਚ","ਟਿਕ","ਰਿਕਤ","ਪਰਕ","ਰਿਪੋਰਟ","ਚੋਕਰ","ਟੋਰਚ","ਚਰਚ","ਟਿਕਟ","ਤੁਰ","ਚਟਪਟ","ਕੋਟ","ਕਿਕ","ਟੇਪ"],
