@@ -135,8 +135,10 @@ nav ul li a:hover, nav ul li button:hover { background: white;
 </div>
 
 <script>
+<script>
 window.addEventListener("DOMContentLoaded", () => {
 
+// ===== Word Lists =====
 // ===== Word Lists =====
 const englishWords = [
   "has", "had", "lad", "add", "dada", "ask", "alfa", "kafla", "dass", "flag", "all", "flash", "slag", "salsa",
@@ -173,18 +175,29 @@ const punjabiWords = ["ਪਰ","ਕਰ","ਤਕ","ਤਪ","ਚਰਚ","ਰਕਤ
   "ਏਥਿਕਸ","ਉਬਾਲ","ਸੈਲੰਡਰ","ਕਥਨ","ਛੂਤਛਾਤ","ਓਮਕਾਰ","ਰੁਤਬਾ"
 ];
 
+
 let words=[],timer,timeRemaining,currentIndex=0,correct=0,wrong=0,timeTaken=0,typed=[],chunkStart=0,chunkSize=18,testDone=false;
-const box=document.getElementById("test_text"),input=document.getElementById("typed_text"),time=document.getElementById("time_remaining"),live=document.getElementById("live_results");
+
+/* NEW CHARACTER COUNTERS */
+let correctChars=0;
+let wrongChars=0;
+
+const box=document.getElementById("test_text"),
+input=document.getElementById("typed_text"),
+time=document.getElementById("time_remaining"),
+live=document.getElementById("live_results");
 
 function generateWords(){
   const lang=document.getElementById("language").value;
   const source=lang==="punjabi"?punjabiWords:englishWords;
   words=Array.from({length:600},()=>source[Math.floor(Math.random()*source.length)]);
 }
+
 function displayChunk(){
   box.innerHTML=words.slice(chunkStart,chunkStart+chunkSize)
-    .map((w,i)=>`<span id='word-${chunkStart+i}' class='${i===0?"current":""}'>${w}</span>`).join(" ");
+  .map((w,i)=>`<span id='word-${chunkStart+i}' class='${i===0?"current":""}'>${w}</span>`).join(" ");
 }
+
 function updateHighlight(){
   const highlight=document.getElementById("highlight_toggle").checked;
   for(let i=chunkStart;i<chunkStart+chunkSize;i++){
@@ -192,92 +205,201 @@ function updateHighlight(){
     if(!el)continue;
     el.className="";
     if(!highlight)continue;
-    if(i<currentIndex)el.classList.add(typed[i]===words[i]?"correct":"incorrect");
-    else if(i===currentIndex)el.classList.add("current");
+
+    if(i<currentIndex)
+      el.classList.add(typed[i]===words[i]?"correct":"incorrect");
+    else if(i===currentIndex)
+      el.classList.add("current");
   }
 }
-function nextChunk(){chunkStart+=chunkSize;displayChunk();updateHighlight();}
+
+function nextChunk(){
+  chunkStart+=chunkSize;
+  displayChunk();
+  updateHighlight();
+}
+
 function reset(){
-  clearInterval(timer);timer=null;
+  clearInterval(timer);
+  timer=null;
+
   timeRemaining=parseInt(document.getElementById("timer").value);
-  currentIndex=0;correct=0;wrong=0;timeTaken=0;typed=[];chunkStart=0;testDone=false;
-  input.disabled=false;input.value="";
-  generateWords();updateTime();displayChunk();
+
+  currentIndex=0;
+  correct=0;
+  wrong=0;
+  correctChars=0;
+  wrongChars=0;
+
+  timeTaken=0;
+  typed=[];
+  chunkStart=0;
+  testDone=false;
+
+  input.disabled=false;
+  input.value="";
+
+  generateWords();
+  updateTime();
+  displayChunk();
+
   live.innerHTML="✅ Correct: 0 | ❌ Wrong: 0 | 🔢 Total: 0";
 }
+
 function updateTime(){
   const m=String(Math.floor(timeRemaining/60)).padStart(2,"0");
   const s=String(timeRemaining%60).padStart(2,"0");
   time.textContent=`${m}:${s}`;
 }
+
 function startTime(){
   if(!timer){
     timer=setInterval(()=>{
-      if(timeRemaining>0){timeRemaining--;timeTaken++;updateTime();}
-      else{clearInterval(timer);finish();}
+      if(timeRemaining>0){
+        timeRemaining--;
+        timeTaken++;
+        updateTime();
+      }
+      else{
+        clearInterval(timer);
+        finish();
+      }
     },1000);
   }
 }
+
+/* CHARACTER COMPARISON */
+function compareCharacters(typedWord, originalWord){
+
+  let minLength=Math.min(typedWord.length,originalWord.length);
+
+  for(let i=0;i<minLength;i++){
+    if(typedWord[i]===originalWord[i])
+      correctChars++;
+    else
+      wrongChars++;
+  }
+
+  if(typedWord.length>originalWord.length)
+    wrongChars+=typedWord.length-originalWord.length;
+
+  if(originalWord.length>typedWord.length)
+    wrongChars+=originalWord.length-typedWord.length;
+}
+
 function finish(){
-  testDone=true;input.disabled=true;
-  const total=correct+wrong;
-  const acc=total?((correct/total)*100).toFixed(2):0;
-  const wpm=(total/(timeTaken/60)).toFixed(2);
+
+  testDone=true;
+  input.disabled=true;
+
+  const totalWords=correct+wrong;
+  const wpm=(totalWords/(timeTaken/60)).toFixed(2);
+
+  const totalChars=correctChars+wrongChars;
+  const acc=totalChars?((correctChars/totalChars)*100).toFixed(2):0;
+
   let img,title,text;
-  if(wpm>50){img="https://cdn-icons-png.flaticon.com/512/5038/5038837.png";title="🌟 Typing Wizard! 🌟";text="Incredible! You type with magical precision!";}
-  else if(wpm>40){img="https://cdn-icons-png.flaticon.com/512/1791/1791320.png";title="🎉 Great Job!";text="Awesome work! Keep up your amazing speed!";}
-  else if(wpm>25){img="https://cdn-icons-png.flaticon.com/512/1055/1055646.png";title="👍 Keep Practicing!";text="Good effort! Stay consistent!";}
-  else{img="https://cdn-icons-png.flaticon.com/512/753/753318.png";title="🚧 Keep Improving!";text="Every master was once a beginner.";}
+
+  if(wpm>50){
+    img="https://cdn-icons-png.flaticon.com/512/5038/5038837.png";
+    title="🌟 Typing Wizard! 🌟";
+    text="Incredible! You type with magical precision!";
+  }
+  else if(wpm>40){
+    img="https://cdn-icons-png.flaticon.com/512/1791/1791320.png";
+    title="🎉 Great Job!";
+    text="Awesome work! Keep up your amazing speed!";
+  }
+  else if(wpm>25){
+    img="https://cdn-icons-png.flaticon.com/512/1055/1055646.png";
+    title="👍 Keep Practicing!";
+    text="Good effort! Stay consistent!";
+  }
+  else{
+    img="https://cdn-icons-png.flaticon.com/512/753/753318.png";
+    title="🚧 Keep Improving!";
+    text="Every master was once a beginner.";
+  }
+
   document.getElementById("popupImg").src=img;
   document.getElementById("popupTitle").innerHTML=title;
-  document.getElementById("popupText").innerHTML=`${text}<br><br><b>Speed:</b> ${wpm} WPM<br><b>Accuracy:</b> ${acc}%`;
+
+  document.getElementById("popupText").innerHTML=
+  `${text}<br><br>
+  <b>Speed:</b> ${wpm} WPM<br>
+  <b>Accuracy:</b> ${acc}%`;
+
   document.getElementById("resultPopup").style.display="flex";
 }
+
 input.addEventListener("keydown",e=>{
+
   const allow=document.getElementById("backspace_toggle").checked;
+
   if(e.key===" "){
+
     const val=input.value.trim();
+
     if(val){
+
       typed[currentIndex]=val;
-      if(val===words[currentIndex])correct++;else wrong++;
+
+      if(val===words[currentIndex]) correct++;
+      else wrong++;
+
+      /* CHARACTER COUNT */
+      compareCharacters(val,words[currentIndex]);
+
       currentIndex++;
-      if(currentIndex>=chunkStart+chunkSize)nextChunk();
+
+      if(currentIndex>=chunkStart+chunkSize)
+        nextChunk();
+
       updateHighlight();
+
       live.innerHTML=`✅ Correct: ${correct} | ❌ Wrong: ${wrong} | 🔢 Total: ${correct+wrong}`;
     }
+
     input.value="";
+
     if(!timer)startTime();
+
     e.preventDefault();
-  }else if(e.key==="Backspace"&&!allow)e.preventDefault();
+  }
+
+  else if(e.key==="Backspace" && !allow)
+    e.preventDefault();
 });
+
 document.getElementById("restart_button").onclick=reset;
 document.getElementById("timer").onchange=reset;
 document.getElementById("language").onchange=reset;
+
 reset();
 });
-// Disable right click
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
+
+/* Disable right click */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+
+/* Disable shortcuts */
+document.addEventListener('keydown',function(e){
+if(
+e.key==="F12" ||
+(e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
+(e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
+){
+e.preventDefault();
+return false;
+}
 });
 
-// Disable keyboard shortcuts
-document.addEventListener('keydown', function(e) {
-    // Disable: F12, Ctrl+Shift+I/J/C, Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+A, Ctrl+P
-    if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["I","J","C"].includes(e.key.toUpperCase())) ||
-        (e.ctrlKey && ["U","S","C","V","X","A","P"].includes(e.key.toUpperCase()))
-    ) {
-        e.preventDefault();
-        return false;
-    }
-});
-
-// Disable copy / paste / cut
-["copy", "paste", "cut"].forEach(evt => {
-    document.addEventListener(evt, e => e.preventDefault());
+/* Disable copy paste */
+["copy","paste","cut"].forEach(evt=>{
+document.addEventListener(evt,e=>e.preventDefault());
 });
 </script>
+
+
 
 </body>
 </html>
