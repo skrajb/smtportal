@@ -1,1 +1,16 @@
 
+{
+ "english":[
+  {
+   "title":"Banking Application",
+   "text":"Respected Sir I want to apply for the banking clerk examination..."
+  }
+ ],
+
+ "punjabi":[
+  {
+   "title":"ਪੰਜਾਬੀ ਅਭਿਆਸ",
+   "text":"ਇਹ ਪੰਜਾਬੀ ਟਾਈਪਿੰਗ ਦਾ ਉੱਚ ਪੱਧਰੀ ਅਭਿਆਸ ਹੈ..."
+  }
+ ]
+}
