@@ -153,43 +153,8 @@ button:hover { background: black; }
 
 	<script src="activation.js"></script>
 
-<script>
 
-async function checkAppActivation(){
 
-if(localStorage.getItem("appActivated")) return;
-
-while(true){
-
-const code = prompt("Enter Application Activation Code");
-
-if(!code){
-alert("Activation required to use this software.");
-continue;
-}
-
-const valid = await activateProduct(code,"APP");
-
-if(valid){
-
-localStorage.setItem("appActivated","true");
-alert("Application Activated");
-location.reload();
-break;
-
-}else{
-
-alert("Invalid Activation Code");
-
-}
-
-}
-
-}
-
-checkAppActivation();
-
-</script>
 
 <script>
 /* ===== JS to Generate Floating Letters ===== */
